@@ -52,14 +52,14 @@
           font = 'NotoSans-Regular'
           formatting = '';
           endformatting = '';
-          lineformatting = '';
+          lineformatting = '<br>';
         } else if (line.startsWith('-')) {
           color = '#ffffff';
           size = '20px';
           font = 'NotoSans-Regular'
           formatting = '';
           endformatting = '';
-          lineformatting = '';
+          lineformatting = '<br>';
         } else if (line.startsWith('#')) {
           line = line.replace(/^# \s*/, '');
           color = '#ffffff';
@@ -68,7 +68,14 @@
           formatting = '<center>';
           endformatting = '</center>';
           lineformatting = '<hr style="opacity: 0.25;">';
-        }
+        } else if (line.startsWith('*')) {
+          color = '#ffffff';
+          size = '20px';
+          font = 'NotoSans-Regular'
+          formatting = '';
+          endformatting = '';
+          lineformatting = '<br>';
+        } 
         return `${lineformatting}<span style="color: ${color}; font-size: ${size}; font-family: ${font};">${formatting}${line}${endformatting}</span>`;
       }).join('');
 
