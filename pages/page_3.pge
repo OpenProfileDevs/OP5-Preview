@@ -104,10 +104,10 @@
     "row5": {
       "slot1": {
         "type": 5,
-        "id": "external_physical_appearance",
-        "label": "External Physical Appearance",
-        "placeholder": "What does the oc's external physical appearance look like?",
-        "help": "What does the character's external physical appearance look like without including any sort of non-permanent wearables? Do they have skin, fur, scales, or something else? What does their face sculpture looks like? Include their hair, eyes, nose, ears, mouth, teeth, tongue, etc. if necessary. What about their body structure? Are they thin, average, muscular, or overweight? Does the character have any additional features such as horns, wings, spikes, tails, etc.? What about prominent marks like scars, tattoos, piercings, birth marks, irritations etc.? If the character has ever been in an injury, do they have prosthetics? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed."
+        "id": "physical_appearance",
+        "label": "Physical Appearance",
+        "placeholder": "What does the oc's physical appearance look like?",
+        "help": "What does the character's physical appearance look like without including any sort of non-permanent wearables? Do they have skin, fur, scales, or something else? What does their face sculpture looks like? Include their hair, eyes, nose, ears, mouth, teeth, tongue, etc. if necessary. What about their body structure? Are they thin, average, muscular, or overweight? Does the character have any additional features such as horns, wings, spikes, tails, etc.? What about prominent marks like scars, tattoos, piercings, birth marks, irritations etc.? If the character has ever been in an injury, do they have prosthetics? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed. \n\n Now for internal appearance, this is only necessary if your character goes trought some medical procedures or if you character is a machine with certain capabilities. If so, what does their blood look like? What about their main tissues, organs, and bones? Are they thick or thin? Do they have any prominent marks like scarring or maybe an irritation? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed."
       },
       "slot2": {
         "type": 0,
@@ -265,10 +265,10 @@
     "row12": {
       "slot1": {
         "type": 5,
-        "id": "internal_physical_appearance",
-        "label": "Internal Physical Appearance",
-        "placeholder": "What does the oc's internal physical appearance look like?",
-        "help": "What does the character's internal physical appearance look like without including any sort of non-permanent wearables? This is only necessary if your character goes trought some medical procedures or if you character is a machine with certain capabilities. If so, what does their blood look like? What about their main tissues, organs, and bones? Are they thick or thin? Do they have any prominent marks like scarring or maybe an irritation? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed."
+        "id": "personal_thoughts_physical_appearance",
+        "label": "Personal Thoughts",
+        "placeholder": "What are the oc's personal thoughts towards their physical appearance?",
+        "help": "What are the character's personal thoughts towards their physical appearance? Do they like their physical appearance and details or would they rather have had whole different look? Does their physical appearance or details affects their life in any certain way? Do their physical appearance or details remind them of anything? Are they comfortable sharing their physical appearance or details with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses any of their physical features to help them in everyday life? Is the character even aware of some of their physical features? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
       },
       "slot2": {
         "type": 0,
@@ -424,52 +424,6 @@
       }
     },
     "row19": {
-      "slot1": {
-        "type": 4,
-        "id": "personal_thoughts_physical_appearance",
-        "label": "Personal Thoughts",
-        "placeholder": "What are the oc's personal thoughts towards their physical appearance?",
-        "help": "What are the character's personal thoughts towards their physical appearance? Do they like their physical appearance and details or would they rather have had whole different look? Does their physical appearance or details affects their life in any certain way? Do their physical appearance or details remind them of anything? Are they comfortable sharing their physical appearance or details with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses any of their physical features to help them in everyday life? Is the character even aware of some of their physical features? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row20": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row21": {
       "slot1": {
         "type": 0,
         "id": "",

@@ -195,57 +195,57 @@
     },
     "row9": {
       "slot1": {
-        "type": 1,
-        "id": "topic_knowledge_7",
-        "label": "Topic Knowledge",
-        "placeholder": "What topic does the oc knows well?",
-        "help": "What topic does the character knows well? That topic could be a skill such as fixing stuff, a talent such as art, or even something they studied for a long time such as a language."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "topic_knowledge_8",
-        "label": "Topic Knowledge",
-        "placeholder": "What topic does the oc knows well?",
-        "help": "What topic does the character knows well? That topic could be a skill such as fixing stuff, a talent such as art, or even something they studied for a long time such as a language."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "topic_knowledge_9",
-        "label": "Topic Knowledge",
-        "placeholder": "What topic does the oc knows well?",
-        "help": "What topic does the character knows well? That topic could be a skill such as fixing stuff, a talent such as art, or even something they studied for a long time such as a language."
-      }
-    },
-    "row10": {
-      "slot1": {
-        "type": 1,
-        "id": "topic_knowledge_10",
-        "label": "Topic Knowledge",
-        "placeholder": "What topic does the oc knows well?",
-        "help": "What topic does the character knows well? That topic could be a skill such as fixing stuff, a talent such as art, or even something they studied for a long time such as a language."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "topic_knowledge_11",
-        "label": "Topic Knowledge",
-        "placeholder": "What topic does the oc knows well?",
-        "help": "What topic does the character knows well? That topic could be a skill such as fixing stuff, a talent such as art, or even something they studied for a long time such as a language."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "topic_knowledge_12",
-        "label": "Topic Knowledge",
-        "placeholder": "What topic does the oc knows well?",
-        "help": "What topic does the character knows well? That topic could be a skill such as fixing stuff, a talent such as art, or even something they studied for a long time such as a language."
-      }
-    },
-    "row11": {
-      "slot1": {
         "type": 4,
         "id": "personal_thoughts_knowledge",
         "label": "Personal Thoughts",
         "placeholder": "What are the oc's personal thoughts towards their knowledge?",
         "help": "What are the character's personal thoughts towards their knowledge? Do they like their knowledge or would they rather have had different one? Does their knowledge affects their life in any certain way? Do their knowledge remind them of anything? Are they comfortable sharing their knowledge with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses their knowledge to help them in everyday life? Is the character even aware of their knowledge? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row10": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row11": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
       },
       "slot2": {
         "type": 0,
@@ -287,52 +287,6 @@
     },
     "row13": {
       "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row14": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row15": {
-      "slot1": {
         "type": 1,
         "id": "hobby_1",
         "label": "Hobby",
@@ -354,7 +308,7 @@
         "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
       }
     },
-    "row16": {
+    "row14": {
       "slot1": {
         "type": 1,
         "id": "hobby_4",
@@ -377,53 +331,7 @@
         "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
       }
     },
-    "row17": {
-      "slot1": {
-        "type": 1,
-        "id": "hobby_7",
-        "label": "Hobby",
-        "placeholder": "What is the oc's hobby?",
-        "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "hobby_8",
-        "label": "Hobby",
-        "placeholder": "What is the oc's hobby?",
-        "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "hobby_9",
-        "label": "Hobby",
-        "placeholder": "What is the oc's hobby?",
-        "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
-      }
-    },
-    "row18": {
-      "slot1": {
-        "type": 1,
-        "id": "hobby_10",
-        "label": "Hobby",
-        "placeholder": "What is the oc's hobby?",
-        "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "hobby_11",
-        "label": "Hobby",
-        "placeholder": "What is the oc's hobby?",
-        "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "hobby_12",
-        "label": "Hobby",
-        "placeholder": "What is the oc's hobby?",
-        "help": "What is the character's hobby? The hobby should be something they do frequently in their spare time and enjoy doing it."
-      }
-    },
-    "row19": {
+    "row15": {
       "slot1": {
         "type": 4,
         "id": "personal_thoughts_hobby",
@@ -446,7 +354,7 @@
         "help": ""
       }
     },
-    "row20": {
+    "row16": {
       "slot1": {
         "type": 0,
         "id": "",
@@ -469,7 +377,53 @@
         "help": ""
       }
     },
-    "row21": {
+    "row17": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row18": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row19": {
       "slot1": {
         "type": 0,
         "id": "",

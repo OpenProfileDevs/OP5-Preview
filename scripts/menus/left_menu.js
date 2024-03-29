@@ -13,17 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
     toggle_left_menu.addEventListener('click', function () {
         if (left_inner.style.display === 'none') {
             left_inner.style.display = 'block';
-            left_inner.style.transform = "translateX(80px)";
-            center.style.left = "calc(50% + 276px)";
-            left_inner.style.opacity = '1';
+            left_inner.style.transform = "translateX(96px)";
+            center.style.left = "50%";
             left.style.borderRadius = "0px";
             toggle_left_menu_option.option = "option_1";
             toggle_left_menu_option.textContent = "Hide Menu"; // TEMP ONLY
         } else {
-            left_inner.style.opacity = '1';
-            left_inner.style.transform = "translateX(-280px)";
-            center.style.left = "calc(50% + 100px)";
-            left.style.borderRadius = "0px 25px 0px 0px";
+            left_inner.style.transform = "translateX(-432px)";
+            center.style.left = "38.5%";
+            left.style.borderRadius = "0px 32px 0px 0px";
             toggle_left_menu_option.option = "option_2";
             toggle_left_menu_option.textContent = "Show Menu"; // TEMP ONLY
             setTimeout(function () {

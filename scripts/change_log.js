@@ -40,39 +40,45 @@
 
       // Format the text based on the character following "<br>"
       const formattedHTML = changelogLines.map(line => {
-        let color = '#BBBBBB';
-        let size = '13px';
+        let color = '#ffffff';
+        let size = '20px';
+        let font = 'NotoSans-Regular'
         let formatting = '';
         let endformatting = '';
         let lineformatting = '';
         if (line.startsWith('+')) {
-          color = '#558423';
-          size = '13px';
+          color = '#ffffff';
+          size = '20px';
+          font = 'NotoSans-Regular'
           formatting = '';
           endformatting = '';
           lineformatting = '';
         } else if (line.startsWith('-')) {
-          color = '#d12828';
-          size = '13px';
+          color = '#ffffff';
+          size = '20px';
+          font = 'NotoSans-Regular'
           formatting = '';
           endformatting = '';
           lineformatting = '';
         } else if (line.startsWith('#')) {
           line = line.replace(/^# \s*/, '');
-          color = '#5C6AE3';
-          size = '18px';
+          color = '#ffffff';
+          size = '24px';
+          font = 'NotoSans-Bold'
           formatting = '<center>';
           endformatting = '</center>';
           lineformatting = '<hr style="opacity: 0.25;">';
         }
-        return `${lineformatting}<span style="color: ${color}; font-size: ${size}">${formatting}${line}${endformatting}</span>${lineformatting}`;
-      }).join('<br>');
+        return `${lineformatting}<span style="color: ${color}; font-size: ${size}; font-family: ${font};">${formatting}${line}${endformatting}</span>`;
+      }).join('');
 
-      // Display the formatted changelog in a div with the ID "changelog"
-      const changelogDiv = document.getElementById('changelog');
-      const changelogName = document.getElementById('changelog_name');
+      // Display the formatted changelog in a div with the ID "changelog" and version indicator
+      const changelogDiv = document.getElementById('changelog_popup_changelog');
+      const changelogName = document.getElementById('changelog_popup_version');
+      const changelogTopVersion = document.getElementById('openprofile_version_text');
       changelogDiv.innerHTML = `${formattedHTML}`;
-      changelogName.innerHTML = `What's new in <a href="${releaseLink}" target="_blank">${name}</a>?<br><div style="font-size: 14px"> Released ${formattedDate}!</div>`;
+      changelogName.innerHTML = `What's new in ${name}</a>?<br><div style="font-size: 16px; font-family: NotoSans-Regular;"> Released ${formattedDate}!</div>`;
+      changelogTopVersion.textContent = versionString
       load_dynamic_elements_scheme();
     } else {
       console.error('Error fetching latest release:', response.statusText);

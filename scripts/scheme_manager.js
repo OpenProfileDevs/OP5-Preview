@@ -130,17 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 // code will duplicate itself until all registered schemes
                 // have been properly loaded into the manager.
                 scheme_manager_html += `
-                    <div class="schemes_backdrop" style="background-color: ${scheme.shade_1}; z-index: ${scheme_zindex};">
-                        <div class="schemes_front" style="background-color: ${scheme.shade_3};">
-                            <div class="scheme_button" id="${scheme.id}" title="Apply Scheme" style="background-color: ${scheme.shade_2}" 
-                                onmouseover="this.style.backgroundColor='${scheme.shade_4}'" onmouseout="this.style.backgroundColor='${scheme.shade_2}'">
-                                <img id="${scheme.id}" src="media/icons/feather_icons/download.svg" style="scale: 0.30; transform-origin: top left; margin: 10px; filter: ${icon_brightness};">
-                            </div>
-                            <img src="media/icons/feather_icons/${scheme.icon}.svg" style="scale: 0.50; transform-origin: top left; margin: 10px; filter: ${icon_brightness};">
-                            <div class="scheme_text" id="scheme_name_${scheme.name}" style="background-color: ${scheme.shade_2}; color: ${scheme.text}">${scheme.name}</div>
-                            ${scheme.tag !== "BETA" && scheme.tag !== "PREVIEW" ? '' : `<div class="tag" style="scale: 1.4; top: 110px; transform: translateX(14px);">${scheme.tag}</div>`}
-                        </div>
-                    </div>
+                <div class="schemes_backdrop" style="background-color: ${scheme.shade_2}; z-index: ${scheme_zindex};">
+                <div class="scheme_button" id="${scheme.id}" style="background: ${scheme.shade_1}" title="Apply Scheme" onmouseover="this.style.backgroundColor='${scheme.accent}'" onmouseout="this.style.backgroundColor='${scheme.shade_1}'">
+                    <img id="${scheme.id}" src="media/icons/feather_icons/download.svg" style="transform-origin: top left; max-width: 32px; margin: 8px; filter: ${icon_brightness};">
+                </div>
+                <img src="media/icons/feather_icons/${scheme.icon}.svg" style="position: relative; top: -48px; max-width: 40px; transform-origin: top left; margin: 12px; filter: ${icon_brightness};">
+                <div class="scheme_text" id="scheme_name_${scheme.name}" style="color: ${scheme.text}">${scheme.name}</div>
+                </div>
                 `;
 
                 // This negates a number from the current z-index to
@@ -152,17 +148,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // This displays the custom scheme import option.
         scheme_manager_html += `
-            <div class="schemes_backdrop" style="background-color: #111111; z-index: 0;">
-                <div class="schemes_front" style="background-color: #333333;">
-                    <label for="import_custom_scheme" class="scheme_button" title="Import Scheme" style="background-color: #222222"
-                        onmouseover="this.style.backgroundColor='#444444'" onmouseout="this.style.backgroundColor='#222222'">
-                        <input type="file" id="import_custom_scheme" accept=".sch" style="display: none;">
-                        <img id="import_custom_scheme" src="media/icons/feather_icons/upload.svg" style="transform: scale(0.30); transform-origin: top left; margin: 10px;">
-                    </label>
-                    <img src="media/icons/feather_icons/plus.svg" style="transform: scale(0.50); transform-origin: top left; margin: 10px;">
-                    <div class="scheme_text" id="import_custom_scheme_text" style="background-color: #222222;">Add Scheme</div>
-                    <div class="tag" style="scale: 1.4; top: 110px; transform: translateX(14px);">PREVIEW</div>
-                </div>
+            <div class="triangle" style=" top: 20px; right: 144px;"></div>
+            <div class="schemes_backdrop" style="background-color: #111111; z-index: 0; display: none;">
+                <label for="import_custom_scheme" class="scheme_button" title="Import Scheme" style="background-color: #222222"
+                    <input type="file" id="import_custom_scheme" accept=".sch" style="display: none;">
+                    <img id="import_custom_scheme" src="media/icons/feather_icons/upload.svg" style="transform: scale(0.30); transform-origin: top left; margin: 10px;">
+                </label>
+                <img src="media/icons/feather_icons/plus.svg" style="transform: scale(0.50); transform-origin: top left; margin: 10px;">
+                <div class="scheme_text" id="import_custom_scheme_text">Add Scheme</div>
+                <div class="tag" style="scale: 1.4; top: 110px; transform: translateX(14px);">PREVIEW</div>
             </div>
         `;
         schemes_manager.innerHTML += scheme_manager_html;
@@ -186,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     imported_scheme = JSON.parse(event.target.result);
                     
                     if (imported_scheme) {
-                        scheme_apply(imported_scheme.id, imported_scheme.icon, imported_scheme.text, imported_scheme.accent, imported_scheme.shade_1, imported_scheme.shade_2, imported_scheme.shade_3, imported_scheme.shade_4, imported_scheme.shade_5, imported_scheme.custom_html)
+                        scheme_apply(imported_scheme.id, imported_scheme.icon, imported_scheme.text, imported_scheme.accent, imported_scheme.shade_1, imported_scheme.shade_2, imported_scheme.shade_1, imported_scheme.shade_1, imported_scheme.shade_2, imported_scheme.custom_html)
 
                         // This saves the imported scheme to local storage so it can
                         // be automatically reloaded on refresh using the
@@ -214,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const selected_scheme = schemes.find(scheme => scheme.id === scheme_id);
 
         if (selected_scheme) {
-            scheme_apply(selected_scheme.id, selected_scheme.icon, selected_scheme.text, selected_scheme.accent, selected_scheme.shade_1, selected_scheme.shade_2, selected_scheme.shade_3, selected_scheme.shade_4, selected_scheme.shade_5, selected_scheme.custom_html);
+            scheme_apply(selected_scheme.id, selected_scheme.icon, selected_scheme.text, selected_scheme.accent, selected_scheme.shade_1, selected_scheme.shade_2, selected_scheme.shade_1, selected_scheme.shade_1, selected_scheme.shade_2, selected_scheme.custom_html);
         
         // This saves the selected scheme to local storage so it can
         // be automatically reloaded on refresh using the
@@ -235,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // the elements listed in the element variables section
 // below.
 
-function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme_shade_1, scheme_shade_2, scheme_shade_3, scheme_shade_4, scheme_shade_5, scheme_custom_html) {
+function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme_shade_1, scheme_shade_2, scheme_shade_1, scheme_shade_1, scheme_shade_2, scheme_custom_html) {
 
     // Sets current scheme variable.
     current_scheme = {
@@ -245,9 +239,9 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
         accent: scheme_accent,
         shade_1: scheme_shade_1,
         shade_2: scheme_shade_2,
-        shade_3: scheme_shade_3,
-        shade_4: scheme_shade_4,
-        shade_5: scheme_shade_5,
+        shade_1: scheme_shade_1,
+        shade_1: scheme_shade_1,
+        shade_2: scheme_shade_2,
         custom_html: scheme_custom_html,
     };
     
@@ -278,7 +272,6 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const link = document.querySelector('link');
     const body = document.querySelector('body');
     const a = document.querySelectorAll('a');
-    const button = document.querySelectorAll('button');
     const li = document.querySelectorAll('.menu li');
     const schemes_layer = document.querySelector('.schemes_layer');
     const loader_outer = document.querySelector('.loader_outer');
@@ -292,19 +285,17 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const top = document.querySelector('.top');
     const left = document.querySelector('.left');
     const left_inner = document.querySelector('.left_inner');
-    const left_top = document.querySelector('.left_top');
     const left_top_list = document.querySelector('.left_top_list');
     const right = document.querySelector('.right');
+    const right_bottom = document.querySelector('.right_bottom');
     const bottom = document.querySelector('.bottom');
     const input_search = document.querySelectorAll('.input_search');
     const menu = document.querySelectorAll('.menu');
-    const popup = document.querySelectorAll('.popup');
-    const changelog = document.querySelector('#changelog');
-    const popup_social_button = document.querySelectorAll('.popup_social_button')
+    const changelog_popup = document.querySelectorAll('.changelog_popup');
     const side_button = document.querySelectorAll('.side_button');
     const top_button = document.querySelectorAll('.top_button');
     const bottom_button = document.querySelectorAll('.bottom_button');
-    const control_buttons = document.querySelectorAll('.control_buttons');
+    const control_button = document.querySelectorAll('.control_button');
     const notification_count = document.querySelectorAll('.notification_count');
     const modify_button = document.querySelectorAll('.modify_button');
     const schemes_manager = document.querySelector('.schemes_manager');
@@ -315,12 +306,18 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const information_text = document.querySelectorAll('.information_text');
     const label_left = document.querySelectorAll('.label_left');
     const label_right = document.querySelectorAll('.label_right');
-    const popup_prompt = document.querySelectorAll('.popup_prompt');
-    const label_tab_popup_prompt = document.querySelectorAll('.label_tab_popup_prompt');
-    const input_text_popup_prompt = document.querySelectorAll('.input_text_popup_prompt');
-    const circular_image = document.querySelectorAll('.circular_image');
-    const profile_universe = document.querySelectorAll('.profile_universe');
-    const universe_image = document.querySelectorAll('#universe_image');
+    const page = document.querySelectorAll('.page');
+    const input_1 = document.querySelectorAll('.input_1');
+    const help_box = document.querySelectorAll('.help_box');
+    const triangle = document.querySelectorAll('.triangle')
+    const label_top = document.querySelectorAll('.label_top')
+    const label_bottom = document.querySelectorAll('.label_bottom')
+    const side_lower_button = document.querySelectorAll('.side_lower_button')
+    const textarea = document.querySelectorAll('textarea')
+    const image_input_2 = document.querySelectorAll('.image_input_2')
+    const openprofile_title_text = document.querySelector('#openprofile_title_text')
+    const openprofile_version_text = document.querySelector('#openprofile_version_text')
+    const openprofile_title_logo = document.querySelector('#openprofile_title_logo')
     
     //————————————————————————————————————————————————————————//
     //————————————————————[ SCHEME-APPLY ]————————————————————//
@@ -329,7 +326,7 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     // starts using the above variables.
 
     // Sets the scheme icon to the scheme manager button.
-    icon_scheme.src = `media/icons/feather_icons/${scheme_icon}.svg`;
+    //icon_scheme.src = `media/icons/feather_icons/${scheme_icon}.svg`;
 
     // Sets the scheme of the default elements.
     body.style.backgroundColor = scheme_shade_1;
@@ -345,12 +342,12 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 
 
     loader_social_button.forEach((loader_social_button) => {
-        loader_social_button.style.backgroundColor = scheme_shade_3;
+        loader_social_button.style.backgroundColor = scheme_shade_2;
         loader_social_button.addEventListener('mouseover', () => {
-            loader_social_button.style.backgroundColor = scheme_shade_5;
+            loader_social_button.style.backgroundColor = scheme_accent;
         });
         loader_social_button.addEventListener('mouseout', () => {
-            loader_social_button.style.backgroundColor = scheme_shade_3;
+            loader_social_button.style.backgroundColor = scheme_shade_2;
         });
     });
 
@@ -364,12 +361,15 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
         icon.forEach((icon) => {
             icon.style.filter = 'brightness(100%)';
         });
+        openprofile_title_logo.style.filter = 'brightness(100%)';
     } else {
         // Text color is closer to black, set brightness to 0%
         icon.forEach((icon) => {
             icon.style.filter = 'brightness(0%)';
         });
+        openprofile_title_logo.style.filter = 'brightness(0%)';
     }
+
 
     // Checks if an image associated with the selected scheme
     // exists using the scheme ID to access the media directory
@@ -410,17 +410,17 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     // Sets the scheme of the main elements.
     top.style.backgroundColor = scheme_shade_2;
     left.style.backgroundColor = scheme_shade_2;
-    left_inner.style.backgroundColor = scheme_shade_3;
-    left_top.style.backgroundColor = scheme_shade_2;
-    left_top_list.style.backgroundColor = scheme_shade_3;
+    left_inner.style.backgroundColor = scheme_shade_2;
+    left_top_list.style.backgroundColor = scheme_shade_2;
     right.style.backgroundColor = scheme_shade_2;
+    right_bottom.style.backgroundColor = scheme_shade_2;
     bottom.style.backgroundColor = scheme_shade_2;
 
     // Sets the scheme of the input elements.
     input_search.forEach((input_search) => {
         input_search.style.backgroundColor = scheme_shade_1;
         input_search.addEventListener('mouseover', () => {
-            input_search.style.backgroundColor = scheme_shade_4;
+            input_search.style.backgroundColor = scheme_shade_1;
         });
         input_search.addEventListener('mouseout', () => {
             if (!input_search.matches(':focus')) {
@@ -428,34 +428,16 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
             }
         });
         input_search.addEventListener('focus', () => {
-            input_search.style.backgroundColor = scheme_shade_4;
+            input_search.style.backgroundColor = scheme_shade_1;
         });
         input_search.addEventListener('blur', () => {
             input_search.style.backgroundColor = scheme_shade_1;
         });
     });
 
-    input_text_popup_prompt.forEach((input_text_popup_prompt) => {
-        input_text_popup_prompt.style.backgroundColor = scheme_shade_4;
-        input_text_popup_prompt.addEventListener('mouseover', () => {
-            input_text_popup_prompt.style.backgroundColor = scheme_shade_5;
-        });
-        input_text_popup_prompt.addEventListener('mouseout', () => {
-            if (!input_text_popup_prompt.matches(':focus')) {
-                input_text_popup_prompt.style.backgroundColor = scheme_shade_4;
-            }
-        });
-        input_text_popup_prompt.addEventListener('focus', () => {
-            input_text_popup_prompt.style.backgroundColor = scheme_shade_5;
-        });
-        input_text_popup_prompt.addEventListener('blur', () => {
-            input_text_popup_prompt.style.backgroundColor = scheme_shade_4;
-        });
-    });
-
     // Sets the scheme of the menu elements.
     menu.forEach((menu) => {
-        menu.style.backgroundColor = scheme_shade_1;
+        menu.style.backgroundColor = scheme_accent;
     });
 
     // Sets the scheme of the banner elements.
@@ -464,61 +446,38 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     });
 
     // Sets the scheme of the pop-up elements.
-    popup.forEach((popup) => {
-        popup.style.backgroundColor = scheme_shade_2;
+    changelog_popup.forEach((changelog_popup) => {
+        changelog_popup.style.backgroundColor = scheme_accent;
     });
 
-    changelog.style.backgroundColor = scheme_shade_1;
-
-    popup_social_button.forEach((popup_social_button) => {
-        popup_social_button.style.backgroundColor = scheme_shade_1;
-        popup_social_button.addEventListener('mouseover', () => {
-            popup_social_button.style.backgroundColor = scheme_shade_4;
-        });
-        popup_social_button.addEventListener('mouseout', () => {
-            popup_social_button.style.backgroundColor = scheme_shade_1;
-        });
-    });
-
-    popup_prompt.forEach((popup_prompt) => {
-        popup_prompt.style.backgroundColor = scheme_shade_2;
-    });
-
-    label_tab_popup_prompt.forEach((label_tab_popup_prompt) => {
-        label_tab_popup_prompt.style.backgroundColor = scheme_shade_4;
-    });
-
-
-    // Sets the scheme of the button elements.
-    button.forEach((button) => {
-        button.style.backgroundColor = scheme_shade_1;
-        button.addEventListener('mouseover', () => {
-            button.style.backgroundColor = scheme_shade_4;
-        });
-        button.addEventListener('mouseout', () => {
-            button.style.backgroundColor = scheme_shade_1;
-        });
+    // Sets the scheme of the pop-up elements.
+    triangle.forEach((triangle) => {
+        triangle.style.borderTop = `100px solid ${scheme_accent}`;
     });
 
     side_button.forEach((side_button) => {
         side_button.style.backgroundColor = scheme_shade_1;
         side_button.addEventListener('mouseover', () => {
-            side_button.style.backgroundColor = scheme_shade_4;
+            side_button.style.backgroundColor = scheme_accent;
         });
         side_button.addEventListener('mouseout', () => {
             side_button.style.backgroundColor = scheme_shade_1;
         });
     });
 
+    side_lower_button.forEach((side_lower_button) => {
+        side_lower_button.style.backgroundColor = scheme_shade_1;
+        side_lower_button.addEventListener('mouseover', () => {
+            side_lower_button.style.backgroundColor = scheme_accent;
+        });
+        side_lower_button.addEventListener('mouseout', () => {
+            side_lower_button.style.backgroundColor = scheme_shade_1;
+        });
+    });
+
     top_button.forEach((top_button) => {
-        top_button.style.backgroundColor = scheme_shade_1;
-        top_button.style.color = scheme_text;
-        top_button.addEventListener('mouseover', () => {
-            top_button.style.backgroundColor = scheme_shade_4;
-        });
-        top_button.addEventListener('mouseout', () => {
-            top_button.style.backgroundColor = scheme_shade_1;
-        });
+        top_button.style.backgroundColor = "#cfa715";
+        top_button.style.color = "#ffffff";
     });
 
     bottom_button.forEach((bottom_button) => {
@@ -527,14 +486,14 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
         }
     });
 
-    control_buttons.forEach((control_buttons) => {
-        if (control_buttons.id !== 'app_close' && control_buttons.id !== 'app_minimize' && control_buttons.id !== 'app_hide') {
-            control_buttons.style.backgroundColor = scheme_shade_1;
-            control_buttons.addEventListener('mouseover', () => {
-                control_buttons.style.backgroundColor = scheme_shade_4;
+    control_button.forEach((control_button) => {
+        if (control_button.id !== 'app_close' && control_button.id !== 'app_minimize' && control_button.id !== 'app_hide') {
+            control_button.style.backgroundColor = scheme_shade_1;
+            control_button.addEventListener('mouseover', () => {
+                control_button.style.backgroundColor = scheme_accent;
             });
-            control_buttons.addEventListener('mouseout', () => {
-                control_buttons.style.backgroundColor = scheme_shade_1;
+            control_button.addEventListener('mouseout', () => {
+                control_button.style.backgroundColor = scheme_shade_1;
             });
         }
     });
@@ -544,9 +503,9 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     });
 
     // Sets the scheme of the app control buttons.
-    control_buttons.forEach((control_buttons) => {
-        if (control_buttons.id == 'app_close' || control_buttons.id == 'app_minimize' || control_buttons.id == 'app_hide') {
-            control_buttons.style.backgroundColor = scheme_accent;     
+    control_button.forEach((control_button) => {
+        if (control_button.id == 'app_close' || control_button.id == 'app_minimize' || control_button.id == 'app_hide') {
+            control_button.style.backgroundColor = scheme_accent;     
         }
     });
 
@@ -555,7 +514,7 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     });
 
     // Sets the scheme of the scheme manager elements.
-    schemes_manager.style.backgroundColor = scheme_shade_2;
+    schemes_manager.style.backgroundColor = scheme_accent;
     
     // Sets the scheme of the additional elements.
     tag.forEach((tag) => {
@@ -567,11 +526,11 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     });
 
     circle_outer.forEach((circle_outer) => {
-        circle_outer.style.border = `50px solid ${scheme_shade_4}`;
+        circle_outer.style.border = `50px solid ${scheme_shade_1}`;
     });
 
     circle_inner.forEach((circle_inner) => {
-        circle_inner.style.backgroundColor = scheme_shade_5;
+        circle_inner.style.backgroundColor = scheme_shade_2;
     });
 
     information_text.forEach((information_text) => {
@@ -587,6 +546,12 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     label_right.forEach((label_right) => {
         label_right.style.backgroundColor = scheme_accent;
     });
+    label_top.forEach((label_top) => {
+        label_top.style.backgroundColor = scheme_accent;
+    });
+    label_bottom.forEach((label_bottom) => {
+        label_bottom.style.backgroundColor = scheme_accent;
+    });
 
     // Sets the scheme of the menu elements.
     li.forEach((li) => {
@@ -600,26 +565,25 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
         });
     });
 
-    // Sets the scheme of profile elements.
-    profile_universe.forEach((profile_universe) => {
-        profile_universe.style.backgroundColor = scheme_shade_2;
-    });
+    // Extra Stuff
+    openprofile_title_text.style.color = scheme_text;
+    openprofile_version_text.style.color = scheme_text;
 
-    universe_image.forEach((universe_image) => {
-        universe_image.style.border = `3px solid ${scheme_accent}`;
+    // Sets the scheme of the page elements.
+    page.forEach((page) => {
+        page.style.backgroundColor = scheme_shade_2;
     });
-
-    // Sets the scheme of additional elements.
-    circular_image.forEach((circular_image) => {
-        circular_image.style.backgroundColor = scheme_shade_4;
-        circular_image.style.border = `3px solid ${scheme_accent}`;
-        circular_image.style.color = scheme_text;
-        circular_image.addEventListener('mouseover', () => {
-            circular_image.style.backgroundColor = scheme_shade_5;
-        });
-        circular_image.addEventListener('mouseout', () => {
-            circular_image.style.backgroundColor = scheme_shade_4;
-        });
+    input_1.forEach((input_1) => {
+        input_1.style.backgroundColor = scheme_shade_1;
+    });
+    textarea.forEach((textarea) => {
+        textarea.style.backgroundColor = scheme_shade_1;
+    });
+    help_box.forEach((help_box) => {
+        help_box.style.backgroundColor = scheme_accent;
+    });
+    image_input_2.forEach((image_input_2) => {
+        image_input_2.style.backgroundColor = scheme_shade_1;
     });
 
     // Sets and clears the scheme custom html code if any.
@@ -648,16 +612,13 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 //     "name": "NAME",
 //     "id": "scheme_NAME",
 //     "author": "YOUR_USERNAME",
-//     "version": "v5.0.054", (match current app version)
+//     "version": "v5.0.090", (match current app version)
 //     "tag": "TYPE", (put either RELEASE, BETA, or PREVIEW)
 //     "icon": "ICON_NAME", (https://feathericons.com/)
 //     "text": "HEX_CODE",
 //     "accent": "HEX_CODE",
 //     "shade_1": "HEX_CODE",
 //     "shade_2": "HEX_CODE",
-//     "shade_3": "HEX_CODE",
-//     "shade_4": "HEX_CODE",
-//     "shade_5": "HEX_CODE",
 //     "custom_html": "<div></div>", (experienced users only)
 // },
 //
@@ -666,153 +627,44 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 // Do not include the parenthesis outside of " ", ".
 
 // This JSON contains the list of registered schemes.
-const schemes = [
-    {
-        // Official dark mode
-        "name": "Midnight",
-        "id": "scheme_midnight",
-        "author": "OpenProfile",
-        "version": "v5.0.058",
-        "tag": "BETA",
-        "icon": "moon",
-        "text": "#ffffff",
-        "accent": "#2A4EDE",
-        "shade_1": "#14161E",
-        "shade_2": "#1C1F2A",
-        "shade_3": "#222635",
-        "shade_4": "#303548",
-        "shade_5": "#394057",
-        "custom_html": "<div></div>"
-    },
-    {
-        // Official light mode
-        "name": "Daylight",
-        "id": "scheme_daylight",
-        "author": "OpenProfile",
-        "version": "v5.0.058",
-        "tag": "PREVIEW",
-        "icon": "sun",
-        "text": "#000000",
-        "accent": "#2A4EDE",
-        "shade_1": "#FFFFFF",
-        "shade_2": "#E0E0E0",
-        "shade_3": "#CCCCCC",
-        "shade_4": "#B0B0B0",
-        "shade_5": "#A0A0A0",
-        "custom_html": "<div></div>"
-    },
-    {
-        // Original classic scheme
-        "name": "Classic",
-        "id": "scheme_classic",
-        "author": "OpenProfile",
-        "version": "v5.0.058",
-        "tag": "PREVIEW",
-        "icon": "watch",
-        "text": "#ffffff",
-        "accent": "#bd3332",
-        "shade_1": "#1b1f28",
-        "shade_2": "#bd3332",
-        "shade_3": "#333a4d",
-        "shade_4": "#596379",
-        "shade_5": "#768099",
-        "custom_html": "<div></div>"
-    },    
-    {
-        // Premium scheme
-        "name": "Coffee",
-        "id": "scheme_premium",
-        "author": "OpenProfile",
-        "version": "v5.0.058",
-        "tag": "BETA",
-        "icon": "coffee",
-        "text": "#ffffff",
-        "accent": "#D4A20C",
-        "shade_1": "#0A0903",
-        "shade_2": "#1E1D1A",
-        "shade_3": "#2D2A23",
-        "shade_4": "#3C372D",
-        "shade_5": "#4D4635",
-        "custom_html": "<div></div>"
-    },
-    {
-        // Anime scheme
-        "name": "Kawaii",
-        "id": "scheme_kawaii",
-        "author": "OpenProfile",
-        "version": "v5.0.058",
-        "tag": "PREVIEW",
-        "icon": "mail",
-        "text": "#ffffff",
-        "accent": "#FF99CC",
-        "shade_1": "#FFEBF1",
-        "shade_2": "#FFD6E4",
-        "shade_3": "#FFC0D7",
-        "shade_4": "#FFABCA",
-        "shade_5": "#FF95BD",
-        "custom_html": "<div></div>"
-    },
-    {
-        // Seasonal October scheme
-        "name": "Spooky",
-        "id": "scheme_spooky",
-        "author": "OpenProfile",
-        "version": "v5.0.058",
-        "tag": "BETA",
-        "icon": "cloud-lightning",
-        "text": "#ffffff",
-        "accent": "#F77117",
-        "shade_1": "#100C1C",
-        "shade_2": "#210F2B",
-        "shade_3": "#2D1A37",
-        "shade_4": "#392245",
-        "shade_5": "#472B55",
-        "custom_html": `
-            <div class="seasonal_spooky" style="display: block;">
-                <img style="position: fixed; left: 0px; top: 0px; scale: 0.1; transform-origin: top left; z-index: 8000; opacity: 0.85; pointer-events: none;" src="media/images/openprofile/spooky/cobweb.png">
-                <img style="position: fixed; right: -475px; top: 0px; scale: 0.1; transform: scaleX(-1); transform-origin: top left; z-index: 8000; opacity: 0.85; pointer-events: none;" src="media/images/openprofile/spooky/cobweb.png">
-            </div>
-        `
-    },
-    {
-        // Lunar red scheme
-        "name": "Lunar Red",
-        "id": "scheme_lunar_red",
-        "author": "OpenProfile",
-        "version": "v5.0.076",
-        "tag": "PREVIEW",
-        "icon": "wind",
-        "text": "#ffffff",
-        "accent": "#e4b336",
-        "shade_1": "#2c0000",
-        "shade_2": "#530000",
-        "shade_3": "#720000",
-        "shade_4": "#8c0102",
-        "shade_5": "#ad0000",
-        "custom_html": "<div></div>"
-    },
-    {
-        // Lunar green scheme
-        "name": "Lunar Green",
-        "id": "scheme_lunar_green",
-        "author": "OpenProfile",
-        "version": "v5.0.076",
-        "tag": "PREVIEW",
-        "icon": "wind",
-        "text": "#ffffff",
-        "accent": "#e4b336",
-        "shade_1": "#001A18",
-        "shade_2": "#002924",
-        "shade_3": "#00332c",
-        "shade_4": "#003e38",
-        "shade_5": "#004e46",
-        "custom_html": "<div></div>"
-    },
-    // When registering a new scheme, position your 
-    // typing indicator above this comment to the right
-    // of the comma, press enter, then paste the scheme
-    // template.
-];
+const fileListEndpoint2 = '/schemeList';
+
+// This will store the schemes extracted from the fetched data
+const schemes = [];
+
+// Fetch the file list and folder path
+fetch(fileListEndpoint2)
+  .then(response => response.json())
+  .then(({ folderPath, files }) => {
+    files.forEach(fileName => {
+      if (fileName.endsWith('.sch')) {
+        const filePath = `${folderPath}/${fileName}`;
+        fetch(filePath)
+          .then(response => response.json())
+          .then(data => {
+            // Assuming the received data structure matches the format you provided
+            const scheme = {
+              name: data.name,
+              id: data.id,
+              author: data.author,
+              version: data.version,
+              tag: data.tag,
+              icon: data.icon,
+              text: data.text,
+              accent: data.accent,
+              shade_1: data.shade_1,
+              shade_2: data.shade_2,
+              custom_html: data.custom_html
+            };
+            // Push the scheme object to the schemes array
+            schemes.push(scheme);
+            console.log("Scheme added:", scheme);
+          })
+          .catch(error => console.error(`Error fetching JSON from ${filePath}:`, error));
+      }
+    });
+  })
+  .catch(error => console.error('Error fetching file list:', error));
 
 //————————————————————————————————————————————————————————//
 //————————————————————[ SCHEME-LOAD ]—————————————————————//
@@ -826,7 +678,7 @@ function load_local_scheme() {
 
     if (loaded_scheme_json) {
         const loaded_scheme = JSON.parse(loaded_scheme_json);
-        scheme_apply(loaded_scheme.id, loaded_scheme.icon, loaded_scheme.text, loaded_scheme.accent, loaded_scheme.shade_1, loaded_scheme.shade_2, loaded_scheme.shade_3, loaded_scheme.shade_4, loaded_scheme.shade_5, loaded_scheme.custom_html);
+        scheme_apply(loaded_scheme.id, loaded_scheme.icon, loaded_scheme.text, loaded_scheme.accent, loaded_scheme.shade_1, loaded_scheme.shade_2, loaded_scheme.shade_1, loaded_scheme.shade_1, loaded_scheme.shade_2, loaded_scheme.custom_html);
     }
 }
 
@@ -838,7 +690,7 @@ function load_current_scheme() {
 
     if (loaded_scheme_json) {
         const loaded_scheme = JSON.parse(loaded_scheme_json);
-        scheme_apply(loaded_scheme.id, loaded_scheme.icon, loaded_scheme.text, loaded_scheme.accent, loaded_scheme.shade_1, loaded_scheme.shade_2, loaded_scheme.shade_3, loaded_scheme.shade_4, loaded_scheme.shade_5, loaded_scheme.custom_html);
+        scheme_apply(loaded_scheme.id, loaded_scheme.icon, loaded_scheme.text, loaded_scheme.accent, loaded_scheme.shade_1, loaded_scheme.shade_2, loaded_scheme.shade_1, loaded_scheme.shade_1, loaded_scheme.shade_2, loaded_scheme.custom_html);
     }
 }
 
@@ -849,7 +701,7 @@ function load_specific_scheme(schemeId) {
     const loaded_specific_scheme = schemes.find((scheme) => scheme.id === schemeId);
 
     if (loaded_specific_scheme) {
-        scheme_apply(loaded_specific_scheme.id, loaded_specific_scheme.icon, loaded_specific_scheme.text, loaded_specific_scheme.accent, loaded_specific_scheme.shade_1, loaded_specific_scheme.shade_2, loaded_specific_scheme.shade_3, loaded_specific_scheme.shade_4, loaded_specific_scheme.shade_5, loaded_specific_scheme.custom_html);
+        scheme_apply(loaded_specific_scheme.id, loaded_specific_scheme.icon, loaded_specific_scheme.text, loaded_specific_scheme.accent, loaded_specific_scheme.shade_1, loaded_specific_scheme.shade_2, loaded_specific_scheme.shade_1, loaded_specific_scheme.shade_1, loaded_specific_scheme.shade_2, loaded_specific_scheme.custom_html);
 
     } else {
         console.log(`Scheme with ID ${schemeId} not found.`);
@@ -861,3 +713,8 @@ function load_specific_scheme(schemeId) {
 // A FIX TO IT. THANK YOU!
 //
 // GITHUB: https://github.com/OpenProfileApp/OP5-Preview
+
+
+
+// DEVELOPER ONLY - DO NOT TOUCH
+//${scheme.tag !== "BETA" && scheme.tag !== "PREVIEW" ? '' : `<div class="tag" style="scale: 1.4; top: 110px; transform: translateX(14px);">${scheme.tag}</div>`}

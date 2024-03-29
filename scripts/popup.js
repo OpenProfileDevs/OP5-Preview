@@ -1,41 +1,38 @@
 // Function to show the modal dialog
 function showTextPopup() {
-  const modal = document.getElementById('popup_0');
-  modal.style.display = 'block';
-  load_current_scheme();
+  const popup = document.getElementById('changelog_popup');
+  const changelog_popup_version = document.getElementById('changelog_popup_version');
+  const storedText = localStorage.getItem('updateText');
+  const notification_dot_official = document.getElementById('notification_dot_official');
+
+  // Check if the stored text is different from the current one or if it's not stored
+  if (!storedText || storedText !== changelog_popup_version.textContent) {
+    // Display the popup with opacity transition
+    popup.style.display = 'block';
+    popup.style.opacity = '1';
+    notification_dot_official.display = 'block';
+    // Assuming load_current_scheme() function is defined elsewhere
+    load_current_scheme();
+  }
 
   // Close the modal with delay and opacity transition on left-click
+  const modal = document.getElementById('changelog_popup_close');
   modal.addEventListener('click', (event) => {
     if (!event.target.classList.contains('social_buttons')) {
-      // Trigger the confetti blast
-      triggerConfetti();
-
-      modal.style.opacity = '0'; // Set opacity to 0 for the transition effect
-
+      popup.style.opacity = '0'; // Set opacity to 0 for the transition effect
+      // Save the updated text to localStorage
+      localStorage.setItem('updateText', changelog_popup_version.textContent);
+      
+      // Hide the modal after the transition
       setTimeout(() => {
-        modal.style.display = 'none'; // Hide the modal after the transition
-      }, 100); // Wait for the transition duration (0.2s) + additional delay (0.2s)
+        popup.style.display = 'none';
+      }, 200); // Wait for the transition duration (0.2s)
     }
   });
 }
 
-// Function to trigger the confetti blast
-function triggerConfetti() {
-  const duration = 3500; // How long the confetti blast will last (in milliseconds)
-
-  // Configure confetti options
-  const options = {
-    particleCount: 200, // Number of confetti particles
-    spread: 1000, // Spread of the particles
-    origin: { y: 0.5 }, // Origin point (top of the screen)
-    zIndex: 2000,
-  };
-
-  // Trigger the confetti animation
-  confetti(options);
-
-  // Stop the animation after the specified duration
-  setTimeout(() => {
-    confetti.reset();
-  }, duration);
+function manualchangelog() {
+  const popup = document.getElementById('changelog_popup');
+  popup.style.display = 'block';
+  popup.style.opacity = '1';
 }

@@ -241,7 +241,7 @@
     },
     "row11": {
       "slot1": {
-        "type": 5,
+        "type": 4,
         "id": "super_ability_diagnosis_event",
         "label": "Ability Diagnosis Event",
         "placeholder": "What happened during the oc's ability diagnosis?",
@@ -333,11 +333,11 @@
     },
     "row15": {
       "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
+        "type": 4,
+        "id": "personal_thoughts_super_ability",
+        "label": "Personal Thoughts",
+        "placeholder": "What are the oc's personal thoughts towards their ability?",
+        "help": "What are the character's personal thoughts towards their ability? Do they like their ability and details or would they rather have had a different one? Does their ability or details affects their life in any certain way? Do their ability or details remind them of anything? Are they comfortable sharing their ability or details with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses their ability to help them in everyday life? Is the character even aware they have abilities or know of their special moves? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
       },
       "slot2": {
         "type": 0,
@@ -402,11 +402,11 @@
     },
     "row18": {
       "slot1": {
-        "type": 4,
-        "id": "personal_thoughts_super_ability",
-        "label": "Personal Thoughts",
-        "placeholder": "What are the oc's personal thoughts towards their ability?",
-        "help": "What are the character's personal thoughts towards their ability? Do they like their ability and details or would they rather have had a different one? Does their ability or details affects their life in any certain way? Do their ability or details remind them of anything? Are they comfortable sharing their ability or details with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses their ability to help them in everyday life? Is the character even aware they have abilities or know of their special moves? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
       },
       "slot2": {
         "type": 0,
@@ -424,52 +424,6 @@
       }
     },
     "row19": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row20": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row21": {
       "slot1": {
         "type": 0,
         "id": "",

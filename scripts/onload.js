@@ -7,16 +7,17 @@ window.addEventListener('load', function () {
     var baseTag = document.querySelector("base");
     //baseTag.href = currentDomain;
 
-    handleUserJoin();
+    //handleUserJoin();
     simulateAppLoading("50") // The number is to change speed, put 500 for dev and 50 for release
     load_local_scheme()
-    updateElementsByTimeOfYear();
+    //updateElementsByTimeOfYear();
     translateSpecificElements(selectedLanguage); // Use config language later
     showTextPopup()
-    showBanner0() // Save error banner
+    showBanner0()
 });
 
 // Define global variables to store config data
+let account_name = '';
 let configLanguage = '';
 let configVersion = '';
 let configTheme = '';

@@ -6,7 +6,7 @@
     <!--——————————————————[ PAGE-INFORMATION ]——————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <title>OpenProfile 5 Preview</title>
-    <link rel="icon" href="media/images/openprofile/preview/openprofile_logo_preview_t_512_png.png" type="image/x-icon">
+    <link rel="icon" href="media/icons/openprofile_logo.svg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
 
@@ -41,11 +41,11 @@
     <script src="scripts/google_api.js"></script>
     <script src="scripts/account/login.js"></script>
     <script src="scripts/countrycodes.js"></script>
+    <!--<script src="scripts/discord/activity/activity_main.js"></script>-->
     <script src="scripts/discord/assistant/events/view.js"></script>
     <script src="scripts/scheme_manager.js"></script>
     <script src="scripts/seasonal_changes.js"></script>
     <script src="scripts/banner.js"></script>
-    <script src="scripts/popup.js"></script>
     <script src="scripts/loader.js"></script>
     <script src="scripts/onload.js"></script>
     <script src="scripts/history/generate_timestamp.js"></script>
@@ -58,7 +58,7 @@
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.1"></script>
         <div class="loader_container">            
             <div style="position: fixed; top: 50%; left: 50%; transform-origin: center; transform: translate(-50%, -50%); z-index: 9999;">
-                <img id="loading_image" src="media/images/openprofile/preview/openprofile_logo_preview_t_512_png.png" style="position: fixed; transform-origin: center; transform: translate(-50%, -58%) scale(0.25); z-index: 9999;">
+                <img id="loading_image" src="media/icons/openprofile_logo.svg" style="position: fixed; transform-origin: center; transform: translate(-50%, -58%) scale(0.20); z-index: 9999;">
             </div>
         </div>
         <div class="loader_container_2">
@@ -76,29 +76,37 @@
             <div class="loading_message" id="loading_message_lunar" style="top: 75%;">Happy Lunar New Years!</div>
 
             <div class="social_buttons" style="bottom: 6px; left: 50%; transform: translate(-50%, -50%)scale(1.75); flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
-                <a class="loader_social_button" id="website_button" title="Website" href="https://bio.link/openprofile" target="_blank">
-                    <img class="icon" src="media/icons/feather_icons/globe.svg" style="position: absolute; scale: 0.171; transform-origin: top left; margin: 4px;">
+                <a class="loader_social_button" id="website_button" href="https://bio.link/openprofile" target="_blank">
+                    <img class="icon" src="media/icons/feather_icons/globe.svg" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <div class="label_bottom">Website</div>
                 </a>
-                <a class="loader_social_button" id="youtube_button" title="YouTube" href="https://www.youtube.com/@openprofile" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/youtube.png" style="position: absolute; scale: 0.01; transform-origin: top left; margin: 5px;">
+                <a class="loader_social_button" id="youtube_button" href="https://www.youtube.com/@openprofile" target="_blank">
+                    <img class="icon" src="media/icons/media_icons/youtube.png" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <div class="label_bottom">YouTube</div>
                 </a>
-                <a class="loader_social_button" id="x_button" title="X (Twitter)" href="https://x.com/openprofileapp" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/x_twitter.svg" style="position: absolute; scale: 0.0122; transform-origin: top left; margin: 5px;">
+                <a class="loader_social_button" id="x_button" href="https://x.com/openprofileapp" target="_blank">
+                    <img class="icon" src="media/icons/media_icons/x_twitter.svg" style="position: absolute; width: 16px; transform-origin: top left; margin: 5px;">
+                    <div class="label_bottom">X (Twitter)</div>
                 </a>
-                <a class="loader_social_button" id="facebook_button" title="Facebook" href="https://www.facebook.com/openprofileapp/" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/facebook.png" style="position: absolute; scale: 0.00823; transform-origin: top left; margin: 4px;">
+                <a class="loader_social_button" id="facebook_button" href="https://www.facebook.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="media/icons/media_icons/facebook.png" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <div class="label_bottom">Facebook</div>
                 </a>
-                <a class="loader_social_button" id="instagram_button" title="Instagram" href="https://instagram.com/openprofileapp" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/instagram.svg" style="position: absolute; scale: 1; transform-origin: top left; margin: 5px;">
+                <a class="loader_social_button" id="instagram_button" href="https://instagram.com/openprofileapp" target="_blank">
+                    <img class="icon" src="media/icons/media_icons/instagram.svg" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <div class="label_bottom">Instagram</div>
                 </a>
-                <a class="loader_social_button" id="pinterest_button" title="Pinterest" href="https://www.pinterest.com/openprofileapp/" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/pinterest.png" style="position: absolute; scale: 0.021; transform-origin: top left; margin: 4px;">
+                <a class="loader_social_button" id="pinterest_button" href="https://www.pinterest.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="media/icons/media_icons/pinterest.png" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <div class="label_bottom">Pinterest</div>
                 </a>
-                <a class="loader_social_button" id="discord_button" title="Discord" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/discord.svg" style="position: absolute; scale: 0.74; transform-origin: top left; margin-top: 7px; margin-left: 5px;">
+                <a class="loader_social_button" id="discord_button" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
+                    <img class="icon" src="media/icons/media_icons/discord.svg" style="position: absolute; width: 18px; transform-origin: top left; margin-top: 6px; margin-left: 4px;">
+                    <div class="label_bottom">Discord</div>
                 </a>
-                <a class="loader_social_button" id="email_button" title="Support" href="mailto:support@openprofile.app" target="_blank">
-                    <img class="icon" src="media/icons/feather_icons/mail.svg" style="position: absolute; scale: 0.150; transform-origin: top left; margin-top: 5px; margin-left: 5px;">
+                <a class="loader_social_button" id="email_button" href="mailto:support@openprofile.app" target="_blank">
+                    <img class="icon" src="media/icons/feather_icons/mail.svg" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <div class="label_bottom">Support</div>
                 </a>
             </div>
         </div>
@@ -107,45 +115,15 @@
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ POP-UP-ELEMENTS ]———————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <div class="popup_background" id="popup_0">
-        <div class="popup">
-            <div class="popup_text">
-            <p class="popup_text" id="popup_0_text1" style="font-size: 18px;">Welcome to OpenProfile 5, a collaborative database application surrounding the immersive world of original characters! OP5 is still in early stages and this is the preview version, basically nightly updates with rough edges. Not recommended for production work!</p>
-            <p class="popup_text" id="popup_0_text2" style="font-size: 22px;">⚠️ DO NOT UPLOAD PERSONALLY IDENTIFIABLE INFORMATION ⚠️</p>
-            <p class="popup_text" id="changelog_name" style="font-size: 18px;"></p>
-            <script src="scripts/change_log.js"></script>
-            <p class="popup_text" id="changelog"></p>
-            <p class="popup_text" id="popup_0_text3" style="font-size: 16px;" id="popup_text">(click anywhere to dismiss)</p>
-            <p class="popup_text" id="popup_0_text4" style="font-size: 14px;" id="popup_text">💡 Did you know there is currently over 10,000 lines of active code in the OP5?</p>
-            <p class="popup_text" id="popup_0_text5" style="font-size: 10px;" id="popup_text">OpenProfile 5 is a <a href="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text" target="_blank">GNU</a> licensed application owned by the OpenProfile Organization and actively developed by <a href="https://www.avatarkage.com" target="_blank">AvatarKage<a>.</p>
-        </div>
-            <div class="social_buttons" style="top: 342px; left: 45px; z-index: 5000; scale: 1.5;">
-                <a class="popup_social_button" id="website_button" title="Website" href="https://bio.link/openprofile" target="_blank">
-                    <img class="icon" src="media/icons/feather_icons/globe.svg" style="position: absolute; scale: 0.171; transform-origin: top left; margin: 4px;">
-                </a>
-                <a class="popup_social_button" id="youtube_button" title="YouTube" href="https://www.youtube.com/@openprofile" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/youtube.png" style="position: absolute; scale: 0.01; transform-origin: top left; margin: 5px;">
-                </a>
-                <a class="popup_social_button" id="x_button" title="X (Twitter)" href="https://x.com/openprofileapp" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/x_twitter.svg" style="position: absolute; scale: 0.0122; transform-origin: top left; margin: 5px;">
-                </a>
-                <a class="popup_social_button" id="facebook_button" title="Facebook" href="https://www.facebook.com/openprofileapp/" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/facebook.png" style="position: absolute; scale: 0.00823; transform-origin: top left; margin: 4px;">
-                </a>
-                <a class="popup_social_button" id="instagram_button" title="Instagram" href="https://instagram.com/openprofileapp" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/instagram.svg" style="position: absolute; scale: 1; transform-origin: top left; margin: 5px;">
-                </a>
-                <a class="popup_social_button" id="pinterest_button" title="Pinterest" href="https://www.pinterest.com/openprofileapp/" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/pinterest.png" style="position: absolute; scale: 0.021; transform-origin: top left; margin: 4px;">
-                </a>
-                <a class="popup_social_button" id="discord_button" title="Discord" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
-                    <img class="icon" src="media/icons/media_icons/discord.svg" style="position: absolute; scale: 0.74; transform-origin: top left; margin-top: 7px; margin-left: 5px;">
-                </a>
-                <a class="popup_social_button" id="email_button" title="Support" href="mailto:support@openprofile.app" target="_blank">
-                    <img class="icon" src="media/icons/feather_icons/mail.svg" style="position: absolute; scale: 0.150; transform-origin: top left; margin-top: 5px; margin-left: 5px;">
-                </a>
-            </div>
-        </div>
+    <div class="changelog_popup" id="changelog_popup">
+        <div class="triangle" style=" top: 20px; right: 425px;"></div>
+        <p id="changelog_popup_version" style="font-family: NotoSans-Bold; font-size: 24px; text-align: center; transform: translateY(-5px);">What's new in v5.0.090?</p>
+        <p id="changelog_popup_changelog" style="text-align: left; font-family: NotoSans-Regular; font-size: 20px; transform: translateY(0px);">Introducing a brand new, faster, and more manageable UI!</p>
+        <div class="changelog_popup_close" id="changelog_popup_close">
+            <img id="changelog_popup_close_img" src="media/icons/feather_icons/x.svg" style="position: absolute; top: 18px; right: 18px; scale: 0.35; transform-origin: top right; z-index: 3000; cursor: pointer;">
+        </div>        
+        <script src="scripts/change_log.js"></script>
+        <script src="scripts/popup.js"></script>
     </div>
 
     <!-- The universe manager (id="popup_universe_manage") and 
@@ -155,18 +133,18 @@
     <div id="popup_universe_manager"></div>
     <div id="popup_universe_manager_more"></div>
 
-    <!-- <div id="login_register_account_manager">
-        <div class="information_text" id="registrationMessage" style="top: 59%; font-size: 9px; z-index: 4999;"></div>
-    </div>-->
+    <div id="login_register_account_manager">
+        <div class="information_text" id="registrationMessage" style="top: 59%; font-size: 9px; z-index: 4999; display: none;"></div>
+    </div>
 
 
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ BANNER-ELEMENTS ]———————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <div class="banner" id="banner_0">
-        <div class="banner_text" id="banner_0_text">You can now send a wave to our Discord community by clicking the vibrating spiral button below!</div>
+        <div class="banner_text" id="banner_0_text">Introducing a brand new ui alongside a bunch of backend bug fixes! New ones too...</div>
         <div class="banner_close" id="banner_0_close">
-            <img class="icon" src="media/icons/feather_icons/x.svg" style="position: relative; top: 10px; right: 10px; scale: 1; transform-origin: top left; z-index: 3000;">
+            <img src="media/icons/feather_icons/x.svg" style="position: relative; top: 24px; right: 24px; scale: 1; transform-origin: top left; z-index: 3000;">
         </div>
     </div>
 
@@ -174,59 +152,99 @@
     <!--————————————————————[ TOP-ELEMENTS ]————————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <div class="top">
-        <!--<button id="logoutButton" style="position: absolute; left: 500px; top: 10px;">Logout</button>-->
-        <div class="top_button">File</div>
-        <div class="top_button">Edit</div>
-        <div class="top_button">View</div>
-        <div class="top_button">Help</div>
-        <div class="top_button">Settings</div>
-        <a href="https://ko-fi.com/openprofile" target="_blank">
-            <div class="top_button" id="upgrade_button" style="border: 2px solid #2A4EDE; border-radius: 25px; text-indent: 15px; left: 22px; box-shadow: 0px 0px 0px #2A4EDE;">Upgrade
-                <img src="media/images/openprofile/preview/openprofile_logo_preview_t_512_png.png" style="top: 0px; left: 0px; position: absolute; transform: scale(0.04); transform-origin: top left; margin: 5px;">
-            </div>
-            <div class="top_button" id="premium_button" style="border: 2px solid #CFA715; border-radius: 25px; text-indent: 15px; left: 28px; box-shadow: 0px 0px 0px #D4A20C;">Go Premium
-                <img src="media/images/openprofile/premium/openprofile_logo_premium_t_512_png.png" style="top: 0px; left: 0px; position: absolute; transform: scale(0.04); transform-origin: top left; margin: 5px;">
-            </div>
-        </a>          
+        <img id="openprofile_title_logo" src="media/icons/openprofile_logo.svg" style="position: absolute; height: 36px; margin: 6px;">
+        <p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Bold; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p>
+        <p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">v5.0.091 Preview</p>
 
-        <div class="control_buttons" id="app_close" style="background-color: #2A4EDE;">
-            <img src="media/icons/feather_icons/x.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
+        <a class="top_button" id="premium_button" href="https://ko-fi.com/openprofile" target="_blank" style="background: #cfa715; border-radius: 25px; text-indent: 32px; margin-left: 192px;">Go Premium
+            <img src="media/icons/openprofile_logo.svg" style="position: absolute; left: 0px; height: 28px; transform-origin: top left; margin: 2px;">
+        </a>
+
+        <div class="control_button" id="app_close" style="background-color: #CE1616;">
+            <img src="media/icons/feather_icons/x.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Close</div>
         </div>
-        <div class="control_buttons" id="app_minimize" style="background-color: #2A4EDE;">
-            <img src="media/icons/feather_icons/minimize.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
+        <div class="control_button" id="app_minimize" style="background-color: #CE1616;">
+            <img src="media/icons/feather_icons/minimize.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Minimize</div>
         </div>
-        <div class="control_buttons" id="app_hide" style="background-color: #2A4EDE;">
-            <img src="media/icons/feather_icons/minus.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
+        <div class="control_button" id="app_hide" style="background-color: #CE1616;">
+            <img src="media/icons/feather_icons/minus.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Hide</div>
         </div>
 
-        <div class="control_buttons" id="button_scheme" title="Schemes">
-            <img class="icon" id="icon_scheme" src="media/icons/feather_icons/moon.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
+        <div class="control_button" id="login_register_account">
+            <img class="icon" id="icon_account" src="media/icons/feather_icons/user.svg" style="scale: 0.24; transform-origin: top left; margin: 4px; opacity: 0.8;">
+            <div class="label_top">Account</div>
+            <!-- DO NOT ENABLE - IT WILL MAKE YOUR PRIVATE INFO PUBLIC IF YOU ATTEMPT TO REGISTER - <script src="scripts/account/login.js"></script>-->
         </div>
-        <div class="control_buttons" style="width: 42px; border-radius: 20px;">
-            <img class="icon" src="media/icons/feather_icons/mail.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
-            <div class="notification_count" id="mail_count" title="Inbox">0</div>
+        <div class="control_button" id="button_scheme">
+            <img class="icon" id="icon_scheme" src="media/icons/feather_icons/droplet.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
             <div class="notification_dot"></div>
+            <div class="label_top">Schemes</div>
         </div>
-        <div class="control_buttons" style="width: 42px; border-radius: 20px;">
-            <img class="icon" src="media/icons/feather_icons/bell.svg" title="Notifications" style="scale: 0.15; transform-origin: top left; margin: 5px;">
-            <div class="notification_count" id="notif_count">0</div>
+        <div class="control_button" style="width: min-content; border-radius: 100px;">
+            <img class="icon" src="media/icons/feather_icons/mail.svg" style="position: absolute; scale: 0.24; transform-origin: top left; margin-top: 4px; margin-left: 5px;">
+            <div class="notification_count" id="mail_count">0</div>
             <div class="notification_dot"></div>
+            <div class="label_top">Messages</div>
         </div>
-        <div class="control_buttons" id="button_print" title="Print">
-            <img class="icon" src="media/icons/feather_icons/printer.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
-        </div>
-        <div class="control_buttons" id="button_change_log" onclick="showTextPopup()" title="Change-log">
-            <img class="icon" src="media/icons/feather_icons/tool.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
+        <div class="control_button" style="width: min-content; border-radius: 100px;">
+            <img class="icon" src="media/icons/feather_icons/bell.svg" style="position: absolute; scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="notification_count" id="notif_count" style="transform: translateX(-2px);">0</div>
             <div class="notification_dot"></div>
+            <div class="label_top">Notifications</div>
         </div>
-        <div class="control_buttons" id="login_register_account" title="Login / Register">
-            <img class="icon" src="media/icons/feather_icons/key.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
-            <script src="scripts/account/login.js"></script>
+        <div class="control_button" style="width: min-content; border-radius: 100px;">
+            <img class="icon" src="media/icons/feather_icons/inbox.svg" style="position: absolute; scale: 0.22; transform-origin: top left; margin: 5px;">
+            <div class="notification_count" id="notif_count" style="transform: translateX(-2px);">0</div>
+            <div class="notification_dot"></div>
+            <div class="label_top">Tickets</div>
         </div>
-        <div class="control_buttons" id="user_check_hello" title="Wave to Discord">
-            <img class="icon" src="media/icons/feather_icons/target.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
+        <div class="control_button" style="width: min-content; border-radius: 100px;">
+            <img class="icon" src="media/icons/feather_icons/flag.svg" style="position: absolute; scale: 0.22; transform-origin: top left; margin: 5px;">
+            <div class="notification_count" id="notif_count" style="transform: translateX(-2px);">0</div>
+            <div class="notification_dot"></div>
+        <div class="label_top">Reports</div>
+        </div>
+        <div class="control_button" id="button_official" onclick="manualchangelog()">
+            <img class="icon" id="icon_official" src="media/icons/openprofile_logo.svg" style="height: 27px; transform-origin: top left; margin: 2px; opacity: 0.8;">
+            <div class="notification_dot" id="notification_dot_official" style="display: none;"></div>
+            <div class="label_top">Official News</div>
+        </div>
+        <div class="control_button" id="user_check_hello">
+            <img class="icon" id="icon_wave" src="media/icons/media_icons/discord.svg" style="width: 20px; transform-origin: top left; margin-top: 8px; margin-left: 6px; opacity: 0.8;">
+            <div class="label_top">Wave</div>
             <script src="scripts/wave.js"></script>
             <script src="scripts/discord/assistant/commands/check.js"></script>
+        </div>
+        <div class="control_button" id="button_console">
+            <img class="icon" id="icon_console" src="media/icons/feather_icons/terminal.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Console</div>
+        </div>
+        <div class="control_button" style="opacity: 0; pointer-events: none;">
+        </div>
+        <div class="control_button" id="saveButton">
+            <img class="icon" id="icon_save" src="media/icons/feather_icons/save.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Download Profile</div>
+        </div>
+        <div class="control_button" onclick="triggerFileInput()">
+            <input type="file" id="loadFileInput" accept=".op5" onload="loadData()" style="display: none;">
+            <script>
+                function triggerFileInput() {
+                    // Select the file input element by its id
+                    var fileInput = document.getElementById('loadFileInput');
+            
+                    // Trigger a click event on the file input
+                    fileInput.click();
+                }
+            </script>
+            <img class="icon" id="icon_account" src="media/icons/feather_icons/upload.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Import Profile</div>
+        </div>
+
+        <!--<div class="control_button" id="button_print" title="Print">
+            <img class="icon" src="media/icons/feather_icons/printer.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
         </div>
 
         <!--————————————————————————————————————————————————————————-->
@@ -246,48 +264,50 @@
     <div class="left">
         <script src="scripts/menus/left_menu.js"></script>
         <div class="side_button" id="toggle_left_menu">
-            <img class="icon" src="media/icons/feather_icons/menu.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
+            <img class="icon" src="media/icons/feather_icons/menu.svg" style="scale: 0.44; transform-origin: top left; margin: 10px;">
             <div class="label_left" id="toggle_left_menu_option" option="option_1">Hide Menu</div>
             <div class="tag">BETA</div>
         </div>
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/user.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
+            <img class="icon" src="media/icons/feather_icons/star.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <div class="label_left">Your Favorites</div>
+            <div class="tag">PREVIEW</div>
+        </div>
+        <div class="side_button">
+            <img class="icon" src="media/icons/feather_icons/user.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
             <div class="label_left">Your Profiles</div>
             <div class="tag">PREVIEW</div>
         </div>
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/globe.svg" style="scale: 0.30; transform-origin: top left; margin: 10px; opacity: 0.35;">
-            <div class="label_left">Profile Database</div>
+            <img class="icon" src="media/icons/feather_icons/globe.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <div class="label_left">Online Database</div>
             <div class="tag">PREVIEW</div>
         </div>
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/shopping-bag.svg" style="scale: 0.30; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <img class="icon" src="media/icons/feather_icons/shopping-cart.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <div class="label_left">Character Market</div>
+            <div class="tag">PREVIEW</div>
+        </div>
+        <div class="side_button">
+            <img class="icon" src="media/icons/feather_icons/shopping-bag.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
             <div class="label_left">Scheme Shop</div>
             <div class="tag">PREVIEW</div>
         </div>
-
-        <!--————————————————————[ LOAD PROFILE ]————————————————————-->
-        <div class="side_button" onclick="triggerFileInput()">              
-            <input type="file" id="loadFileInput" accept=".op5" onload="loadData()" style="display: none;">
-            <script>
-                function triggerFileInput() {
-                    // Select the file input element by its id
-                    var fileInput = document.getElementById('loadFileInput');
-            
-                    // Trigger a click event on the file input
-                    fileInput.click();
-                }
-            </script>
-            <img class="icon" src="media/icons/feather_icons/upload.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
-            <div class="label_left">Import Profile</div>
-            <div class="tag">BETA</div>
-        </div>  
-
-            <div class="side_button" id="saveButton">
-            <img class="icon" src="media/icons/feather_icons/save.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
-            <div class="label_left">Download Profile</div>
-            <div class="tag">BETA</div>
+        <div class="side_button">
+            <img class="icon" src="media/icons/feather_icons/trash-2.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <div class="label_left">Trash</div>
+            <div class="tag">PREVIEW</div>
         </div>
+    </div>
+        <div class="side_lower_button">
+            <img class="icon" src="media/icons/feather_icons/settings.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <div class="label_left">Settings</div>
+            <div class="tag">PREVIEW</div>
+        </div>
+        <!--————————————————————[ LOAD PROFILE ]————————————————————-->
+        <!--
+
+            
         <div class="side_button" id="add_profile" onclick="addProfile()">
             <img class="icon" src="media/icons/feather_icons/plus.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
             <div class="label_left">Create Profile</div>
@@ -298,26 +318,11 @@
             <div class="label_left">Create Universe</div>
             <div class="tag">BETA</div>
         </div>
-        <div class="side_button" style="opacity: 0;"></div>
-        <div class="side_button" id="next_page" onclick="";>
-            <img class="icon" src="media/icons/feather_icons/arrow-right.svg" style="transform-origin: top left; min-width: 50px; min-height: 50px; max-width: 50px; max-height: 50px; border-radius: 50%;">
-            <div class="label_left">Next Page</div>
-            <div class="tag">BETA</div>
-        </div>
-        <div class="side_button" id="previous_page" onclick="";>
-            <img class="icon" src="media/icons/feather_icons/arrow-left.svg" style="transform-origin: top left; min-width: 50px; min-height: 50px; max-width: 50px; max-height: 50px; border-radius: 50%;">
-            <div class="label_left">Previous Page</div>
-            <div class="tag">BETA</div>
-        </div>
-    </div>
-
+        <div class="side_button" style="opacity: 0;"></div>-->
 
     <div class="left_inner">
-        <div class="left_top">
-            <div><input type="text" class="input_search" id="data_base_search" autocomplete="off" autocorrect="off" placeholder="Search the database!">
-                <img class="icon" src="media/icons/feather_icons/search.svg" style="position: absolute; top: -11px; left: -10px; scale: 0.20; transform-origin: center center; z-index: 4;">
-                <div class="tag" style="top: 45px; left: 268px;">PREVIEW</div>
-            </div>
+        <div><input type="text" class="input_search" id="data_base_search" autocomplete="off" autocorrect="off" placeholder="Search">
+            <img class="icon" src="media/icons/feather_icons/search.svg" style="position: absolute; scale: 0.32; transform-origin: top left; margin: 26px; z-index: 4;">
         </div>
 
         <div class="left_top_list">
@@ -330,7 +335,7 @@
         
         <div class="circle_outer" style="top: 55%; left: 50%; display: none;">
             <div class="circle_inner">
-                <img class="icon" src="media/icons/feather_icons/wifi-off.svg" style="scale: 1; opacity: 0.1; transform-origin: top left; margin: 50px;">
+                <img class="icon" src="media/icons/feather_icons/wifi-off.svg" style="scale: 1; opacity: 0.4; transform-origin: top left; margin: 50px;">
             </div>
             <div class="information_text" id="information_text_wifi">Oops! It seems like you're not connected to the internet. Please check your connection and try again.</div>
         </div>
@@ -338,7 +343,7 @@
 
         <div class="circle_outer" style="top: 55%; left: 50%;">
             <div class="circle_inner">
-                <img class="icon" src="media/icons/feather_icons/cloud-off.svg" style="scale: 1; opacity: 0.1; transform-origin: top left; margin: 50px;">
+                <img class="icon" src="media/icons/feather_icons/cloud-off.svg" style="scale: 1; opacity: 0.35; transform-origin: top left; margin: 50px;">
             </div>
             <div class="information_text" id="information_text_wifi">Yikes! It looks like we couldn't find any profiles that match your search. Please double-check your entry and try again.</div>
         </div>
@@ -351,38 +356,45 @@
     <!--————————————————————————————————————————————————————————-->
     <div class="right">
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/database.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
+            <img class="icon" src="media/icons/feather_icons/database.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
             <div class="label_right">Generate Data</div>
-            <div class="tag">BETA</div>
-        </div>
-        <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/edit-3.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
-            <div class="label_right">Highlight Textbox</div>
-            <div class="tag">BETA</div>
-        </div>
-        <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/message-circle.svg" style="scale: 0.30; transform-origin: top left; margin: 10px; opacity: 0.35;">
-            <div class="label_right">Disable Comments</div>
             <div class="tag">PREVIEW</div>
         </div>
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/link.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
+            <img class="icon" src="media/icons/feather_icons/edit-3.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <div class="label_right">Highlight Textbox</div>
+            <div class="tag">PREVIEW</div>
+        </div>
+        <div class="side_button">
+            <img class="icon" src="media/icons/feather_icons/link.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
             <div class="label_right">Link Source</div>
-            <div class="tag">BETA</div>
+            <div class="tag">PREVIEW</div>
         </div>
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/calendar.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
-            <div class="label_right">Hide History</div>
-            <div class="tag">BETA</div>
+            <img class="icon" src="media/icons/feather_icons/tag.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
+            <div class="label_right">Set Status</div>
+            <div class="tag">PREVIEW</div>
         </div>
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/lock.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
+            <img class="icon" src="media/icons/feather_icons/lock.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
             <div class="label_right">Lock Textbox</div>
-            <div class="tag">BETA</div>
+            <div class="tag">PREVIEW</div>
         </div>
         <div class="side_button">
-            <img class="icon" src="media/icons/feather_icons/x.svg" style="scale: 0.30; transform-origin: top left; margin: 10px;">
+            <img class="icon" src="media/icons/feather_icons/x.svg" style="scale: 0.44; transform-origin: top left; margin: 10px; opacity: 0.35;">
             <div class="label_right">Disable Textbox</div>
+            <div class="tag">PREVIEW</div>
+        </div>
+    </div>
+    <div class="right_bottom">
+        <div class="side_button" id="next_page" onclick="";>
+            <img class="icon" src="media/icons/feather_icons/arrow-right.svg" style="scale: 0.44; transform-origin: top left; margin: 10px;">
+            <div class="label_right">Next Page</div>
+            <div class="tag">BETA</div>
+        </div>
+        <div class="side_button" id="previous_page" onclick="";>
+            <img class="icon" src="media/icons/feather_icons/arrow-left.svg" style="scale: 0.44; transform-origin: top left; margin: 10px;">
+            <div class="label_right">Previous Page</div>
             <div class="tag">BETA</div>
         </div>
     </div>
@@ -398,77 +410,17 @@
         <!--————————————————————————————————————————————————————————-->
         <!--———————————————————[ PAGE-ELEMENTS ]————————————————————-->
         <!--————————————————————————————————————————————————————————-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-        <div class="page_outer" id="page_0" style="z-index: 100;">
-            <div class="row" style="top: 4px; left: 319px;">
-
-                <!--————————————————————————————————————————————————————————-->
-                <!--—————————————————————[ BRAND-ICON ]—————————————————————-->
-                <!--————————————————————————————————————————————————————————-->
-                <div class="group" id="brand_icon_group" style="top: 0px; left: 0px; z-index: 21;" title="Brand Banner">
-                    <div class="tag" style="left: 47.5%; transform: translateX(-50%)translateY(5px);">PREVIEW</div>
-                    <div><input class="brand_icon_media_input" id="brand_icon_media_input" type="file" accept="image/*,video/*" style="display: none;">
-                        <label for="brand_icon_media_input">
-                            <div class="image_input_2" id="brand_icon_container" style="width: 162px; height: 45px; border-radius: 2.5px;">
-                                <img class="brand_icon_selected_image" id="brand_icon_selected_image" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%; opacity: 0.1; cursor: pointer; z-index: 30;" src="media/icons/feather_icons/plus-square.svg">
-                                <img id="brand_icon_selected_image" style="border-radius: 2.5px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%; display: none;  z-index: 30;" src="" alt="Selected Media">
-                                <video class="brand_icon_selected_video" id="brand_icon_selected_video" controls style="border-radius: 2.5px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%; display: none; z-index: 30;"></video>
-                            </div>
-                        </label>
-                    </div>
-                    <script src="scripts/media/import/brand_icon_import_media.js"></script>
-                </div>
-            </div>
-            <div class="page_inner">
-                <div class="row" style="top: -8px; left: 17px;">
-                    <!--————————————————————————————————————————————————————————-->
-                    <!--———————————————————[ PAGE-AUTHOR-0 ]————————————————————-->
-                    <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="page_author_0_group" style="top: 0px; left: -1px; z-index: 24;">
-                        <div class="tag" style="left: 95%; transform: translateX(-50%)translateY(-40px)scale(0.7);">PREVIEW</div>
-                        <div class="label_tab" id="page_author_label_tab" style="top: 29px; border-radius: 0px 0px 5px 0px; z-index: 2;">Page Author</div>
-                        <div><input type="text" class="input_text_author" id="page_author_0" style="width: 175px;" autocomplete="off" autocorrect="off" placeholder="Who is the page's author?"></div>
-                        <div class="help_box" id="page_author_help_box" style="width: 173px;">What is your name or pseudonym? If you're working as part of a collaboration, include the fellow author's name or pseudonym next to yours.</div>
-                    </div>
-
                     <!--————————————————————————————————————————————————————————-->
                     <!--———————————————————[ OPENPROFILE-5 ]————————————————————-->
                     <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="openprofile_5_group" style="top: 0px; left: 249px; z-index: 23;">
+                     <!--<div class="group" id="openprofile_5_group" style="top: 0px; left: 249px; z-index: 23;">
                         <div><input type="text" class="page_indicator" id="openprofile_5" autocomplete="off" autocorrect="off" tabindex="-1" readonly></div>
                     </div>
 
                     <!--————————————————————————————————————————————————————————-->
                     <!--———————————————————[ WRITTEN-DATE-0 ]———————————————————-->
                     <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="written_date_0_group" style="top: 0px; left: 498px; z-index: 22;">
+                     <!--<div class="group" id="written_date_0_group" style="top: 0px; left: 498px; z-index: 22;">
                         <div class="tag" style="left: 100%; transform: translateX(-50%)translateY(-40px)scale(0.7);">BETA</div>
                         <div class="label_tab" id="written_date_label_tab" option="page_date" style="top: 29px; border-radius: 0px 0px 0px 5px; left: 134px;">Written Date</div>
                         <div><input type="text" class="input_text_written" id="written_date_0" style="width: 175px; text-align: right;" autocomplete="off" autocorrect="off" placeholder="When was this page written?"></div>
@@ -480,7 +432,7 @@
                     <!--————————————————————————————————————————————————————————-->
                     <!--———————————————————[ PROFILE-IMAGE ]————————————————————-->
                     <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="profile_image_group" style="top: 0px; left: 0px; z-index: 21;">
+                     <!--<div class="group" id="profile_image_group" style="top: 0px; left: 0px; z-index: 21;">
                         <div class="label_tab" id="profile_image_label_tab">Image</div>
                         <div><input type="file" id="profile_image_media_input" accept="image/*,video/*" style="display: none;">
                             <label for="profile_image_media_input">
@@ -507,7 +459,7 @@
                     <!--————————————————————————————————————————————————————————-->
                     <!--———————————————————[ FEATURED-NAME ]————————————————————-->
                     <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="featured_name_group" style="top: 0px; left: 0px; z-index: 20;">
+                     <!--<div class="group" id="featured_name_group" style="top: 0px; left: 0px; z-index: 20;">
                         <div class="label_tab" id="featured_name_label_tab">Featured Name</div>
                         <div class="comment_group" id="featured_name_comment_group" style="left: 5px;">
                             <div class="comment_tab">
@@ -534,7 +486,7 @@
                     <!--————————————————————————————————————————————————————————-->
                     <!--—————————————————————[ OC-CREATOR ]—————————————————————-->
                     <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="oc_creator_group" style="top: 0px; left: 0px; z-index: 19;">
+                     <!--<div class="group" id="oc_creator_group" style="top: 0px; left: 0px; z-index: 19;">
                         <div class="label_tab" id="oc_creator_label_tab">OC Creator</div>
                         <div class="comment_group" id="oc_creator_comment_group" style="left: 5px;">
                             <div class="comment_tab">
@@ -561,7 +513,7 @@
                     <!--————————————————————————————————————————————————————————-->
                     <!--————————————————[ FEATURED-DESCRIPTION ]————————————————-->
                     <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="featured_description_group" style="top: 0px; left: 0px; z-index: 18;">
+                     <!--<div class="group" id="featured_description_group" style="top: 0px; left: 0px; z-index: 18;">
                         <div class="label_tab" id="featured_description_label_tab">Description</div>
                         <div class="comment_group" id="featured_description_comment_group" style="left: 5px;">
                             <div class="comment_tab">
@@ -588,7 +540,7 @@
                     <!--————————————————————————————————————————————————————————-->
                     <!--————————————————————[ FEATURED-BTS ]————————————————————-->
                     <!--————————————————————————————————————————————————————————-->
-                    <div class="group" id="featured_bts_group" style="top: 0px; left: 0px; z-index: 17;">
+                     <!--<div class="group" id="featured_bts_group" style="top: 0px; left: 0px; z-index: 17;">
                         <div class="label_tab" id="featured_bts_label_tab">Behind The Scenes</div>
                         <div class="comment_group" id="featured_bts_comment_group" style="left: 5px;">
                             <div class="comment_tab">
@@ -615,7 +567,7 @@
             <!--————————————————————————————————————————————————————————-->
             <!--————————————————[ SOCIAL-MEDIA-BUTTONS ]————————————————-->
             <!--————————————————————————————————————————————————————————-->
-            <div class="social_buttons">
+             <!--<div class="social_buttons">
                 <a class="social_button" id="website_button" title="Website" href="https://www.example.com" target="_blank">
                     <img src="media/icons/feather_icons/globe.svg" style="position: absolute; scale: 0.171; transform-origin: top left; margin: 4px;">
                 </a>
@@ -642,11 +594,11 @@
                 </a>
             </div>
 
-            <div class="row" style="top: 1083px; left: 76px;">
+             <!--<div class="row" style="top: 1083px; left: 76px;">
                 <!--————————————————————————————————————————————————————————-->
                 <!--————————————————————[ LEGAL-FOOTER ]————————————————————-->
                 <!--————————————————————————————————————————————————————————-->
-                <div class="group" id="legal_footer_group" style="top: 0px; left: 0px; z-index: 0;">
+                 <!--<div class="group" id="legal_footer_group" style="top: 0px; left: 0px; z-index: 0;">
                     <div><input type="text" class="input_text_legal" id="legal_footer" autocomplete="off" autocorrect="off" placeholder="Who owns and what is the legal licensing of this character?"></div>
                 </div>
             </div>
@@ -654,7 +606,7 @@
             <!--————————————————————————————————————————————————————————-->
             <!--———————————————————[ WATCH-BUTTONS ]————————————————————-->
             <!--————————————————————————————————————————————————————————-->
-            <div class="watch_buttons">
+            <!--<div class="watch_buttons">
                 <a class="watch_button" id="disney_button" title="Disney Network" href="https://www.disneyplus.com" target="_blank">
                     <img src="media/icons/media_icons/disney.png" style="position: absolute; scale: 0.0105; transform-origin: top left; margin: 5px;">
                 </a>
@@ -691,50 +643,7 @@
                 <a class="watch_button" id="fox_button" title="FOX" href="https://www.fox.com" target="_blank">
                     <img src="media/icons/media_icons/fox.png" style="position: absolute; scale: 0.031; transform-origin: top left; margin: 5px;">
                 </a>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
+        </div>-->
 
     <div style="top: 1491px; height: 25px; position: relative; display: block; font-size: 0px; opacity: 0;" tabindex="-1"> </div>
 
@@ -762,7 +671,7 @@
     <!--——————————————————[ RIGHT-CLICK-MENU ]——————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <div class="menu" id="right_click_menu">
-        <script src="scripts/menus/right_click_menu.js"></script>
+       <!--<script src="scripts/menus/right_click_menu.js"></script>-->
         <ul>
             <li class="menu_option" id="generate_option">Generate Content</li>
                 <img class="icon" id="generate_option_icon" src="media/icons/feather_icons/database.svg" style="position: absolute; top: 0px; left: 0px; scale: 0.11; transform-origin: top left; margin: 9px; z-index: 9001;">

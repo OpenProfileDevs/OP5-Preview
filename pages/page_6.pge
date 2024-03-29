@@ -57,34 +57,34 @@
     },
     "row3": {
       "slot1": {
-        "type": 1,
-        "id": "habit_7",
-        "label": "Habit",
-        "placeholder": "What is the oc's habit?",
-        "help": "What is the character's habit? A habit should be a subconscious behaviorial pattern that the character does frequently. The habit can be either good or bad."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "habit_8",
-        "label": "Habit",
-        "placeholder": "What is the oc's habit?",
-        "help": "What is the character's habit? A habit should be a subconscious behaviorial pattern that the character does frequently. The habit can be either good or bad."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "habit_9",
-        "label": "Habit",
-        "placeholder": "What is the oc's habit?",
-        "help": "What is the character's habit? A habit should be a subconscious behaviorial pattern that the character does frequently. The habit can be either good or bad."
-      }
-    },
-    "row4": {
-      "slot1": {
         "type": 4,
         "id": "personal_thoughts_habit",
         "label": "Personal Thoughts",
         "placeholder": "What are the oc's personal thoughts towards their habit?",
         "help": "What are the character's personal thoughts towards their habit? Do they like their habit or would they rather have had different one? Does their habit affects their life in any certain way? Do their habit remind them of anything? Are they comfortable sharing their habit with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses their habit to help them in everyday life? Is the character even aware of some of their habit? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row4": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
       },
       "slot2": {
         "type": 0,
@@ -149,29 +149,6 @@
     },
     "row7": {
       "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row8": {
-      "slot1": {
         "type": 1,
         "id": "addiction_1",
         "label": "Addiction",
@@ -193,7 +170,7 @@
         "help": "What addiction does the character have? Addictions are typically something bad the character does, either for their health or others around them."
       }
     },
-    "row9": {
+    "row8": {
       "slot1": {
         "type": 1,
         "id": "addiction_4",
@@ -216,36 +193,59 @@
         "help": "What addiction does the character have? Addictions are typically something bad the character does, either for their health or others around them."
       }
     },
-    "row10": {
-      "slot1": {
-        "type": 1,
-        "id": "addiction_7",
-        "label": "Addiction",
-        "placeholder": "What addiction does the oc have?",
-        "help": "What addiction does the character have? Addictions are typically something bad the character does, either for their health or others around them."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "addiction_8",
-        "label": "Addiction",
-        "placeholder": "What addiction does the oc have?",
-        "help": "What addiction does the character have? Addictions are typically something bad the character does, either for their health or others around them."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "addiction_9",
-        "label": "Addiction",
-        "placeholder": "What addiction does the oc have?",
-        "help": "What addiction does the character have? Addictions are typically something bad the character does, either for their health or others around them."
-      }
-    },
-    "row11": {
+    "row9": {
       "slot1": {
         "type": 4,
         "id": "personal_thoughts_addiction",
         "label": "Personal Thoughts",
         "placeholder": "What are the oc's personal thoughts towards their addiction?",
         "help": "What are the character's personal thoughts towards their addiction? Do they like their addiction or would they rather have had different one? Does their addiction affects their life in any certain way? Do their addiction remind them of anything? Are they comfortable sharing their addiction with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses their addiction to help them in everyday life? Is the character even aware of their addiction? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row10": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row11": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
       },
       "slot2": {
         "type": 0,
@@ -287,52 +287,6 @@
     },
     "row13": {
       "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row14": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row15": {
-      "slot1": {
         "type": 1,
         "id": "regret_1",
         "label": "Regret",
@@ -354,7 +308,7 @@
         "help": "What is the character's regret? A regret should be something they once did or didn't do but now wish they could have done something while they had the chance."
       }
     },
-    "row16": {
+    "row14": {
       "slot1": {
         "type": 1,
         "id": "regret_4",
@@ -377,30 +331,7 @@
         "help": "What is the character's regret? A regret should be something they once did or didn't do but now wish they could have done something while they had the chance."
       }
     },
-    "row17": {
-      "slot1": {
-        "type": 1,
-        "id": "regret_7",
-        "label": "Regret",
-        "placeholder": "What is the oc's regret?",
-        "help": "What is the character's regret? A regret should be something they once did or didn't do but now wish they could have done something while they had the chance."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "regret_8",
-        "label": "Regret",
-        "placeholder": "What is the oc's regret?",
-        "help": "What is the character's regret? A regret should be something they once did or didn't do but now wish they could have done something while they had the chance."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "regret_9",
-        "label": "Regret",
-        "placeholder": "What is the oc's regret?",
-        "help": "What is the character's regret? A regret should be something they once did or didn't do but now wish they could have done something while they had the chance."
-      }
-    },
-    "row18": {
+    "row15": {
       "slot1": {
         "type": 4,
         "id": "personal_thoughts_regret",
@@ -423,53 +354,76 @@
         "help": ""
       }
     },
+    "row16": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row17": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row18": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
     "row19": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row20": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row21": {
       "slot1": {
         "type": 0,
         "id": "",

@@ -409,6 +409,8 @@ ca.crt
 ca.key
 used_ids.txt
 nopassword.txt
+.env
+discord_activity.ts
 
 # Custom Folders
 users/

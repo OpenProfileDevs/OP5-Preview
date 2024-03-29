@@ -332,35 +332,35 @@
       }
     },
     "row15": {
-      "slot1": {
-        "type": 1,
-        "id": "favorite_43",
-        "label": "Favorite ???",
-        "placeholder": "What is the oc's favorite?",
-        "help": "What is the character's category favorite? The favorite should be something the character loves in this topic above all else and tends to frequently mention that thing. There can be multiple favorites."
-      },
-      "slot2": {
-        "type": 1,
-        "id": "favorite_44",
-        "label": "Favorite ???",
-        "placeholder": "What is the oc's favorite?",
-        "help": "What is the character's category favorite? The favorite should be something the character loves in this topic above all else and tends to frequently mention that thing. There can be multiple favorites."
-      },
-      "slot3": {
-        "type": 1,
-        "id": "favorite_45",
-        "label": "Favorite ???",
-        "placeholder": "What is the oc's favorite?",
-        "help": "What is the character's category favorite? The favorite should be something the character loves in this topic above all else and tends to frequently mention that thing. There can be multiple favorites."
-      }
-    },
-    "row16": {
         "slot1": {
-        "type": 5,
+        "type": 4,
         "id": "personal_thoughts_favorite",
         "label": "Personal Thoughts",
         "placeholder": "What are the oc's personal thoughts towards their favorites?",
         "help": "What are the character's personal thoughts towards their favorites? Do they favorite their favorites or would they rather have had different one? Does their favorites affects their life in any certain way? Do their favorites remind them of anything? Are they comfortable sharing their favorites with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses their favorites to help them in everyday life? Is the character even aware of their favorites? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row16": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
       },
       "slot2": {
         "type": 0,
@@ -424,52 +424,6 @@
       }
     },
     "row19": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row20": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row21": {
       "slot1": {
         "type": 0,
         "id": "",

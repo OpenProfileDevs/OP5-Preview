@@ -15,7 +15,7 @@ function translateAllGroups(groupIDs, language) {
         fetch(translationFile)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Failed to load translation file');
+                    //throw new Error('Failed to load translation file');
                 }                
                 return response.json();
             })
@@ -32,11 +32,11 @@ function translateAllGroups(groupIDs, language) {
                     document.getElementById(`${adjustedGroupID}`).placeholder = translation.placeholder;
                     document.getElementById(`${adjustedGroupID}_help_box`).textContent = translation.help_box;
                 } else {
-                    console.error(`Translation not found for group: ${adjustedGroupID}`);
+                    //console.error(`Translation not found for group: ${adjustedGroupID}`);
                 }
             })
             .catch((error) => {
-                console.error(error);
+                //console.error(error);
             });
     });
 }
@@ -52,7 +52,7 @@ function translateSpecificElements(language) {
     fetch(translationFile)
         .then((response) => {
             if (!response.ok) {
-                throw Error('Failed to load translation file');
+                //throw Error('Failed to load translation file');
             }
             return response.json();
         })
@@ -69,15 +69,15 @@ function translateSpecificElements(language) {
                         }
                         element.textContent = translation.text_content;
                     } else {
-                        console.error(`Translation not found for element: ${elementID}`);
+                        //console.error(`Translation not found for element: ${elementID}`);
                     }
                 } else {
-                    console.error(`Element not found: ${elementID}`);
+                    //console.error(`Element not found: ${elementID}`);
                 }
             });
         })
         .catch((error) => {
-            console.error(error);
+            //console.error(error);
         });
 }
 
@@ -94,32 +94,32 @@ function translateIndividualElement(elementID, data, language) {
     fetch(translationFile)
         .then((response) => {
             if (!response.ok) {
-                console.error("Failed to load translation file for:", elementID);
+                //console.error("Failed to load translation file for:", elementID);
                 throw new Error('Failed to load translation file');
             }
             return response.json();
         })
         .then((translations) => {
-            console.log("Fetched translation data for:", elementID);
+            //console.log("Fetched translation data for:", elementID);
             if (translations[elementID]) {
-                console.log("Found translation for:", elementID);
+                //console.log("Found translation for:", elementID);
 
                 const translation = translations[elementID];
                 const optionKey = data ? 'option_2' : 'option_1';
 
                 if (translation[optionKey]) {
-                    console.log("Found translation for option:", optionKey);
+                    //console.log("Found translation for option:", optionKey);
                     const optionTranslation = translation[optionKey];
                     document.getElementById(elementID).textContent = optionTranslation.text_content;
                 } else {
-                    console.error(`Translation not found for option ${optionKey} of element: ${elementID}`);
+                    //console.error(`Translation not found for option ${optionKey} of element: ${elementID}`);
                 }
             } else {
-                console.error(`Translation not found for element: ${elementID}`);
+                //console.error(`Translation not found for element: ${elementID}`);
             }
         })
         .catch((error) => {
-            console.error(error);
+            //console.error(error);
         });
 }
 

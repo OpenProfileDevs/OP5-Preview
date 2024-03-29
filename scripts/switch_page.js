@@ -1,7 +1,23 @@
 const nextPage = document.getElementById('next_page');
 const previousPage = document.getElementById('previous_page');
-let currentPosition = 0;
+let currentPosition = 1;
 let animationId; // Store the animation frame ID
+
+// Add event listener for scroll
+//window.addEventListener('scroll', () => {
+//  const topSection = document.querySelector('.top');
+//  const topSectionHeight = topSection.offsetHeight - 10;
+//  const scrollPosition = window.scrollY;
+
+  // Check if the user has scrolled past the top section
+//  if (scrollPosition > topSectionHeight) {
+//    // Change the color of the top section
+//    topSection.style.backgroundColor = '#170202';
+//  } else {
+//    // Reset the color if the user scrolls back up
+//    topSection.style.backgroundColor = '';
+//  }
+//});
 
 function scrollToTop() {
   const currentY = window.scrollY;

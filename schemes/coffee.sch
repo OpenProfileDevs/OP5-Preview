@@ -1,0 +1,13 @@
+{
+    "name": "Coffee",
+    "id": "scheme_coffee",
+    "author": "OpenProfile",
+    "version": "v5.0.091",
+    "tag": "BETA",
+    "icon": "coffee",
+    "text": "#ffffff",
+    "accent": "#cfa715",
+    "shade_1": "#160D09",
+    "shade_2": "#27160F",
+    "custom_html": "<div></div>"
+}

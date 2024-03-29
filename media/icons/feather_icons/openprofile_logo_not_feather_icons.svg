@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="768px" height="768px" viewBox="0 0 768 768" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M768 0L768 0L768 768L0 768L0 0L768 0Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="openprofile_logo_b_">
+    <path d="M768 0L768 0L768 768L0 768L0 0L768 0Z" id="openprofile_logo_b_" fill="none" stroke="none" />
+    <path d="M256 384L360.543 488.543M301.743 173.743L441.773 313.773M213.511 213.511L318.054 318.054M512 384L512 512M256 384L256 512M128 256L256 384L512 384L640 256M384 640L640 384L640 256L384 128L128 256L128 384L384 640Z" id="Vector-9-Union" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" clip-path="url(#clip_1)" />
+  </g>
+</svg>

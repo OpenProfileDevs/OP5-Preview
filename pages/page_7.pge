@@ -80,29 +80,6 @@
     },
     "row4": {
       "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row5": {
-      "slot1": {
         "type": 1,
         "id": "like_1",
         "label": "Like +90",
@@ -124,7 +101,7 @@
         "help": "What does the character hate? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row6": {
+    "row5": {
       "slot1": {
         "type": 1,
         "id": "like_4",
@@ -147,7 +124,7 @@
         "help": "What does the character hate? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row7": {
+    "row6": {
       "slot1": {
         "type": 1,
         "id": "like_7",
@@ -170,7 +147,7 @@
         "help": "What does the character hate? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row8": {
+    "row7": {
       "slot1": {
         "type": 0,
         "id": "",
@@ -193,7 +170,7 @@
         "help": ""
       }
     },
-    "row9": {
+    "row8": {
       "slot1": {
         "type": 1,
         "id": "dislike_1",
@@ -216,7 +193,7 @@
         "help": "What does the character dislike? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row10": {
+    "row9": {
       "slot1": {
         "type": 1,
         "id": "dislike_4",
@@ -239,7 +216,7 @@
         "help": "What does the character dislike? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row11": {
+    "row10": {
       "slot1": {
         "type": 1,
         "id": "dislike_7",
@@ -262,30 +239,7 @@
         "help": "What does the character dislike? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row12": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row13": {
+    "row11": {
       "slot1": {
         "type": 1,
         "id": "hate_1",
@@ -308,7 +262,7 @@
         "help": "What does the character hate? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row14": {
+    "row12": {
       "slot1": {
         "type": 1,
         "id": "hate_4",
@@ -331,7 +285,7 @@
         "help": "What does the character hate? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row15": {
+    "row13": {
       "slot1": {
         "type": 1,
         "id": "hate_7",
@@ -354,13 +308,59 @@
         "help": "What does the character hate? This is based on a rateable scale from love to hate where the highest most left option is most loved and the lowest most right option is the most hated option."
       }
     },
-    "row16": {
+    "row14": {
         "slot1": {
-        "type": 5,
+        "type": 4,
         "id": "personal_thoughts_likeness_scale",
         "label": "Personal Thoughts",
         "placeholder": "What are the oc's personal thoughts towards their likeness scale?",
         "help": "What are the character's personal thoughts towards their likeness scale? Do they like their likeness scale or would they rather have had different one? Does their likeness scale affects their life in any certain way? Do their likeness scale remind them of anything? Are they comfortable sharing their likeness scale with others or would they rather keep them in secrecy? Apart from what they are meant to do, does the character uses their likeness scale to help them in everyday life? Is the character even aware of their likeness scale? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row15": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot2": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      },
+      "slot3": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
+      }
+    },
+    "row16": {
+      "slot1": {
+        "type": 0,
+        "id": "",
+        "label": "",
+        "placeholder": "",
+        "help": ""
       },
       "slot2": {
         "type": 0,
@@ -424,52 +424,6 @@
       }
     },
     "row19": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row20": {
-      "slot1": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot2": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      },
-      "slot3": {
-        "type": 0,
-        "id": "",
-        "label": "",
-        "placeholder": "",
-        "help": ""
-      }
-    },
-    "row21": {
       "slot1": {
         "type": 0,
         "id": "",
