@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
     var baseTag = document.querySelector("base");
     //baseTag.href = currentDomain;
 
-    //handleUserJoin();
+    handleUserJoin();
     simulateAppLoading("50") // The number is to change speed, put 500 for dev and 50 for release
     load_local_scheme()
     //updateElementsByTimeOfYear();
