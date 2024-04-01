@@ -88,7 +88,7 @@ function translateIndividualElement(elementID, data, language) {
     // Define the translation file based on the selected language and element
     const translationFile = `translations/${language}.json`;
 
-    console.log("Fetching translation data for:", elementID);
+    //console.log("Fetching translation data for:", elementID);
 
     // Fetch and use the translation data for the individual element
     fetch(translationFile)

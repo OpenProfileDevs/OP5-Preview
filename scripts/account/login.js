@@ -59,23 +59,46 @@ function registerUser() {
         return;
     }
 
-    fetch('/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({username: usernameInput, email: registerEmailInput, password: registerPasswordInput })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            registrationButton.textContent = 'Success'; // Change button text to "Success"
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    // Hash the password locally
+    const hashedPassword = sha256(registerPasswordInput);
+
+    // Check if the email already exists
+    fetch(`/check-email?email=${encodeURIComponent(registerEmailInput)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.exists) {
+                // Email already exists, display an error message
+                alert('Email already exists. Please use a different email.');
+            } else {
+                // Email doesn't exist, proceed with registration
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({username: usernameInput, email: registerEmailInput, password: hashedPassword })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        registrationButton.textContent = 'Success'; // Change button text to "Success"
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error checking email:', error);
+        });
 }
+
+// Function to hash a string using SHA-256 with CryptoJS
+function sha256(input) {
+    return CryptoJS.SHA256(input).toString(CryptoJS.enc.Hex);
+}
+
 
 // Function to log in a user
 async function loginUser() {
@@ -84,40 +107,46 @@ async function loginUser() {
         const loginEmailInput = document.getElementById('login_email_input').value.trim();
         const loginPasswordInput = document.getElementById('login_password_input').value.trim();
 
-        // Fetch user data from the /users endpoint
-        const response = await fetch(`/users/private/?email=${encodeURIComponent(loginEmailInput)}`);
-        const userData = await response.json();
+        // Prepare the data to send in the POST request
+        const data = {
+            email: loginEmailInput,
+            password: loginPasswordInput
+        };
 
-        if (!userData || !userData.email) {
-            throw new Error('Email does not exist');
+        // Send a POST request to the /login endpoint
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        // Parse the JSON response
+        const responseData = await response.json();
+
+        // Check if the response contains a token
+        if (response.ok && responseData.token) {
+            // If login is successful, store the token in localStorage or sessionStorage
+            localStorage.setItem('token', responseData.token); // You can change this to sessionStorage if you want the token to be session-based
+            // Redirect to a new page or perform any other actions for a successful login
+            window.location.href = '/authors/'; // Redirect to the dashboard page
+        } else {
+            // If login fails, display an error message
+            alert('Login failed. Please check your email and password.');
         }
-
-        // Check if the provided password matches the stored password
-        const passwordMatch = verifyPassword(loginPasswordInput, userData.password);
-
-        if (!passwordMatch) {
-            throw new Error('Incorrect password');
-        }
-
-        // Generate a JWT token
-        const token = userData.id;
-
-        console.log('Login successful', token )
-        account_name = userData.username
-        const usertitle = document.getElementById('openprofile_title_text');
-        usertitle.textContent = account_name;
-
-        return { message: 'Login successful', token };
     } catch (error) {
         console.error('Error:', error);
-        throw error;
+        // Handle any errors that occur during the login process
+        alert('An error occurred during login. Please try again later.');
     }
 }
 
-// Function to verify if the provided password matches the stored password
-function verifyPassword(enteredPassword, storedPassword) {
-    // Compare the entered password with the stored password
-    return enteredPassword === storedPassword;
+
+// Function to verify if the provided hashed password matches the stored hashed password
+function verifyPassword(enteredHashedPassword, storedHashedPassword) {
+    // Compare the entered hashed password with the stored hashed password
+    return enteredHashedPassword === storedHashedPassword;
 }
 
 // Function to generate an authentication token
