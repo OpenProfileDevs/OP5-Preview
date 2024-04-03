@@ -154,7 +154,7 @@
     <div class="top">
         <img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 36px; margin: 6px;">
         <p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Bold; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p>
-        <p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">v5.0.091 Preview</p>
+        <p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Version failed to load...</p>
 
         <a class="top_button" id="premium_button" href="https://ko-fi.com/openprofile" target="_blank" style="background: #cfa715; border-radius: 25px; text-indent: 32px; margin-left: 192px;">Go Premium
             <img src="/media/icons/openprofile_logo.svg" style="position: absolute; left: 0px; height: 28px; transform-origin: top left; margin: 2px;">
@@ -175,11 +175,9 @@
 
         <div class="control_button" id="login_register_account">
             <img class="icon" id="icon_account" src="/media/icons/feather_icons/user.svg" style="scale: 0.24; transform-origin: top left; margin: 4px; opacity: 0.8;">
-            <div class="label_top">Account</div>
-            <!--script src="/scripts/account/login.js"></script-->
+            <div class="label_top" id="label_top_account">Account</div>
+            <script src="/scripts/account/login.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-
-            <!-- DO NOT ENABLE - IT WILL MAKE YOUR PRIVATE INFO PUBLIC IF YOU ATTEMPT TO REGISTER - <script src="/scripts/account/login.js"></script>-->
         </div>
         <div class="control_button" id="button_scheme">
             <img class="icon" id="icon_scheme" src="/media/icons/feather_icons/droplet.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">

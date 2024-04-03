@@ -293,6 +293,7 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const openprofile_version_text = document.querySelector('#openprofile_version_text')
     const openprofile_title_logo = document.querySelector('#openprofile_title_logo')
     const profile_info = document.querySelector('.profile_info');
+    //const popup_prompt = document.querySelector('.popup_prompt');
     
     //————————————————————————————————————————————————————————//
     //————————————————————[ SCHEME-APPLY ]————————————————————//
@@ -341,6 +342,7 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     top.style.backgroundColor = scheme_shade_2;
     left.style.backgroundColor = scheme_shade_2;
     profile_info.style.backgroundColor = scheme_shade_2;
+    //popup_prompt.style.backgroundColor = scheme_shade_2;
 
     // Sets the scheme of the banner elements.
     banner.forEach((banner) => {

@@ -5,33 +5,28 @@ function createLoginRegisterPopup() {
     const popupHTML = `
         <div class="popup_background" id="register_popup" style="display: block; z-index: 900000;">
             <div class="popup_prompt">
-                <img class="icon" id="register_close" src="media/icons/feather_icons/x.svg" style="position: absolute; cursor: pointer; top: 0px; right: 0px; scale: 0.30; margin: 10px; transform-origin: top right; z-index: 3000;">
-                <div class="row" style="top: 20%; left: calc(50% - 85px); transform: translate(-50%);">
-                    <div class="group" id="register_username_group" style="top: 0px; left: 0px; z-index: 17;">
-                        <div class="label_tab_popup_prompt" id="register_username_label_tab">Username</div>
-                        <div><input type="text" class="input_text_popup_prompt" id="register_username_input" style="width: 175px; text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your username"></div>
+                <img class="icon" id="register_close" src="/media/icons/feather_icons/x.svg" style="position: absolute; cursor: pointer; top: 0px; right: 0px; scale: 0.30; margin: 10px; transform-origin: top right; z-index: 3000;">
+                    <div class="group" id="register_username_group" style="top: 25px; left: 38px; z-index: 17;">
+                        <div class="label_tab" id="register_username_label_tab">Username</div>
+                        <div><input type="text" class="input_text_popup_prompt" id="register_username_input" style="text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your username"></div>
                     </div>
-                </div>
-                <div class="row" style="top: 30%; left: calc(50% - 85px); transform: translate(-50%);">
-                    <div class="group" id="register_email_group" style="top: 0px; left: 0px; z-index: 17;">
-                        <div class="label_tab_popup_prompt" id="register_email_label_tab">Email</div>
-                        <div><input type="text" class="input_text_popup_prompt" id="register_email_input" style="width: 175px; text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your email"></div>
+                    <div class="group" id="register_email_group" style="top: 125px; left: 38px; z-index: 17;">
+                        <div class="label_tab" id="register_email_label_tab">Email</div>
+                        <div><input type="text" class="input_text_popup_prompt" id="register_email_input" style="text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your email"></div>
                     </div>
-                </div>
-                <div class="row" style="top: 40%; left: calc(50% - 85px); transform: translate(-50%);">
-                    <div class="group" id="register_password_group" style="top: 0px; left: 0px; z-index: 17;">
-                        <div class="label_tab_popup_prompt" id="register_password_label_tab">Password</div>
-                        <div><input type="password" class="input_text_popup_prompt" id="register_password_input" style="width: 175px; text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your password"></div>
+                    <div class="group" id="register_password_group" style="top: 225px; left: 38px; z-index: 17;">
+                        <div class="label_tab" id="register_password_label_tab">Password</div>
+                        <div><input type="password" class="input_text_popup_prompt" id="register_password_input" style="text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your password"></div>
                     </div>
-                </div>
-                <button onclick="registerUser()" style="top: 50%; left: 0px; z-index: 4999;">Register</button>
-                <div class="information_text" id="information_text_register" style="top: 59%; font-size: 9px; z-index: 4999;">Already have an account? <a href="#" onclick="switchToLogin()">Login</a></div>
+                <button onclick="registerUser()" style="top: 180px; left: 0px; z-index: 4999;">Register</button>
+                <div class="information_text" id="information_text_register" style="top: 77%; font-size: 10px; z-index: 4999;">Already have an account? <a href="#" onclick="switchToLogin()">Login</a></div>
             </div>
         </div>
     `;
 
     // Set the HTML code to the popupLoginRegisterManager element
     popupLoginRegisterManager.innerHTML = popupHTML;
+    load_local_scheme()
 
     // Define the variables needed to make the code work
     const registerClose = document.getElementById("register_close");
@@ -99,13 +94,13 @@ function sha256(input) {
     return CryptoJS.SHA256(input).toString(CryptoJS.enc.Hex);
 }
 
-
 // Function to log in a user
 async function loginUser() {
     try {
         // Get email and password from input fields
         const loginEmailInput = document.getElementById('login_email_input').value.trim();
         const loginPasswordInput = document.getElementById('login_password_input').value.trim();
+        const label_top_account = document.getElementById('label_top_account');
 
         // Prepare the data to send in the POST request
         const data = {
@@ -127,10 +122,21 @@ async function loginUser() {
 
         // Check if the response contains a token
         if (response.ok && responseData.token) {
-            // If login is successful, store the token in localStorage or sessionStorage
+            // If login is successful, store the token and username in localStorage or sessionStorage
             localStorage.setItem('token', responseData.token); // You can change this to sessionStorage if you want the token to be session-based
+            localStorage.setItem('username', responseData.username);
+            const storedUsername = localStorage.getItem('username');
+
             // Redirect to a new page or perform any other actions for a successful login
-            window.location.href = '/authors/'; // Redirect to the dashboard page
+            window.location.href = `/author/${storedUsername}`; // Redirect to the dashboard page
+
+            // Set the user label
+            label_top_account.textContent = storedUsername;
+
+            // Access and use other user data if needed
+            const userId = responseData.user.id;
+            const userName = responseData.user.name;
+            // You can perform further actions with the user data here
         } else {
             // If login fails, display an error message
             alert('Login failed. Please check your email and password.');
@@ -141,7 +147,6 @@ async function loginUser() {
         alert('An error occurred during login. Please try again later.');
     }
 }
-
 
 // Function to verify if the provided hashed password matches the stored hashed password
 function verifyPassword(enteredHashedPassword, storedHashedPassword) {
@@ -169,6 +174,8 @@ function switchToLogin() {
         // Clear input fields
         document.getElementById('login_email_input').value = '';
         document.getElementById('login_password_input').value = '';
+        document.getElementById('register_username_input').style.display = 'block';
+        document.getElementById('register_username_label_tab').style.display = 'block';
         // Remove login attributes
         document.getElementById('login_email_input').removeAttribute('required');
         document.getElementById('login_password_input').removeAttribute('required');
@@ -190,6 +197,8 @@ function switchToLogin() {
         // Change information text
         informationText.innerHTML = 'Already have an account? <a href="#" onclick="switchToLogin()">Login</a>';
         // Clear input fields
+        document.getElementById('register_username_input').style.display = 'none';
+        document.getElementById('register_username_label_tab').style.display = 'none';
         document.getElementById('register_email_input').value = '';
         document.getElementById('register_password_input').value = '';
         // Remove registration attributes
