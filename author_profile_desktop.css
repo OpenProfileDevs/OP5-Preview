@@ -2299,3 +2299,47 @@ textarea::-webkit-scrollbar-track {
   box-shadow: 0px 0px 1px 0px #00000020;
   z-index: 1;
 }
+
+.author_list {
+  position: fixed;
+  display: grid; /* Change to grid */
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  gap: 16px; /* Spacing between items */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1380px;
+  height: fit-content;
+  opacity: 1;
+  border-radius: 32px;
+  padding: 16px;
+  transition: 0.1s opacity;
+  background-color: #390707;
+  transform-origin: center;
+  box-shadow: 0px 0px 1px 0px #00000020;
+  z-index: 1;
+}
+
+.author_card {
+  position: relative;
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 250px;
+  width: 200px;
+  opacity: 1;
+  border-radius: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 16px;
+  padding: 16px;
+  transition: 0.1s opacity;
+  background-color: #160202;
+  transform-origin: center;
+  box-shadow: 0px 0px 1px 0px #00000020;
+  z-index: 1;
+}
