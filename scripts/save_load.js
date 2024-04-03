@@ -90,18 +90,15 @@ saveButton.addEventListener('click', function () {
         groups.forEach((group, index) => {
             const group_id = group.id.replace('_group', '');
             const label_tab = group.querySelector(`#${group_id}_label_tab`);
-            const input_text = group.querySelector(`#${group_id}`);
-            const last_modified_text = group.querySelector(`#${group_id}_time`);
+            const input_text = document.getElementById(`${group_id}`);
 
-            if (label_tab && input_text && last_modified_text) {
+            if (label_tab && input_text) {
                 const label_content = label_tab.textContent;
                 const input_content = input_text.value.replace(/\n/g, "\\n"); // Replace newlines with '\n'
-                const time = last_modified_text.textContent;
-                const time_id = last_modified_text.id;
 
                 if (input_content.trim() !== '') {
                     // Customize the format as needed
-                    output += `"${group_id}": "${input_content}",\n"${time_id}": "${time}"`;
+                    output += `"${group_id}": "${input_content}"`;
                     
                     // Add a comma and newline only if it's not the last group
                     if (index !== groups.length - 1) {
