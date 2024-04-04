@@ -47,6 +47,7 @@
     <script src="/scripts/seasonal_changes.js"></script>
     <script src="/scripts/banner.js"></script>
     <script src="/scripts/onload_page.js"></script>
+    <script src="/scripts/account/session_load.js"></script>
     
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ POP-UP-ELEMENTS ]———————————————————-->
@@ -174,7 +175,7 @@
                 profileInfo.innerHTML = `
                     <img src="/media/images/openprofile/openprofile_logo_512_jpeg.jpeg" style="width: 128px; height: 128px; border-radius: 50%; margin-bottom: 16px; margin-top: 16px;">
                     <p style="font-size: 48px; font-family: NotoSans-Bold; transform: translateY(-68px);">${data.username}</p><br>
-                    <p style="font-size: 24px; font-family: NotoSans-Medium; transform: translateY(-164px);">@${data.username}</p>
+                    <p id="profile_username" style="font-size: 24px; font-family: NotoSans-Medium; transform: translateY(-164px);">@${data.username}</p>
                     <p style="font-size: 24px; font-family: NotoSans-Medium; transform: translateY(-20px);">Joined ${data.todayDate}</p>
                 `;
             })

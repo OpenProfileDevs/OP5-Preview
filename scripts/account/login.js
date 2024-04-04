@@ -43,7 +43,6 @@ document.getElementById("login_register_account").addEventListener("click", func
     createLoginRegisterPopup();
 });
 
-// Function to register a user
 function registerUser() {
     const usernameInput = document.getElementById('register_username_input').value.trim();
     const registerEmailInput = document.getElementById('register_email_input').value.trim();
@@ -53,6 +52,14 @@ function registerUser() {
     if (!registerEmailInput || !registerPasswordInput) {
         return;
     }
+
+    // Regular expression to match only lowercase letters, numbers, and underscores with a max of 16 characters
+    const usernameRegex = /^[a-z0-9_]{1,16}$/;
+    if (!usernameRegex.test(usernameInput)) {
+        alert('Username can only contain lowercase letters, numbers, and underscores (_) and must be between 1 and 16 characters long. Please choose a valid username.');
+        return;
+    }
+    
 
     // Hash the password locally
     const hashedPassword = sha256(registerPasswordInput);

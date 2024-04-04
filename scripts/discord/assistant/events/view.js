@@ -31,10 +31,7 @@ async function sendSessionDataToServer(sessionData) {
 
 // Example usage
 async function handleUserJoin() {
-    const userID = generateRandomUserID();
     const joinTime = new Date().getTime();
-    userSessions[userID] = { joinTime };
-    console.log(`User ID ${userID} joined at ${new Date(joinTime).toLocaleString()}`);
 
     try {
         // Fetch user's country
@@ -45,19 +42,36 @@ async function handleUserJoin() {
         
         // Extract country name and flag from the country information
         const { name, emoji } = countryInfo;
-        
-        // Construct session data with full country name and flag
-        const sessionData = `➡️ **@user_${userID}** joined from **${name}** ${emoji}`;
-        
-        // Send message to server with session data
-        await sendSessionDataToServer(sessionData);
+
+        fetch('/check-login') // Assuming this route checks if the user is logged in
+            .then(response => response.json())
+            .then(data => {
+                if (data.loggedIn) {
+                    // Access userData if available and use it
+                    const userData = data.userData;
+                    if (userData) {
+                        // Do something with userData and specificElementData, for example:
+                        console.log('User Data:', userData);
+                        const sessionData = `➡️ **@${userData.username}** viewed **OpenProfile 5 Preview** from **${name}** ${emoji}`;
+                        // Send message to server with session data
+                        sendSessionDataToServer(sessionData);
+                    }
+                } else {
+                    // If not logged in, handle accordingly
+                    const sessionData = `➡️ **Guest** viewed **OpenProfile 5 Preview** from **${name}** ${emoji}`;
+                    // Send message to server with session data
+                    sendSessionDataToServer(sessionData);
+                }
+            })
+            .catch(error => {
+                console.error('Error checking login status:', error);
+            });
     } catch (error) {
-        console.error(`Error sending join message to server for User ID ${userID}:`, error);
+        console.error('Error handling user join profile:', error);
     }
 
     // Call other functions or perform other actions here
 }
-
 async function fetchUserCountry() {
     try {
         const response = await fetch('https://api.ipify.org?format=json');
@@ -74,42 +88,6 @@ async function fetchUserCountry() {
     } catch (error) {
         console.error('Error fetching user country:', error);
         return 'Unknown'; // Return a default value if country cannot be fetched
-    }
-}
-
-async function handleUserLeave(userID) {
-    if (userSessions[userID]) {
-        const joinTime = userSessions[userID].joinTime;
-        const sessionTime = Math.round((new Date().getTime() - joinTime) / (1000 * 60)); // Calculate session time in minutes
-        console.log(`User ID ${userID} left. Session time: ${sessionTime} minutes`);
-
-        try {
-            // Fetch user's country
-            const country = await fetchUserCountry();
-            
-            // Get full country object based on country code
-            const countryInfo = getCountryInfo(country);
-            
-            // Extract country name and flag from the country information
-            const { name, emoji } = countryInfo;
-
-            // Send session time to server
-            await sendSessionDataToServer(`⬅️ **@user_${userID}** left - __Session: ${sessionTime} minutes__`);
-        } catch (error) {
-            console.error(`Error sending leave message to server for User ID ${userID}:`, error);
-        }
-
-        // Delete user session
-        delete userSessions[userID];
-    } else {
-        try {
-            // Send message to server
-            await sendSessionDataToServer(`User ID ${userID} left. But no record of join time found.`);
-        } catch (error) {
-            console.error(`Error sending leave message to server for User ID ${userID}:`, error);
-        }
-
-        console.log(`User ID ${userID} left. But no record of join time found.`);
     }
 }
 

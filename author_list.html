@@ -47,6 +47,7 @@
     <script src="/scripts/seasonal_changes.js"></script>
     <script src="/scripts/banner.js"></script>
     <script src="/scripts/onload_page.js"></script>
+    <script src="/scripts/account/session_load.js"></script>
     
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ POP-UP-ELEMENTS ]———————————————————-->
@@ -138,41 +139,55 @@
     <!--——————————————————[ PROFILE-ELEMENTS ]——————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <div class="author_list" id="authors_info"></div>
-<script>
-    fetch(`/authors-fetch`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to fetch authors');
-        }
-        return response.json();
-    })
-    .then(authors => {
-        const authorsInfo = document.getElementById('authors_info');
-        
-        authors.forEach(author => {
-            const authorDiv = document.createElement('div');
-            authorDiv.classList.add('author_card');
-
-            authorDiv.innerHTML = `
-            <img src="/media/images/openprofile/openprofile_logo_512_jpeg.jpeg" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 16px; margin-top: 16px; cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">
-            <p style="font-size: 32px; font-family: NotoSans-Bold; transform: translateY(-50px); cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">${author.username}</p><br>
-            <p style="font-size: 16px; font-family: NotoSans-Medium; transform: translateY(-120px); cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">@${author.username}</p>
-            <p style="font-size: 16px; font-family: NotoSans-Medium; transform: translateY(-75px); cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">Joined ${author.todayDate}</p>
-        `;
-
-
-            authorsInfo.appendChild(authorDiv);
-        });
-        
-        // Add CSS grid layout
-        const authorProfiles = document.querySelectorAll('.author_profile');
-        authorProfiles.forEach((authorProfile, index) => {
-            authorProfile.style.gridRow = Math.floor(index / 5) + 1;
-            authorProfile.style.gridColumn = (index % 5) + 1;
-        });
-    })
-    .catch(error => console.error('Error fetching authors:', error));
-</script>
+    <script>
+        fetch(`/authors-fetch`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch authors');
+            }
+            return response.json();
+        })
+        .then(authors => {
+            // Convert todayDate and todayTime to Date objects and combine them into a single property for sorting
+            authors.forEach(author => {
+                const joinDateTime = new Date(`${author.todayDate} ${author.todayTime}`);
+                author.joinDateTime = joinDateTime;
+            });
+    
+            // Sort authors by join date and time
+            authors.sort((a, b) => b.joinDateTime - a.joinDateTime);
+    
+            const authorsInfo = document.getElementById('authors_info');
+            
+            authors.forEach(author => {
+                const joinDate = new Date(`${author.todayDate} ${author.todayTime}`);
+                const fullVisualDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    
+                const authorDiv = document.createElement('div');
+                authorDiv.classList.add('author_card');
+    
+                authorDiv.innerHTML = `
+                <div style="width: 200px; overflow: hidden;">
+                    <img src="/media/images/openprofile/openprofile_logo_512_jpeg.jpeg" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 16px; margin-top: 16px; cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">
+                    <p style="font-size: 32px; font-family: NotoSans-Bold; transform: translateY(-50px); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">${author.username}</p><br>
+                    <p style="font-size: 16px; font-family: NotoSans-Medium; transform: translateY(-120px); cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">@${author.username}</p>
+                    <p style="font-size: 16px; font-family: NotoSans-Medium; transform: translateY(-75px); cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">Joined ${fullVisualDate}</p>
+                </div>
+            `;
+    
+                authorsInfo.appendChild(authorDiv);
+            });
+            
+            // Add CSS grid layout
+            const authorProfiles = document.querySelectorAll('.author_profile');
+            authorProfiles.forEach((authorProfile, index) => {
+                authorProfile.style.gridRow = Math.floor(index / 5) + 1;
+                authorProfile.style.gridColumn = (index % 5) + 1;
+            });
+        })
+        .catch(error => console.error('Error fetching authors:', error));
+    </script>
+    
 
 
     <!--————————————————————————————————————————————————————————-->

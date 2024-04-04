@@ -23,6 +23,7 @@ fetch(fileListEndpoint)
     });
   })
   .catch(error => console.error('Error fetching file list:', error));
+  //alert('Failed to load profile pages. Reload the page to retry!');
 
 
   function createPage(data) {

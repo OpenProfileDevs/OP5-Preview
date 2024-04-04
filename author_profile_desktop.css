@@ -2305,20 +2305,20 @@ textarea::-webkit-scrollbar-track {
   display: grid; /* Change to grid */
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
   gap: 16px; /* Spacing between items */
-  align-items: center;
   justify-content: center;
   text-align: center;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 1380px;
-  height: fit-content;
+  height: 644px;
   opacity: 1;
   border-radius: 32px;
   padding: 16px;
   transition: 0.1s opacity;
   background-color: #390707;
   transform-origin: center;
+  overflow-y: auto;
   box-shadow: 0px 0px 1px 0px #00000020;
   z-index: 1;
 }
