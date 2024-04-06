@@ -1,1 +1,13 @@
-{"id":3276689764914034,"username":"avatarkage","todayDate":"2024-04-02","todayTime":"11:27:58","timezone":"GMT-0400","verified":false,"premium":false,"moderator":false}
+{
+  "id": 3276689764914034,
+  "username": "avatarkage",
+  "todayDate": "2024-04-02",
+  "todayTime": "11:27:58",
+  "timezone": "GMT-0400",
+  "verified": true,
+  "premium": true,
+  "moderator": true,
+	"contributor": true,
+"promoted": true,
+  "displayname": "AvatarKage"
+}

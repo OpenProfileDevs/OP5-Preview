@@ -15,7 +15,7 @@ function redactAndSendMessage(name, button) {
 
 function redactName(name) {
     // Fetching words from the text file
-    return fetch('blacklist.txt')
+    return fetch('/blacklist.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch blacklist');
@@ -34,7 +34,7 @@ function redactName(name) {
 }
 
 function getDiscordWebhookURL() {
-    return fetch('webhook.txt')
+    return fetch('/webhook.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch Discord webhook URL');

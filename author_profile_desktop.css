@@ -2337,9 +2337,13 @@ textarea::-webkit-scrollbar-track {
   margin-bottom: 16px;
   margin-left: 16px;
   padding: 16px;
-  transition: 0.1s opacity;
+  transition: 0.1s scale;
   background-color: #160202;
   transform-origin: center;
   box-shadow: 0px 0px 1px 0px #00000020;
   z-index: 1;
+}
+
+.author_card:hover {
+  scale: 1.025;
 }
