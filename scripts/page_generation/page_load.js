@@ -1,4 +1,3 @@
-alert('Profile pages are bugged and only fully load about 80% of the time. If no pages are present, or if you can\'t switch profile pages, simply reload the app!');
     const fileListEndpoint = '/fileList';
     const element = document.getElementById('your_element_id');
     var current_page = -1;
