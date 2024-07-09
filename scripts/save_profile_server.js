@@ -14,19 +14,24 @@ saveButtonServer.addEventListener('click', async function () {
 
             const uniqueID = document.getElementById('uniqueID').textContent;
 
-            // Check if the profile exists and get its data
-            const profileResponse = await fetch(`/profile/json/${uniqueID}`);
-            if (!profileResponse.ok) {
-                alert('Profile not found.');
-                return;
-            }
+            let profileData = {};
+            try {
+                alert(`Your profile is currently saving. If this is the profile's first save it may take a few minutes. Please press "ok" and wait for the save confirmation. You are safe to continue editing your profile while you wait but any further edits may not be recorded unless you re-save. Future save overwrites only take a second!`);
+                const profileResponse = await fetch(`/profile/json/${uniqueID}`);
+                if (profileResponse.ok) {
+                    profileData = await profileResponse.json();
 
-            const profileData = await profileResponse.json();
-
-            // Check if the logged-in user is the owner of the profile
-            if (profileData.owner !== owner) {
-                alert("You can't save a profile you don't own.");
-                return;
+                    // Check if the logged-in user is the owner of the profile
+                    if (profileData.owner !== owner) {
+                        alert("You can't save a profile you don't own.");
+                        return;
+                    }
+                } else {
+                    alert('Profile not found. A new profile will be created.');
+                }
+            } catch (error) {
+                console.log('Failed to fetch profile:', error);
+                console.log('Continuing to create a new profile.');
             }
 
             const today = new Date();

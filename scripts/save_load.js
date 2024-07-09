@@ -91,15 +91,25 @@ saveButton.addEventListener('click', function () {
             const group_id = group.id.replace('_group', '');
             const label_tab = group.querySelector(`#${group_id}_label_tab`);
             const input_text = document.getElementById(`${group_id}`);
-
-            if (label_tab && input_text) {
-                const label_content = label_tab.textContent;
-                const input_content = input_text.value.replace(/\n/g, "\\n"); // Replace newlines with '\n'
-
-                if (input_content.trim() !== '') {
+        
+            // Check if label_tab and input_text are valid, and include 'page_display_name_1' and 'pfp_1'
+            if ((label_tab && input_text) || group_id === 'page_display_name_1' || group_id === 'pfp_1') {
+                const label_content = label_tab ? label_tab.textContent : '';
+                let input_content = '';
+        
+                if (input_text) {
+                    input_content = input_text.value.replace(/\n/g, "\\n"); // Replace newlines with '\n'
+                    input_content = input_content.replace(/"/g, '\\"'); // Escape double quotes
+                }
+        
+                if (input_content.trim() !== '' || group_id === 'page_display_name_1' || group_id === 'pfp_1') {
                     // Customize the format as needed
-                    output += `"${group_id}": "${input_content}"`;
-                    
+                    if (group_id === 'page_display_name_1' || group_id === 'pfp_1') {
+                        output += `"${group_id}": "${input_content}"`;
+                    } else {
+                        output += `"${group_id}": "${input_content}"`;
+                    }
+        
                     // Add a comma and newline only if it's not the last group
                     if (index !== groups.length - 1) {
                         output += ',\n\n';
@@ -109,6 +119,7 @@ saveButton.addEventListener('click', function () {
                 }
             }
         });
+           
 
         // Remove the final comma if it exists
         output = output.replace(/,\n\n$/, '');

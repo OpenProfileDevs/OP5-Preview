@@ -238,17 +238,18 @@
                     `).join('');
         
                     authorDiv.innerHTML = `
-                    <div style="width: 200px; overflow: hidden;">
-                        <img src="${author.pfp}" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 16px; margin-top: 16px; cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">
-                        <p style="font-size: 32px; font-family: NotoSans-Bold; transform: translateY(-50px); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">${author.displayname ? author.displayname : author.username}</p><br>
-                        <p style="font-size: 16px; font-family: NotoSans-Medium; transform: translateY(-120px); cursor: pointer;" onclick="window.location.href='https://preview.openprofile.app/author/${author.username}'">@${author.username}</p>
-                        <div style="display: inline-flex; align-items: center; justify-items: center; transform: translate(-2px, -135px); overflow-x: auto;">
-                            ${badgesHTML}
+                        <div style="width: 200px; overflow: hidden;">
+                            <img src="${author.pfp}" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 16px; margin-top: 16px; cursor: pointer;" onclick="window.location.href=\`\${window.location.origin}/author/${author.username}\`">
+                            <p style="font-size: 32px; font-family: NotoSans-Bold; transform: translateY(-50px); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" onclick="window.location.href=\`\${window.location.origin}/author/${author.username}\`">${author.displayname ? author.displayname : author.username}</p><br>
+                            <p style="font-size: 16px; font-family: NotoSans-Medium; transform: translateY(-120px); cursor: pointer;" onclick="window.location.href=\`\${window.location.origin}/author/${author.username}\`">@${author.username}</p>
+                            <div style="display: inline-flex; align-items: center; justify-items: center; transform: translate(-2px, -135px); overflow-x: auto;">
+                                ${badgesHTML}
+                            </div>
+                            <div style="position: absolute; top: -5px; left: 6px;">${profileADMIN}</div>
+                            <p style="position: absolute; font-size: 16px; font-family: NotoSans-Medium; bottom: -4px; left: 50%; transform: translateX(-50%); width: 200px; text-align: center;">Joined on ${fullVisualDate}</p>
                         </div>
-                        <div style="position: absolute; top: -5px; left: 6px;">${profileADMIN}</div>
-                        <p style="position: absolute; font-size: 16px; font-family: NotoSans-Medium; bottom: -4px; left: 50%; transform: translateX(-50%); width: 200px; text-align: center;">Joined on ${fullVisualDate}</p>
-                    </div>
-                `;
+                    `;
+
         
                     authorsInfo.appendChild(authorDiv);
                 });
