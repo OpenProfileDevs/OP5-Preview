@@ -36,30 +36,29 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
         page_loader.innerHTML += `<div class="page" id="page_${p_number}" style="z-index: ${current_index}; top: 0px;">
         <div class="row" style="z-index: 9999; top: 12px;">
             <!--————————————————————————————————————————————————————————-->
-            <!--———————————————————[ PAGE-display_name-${p_number} ]————————————————————-->
+            <!--———————————————————[ PAGE-AUTHOR-${p_number} ]————————————————————-->
             <!--————————————————————————————————————————————————————————-->
-            <div class="group" id="page_display_name_${p_number}_group" style="left: 0px; width: 352px;">
-                <div class="label_tab" id="page_display_name_label_tab">Display Name
-                    <div class="status_box" id="page_display_name_${p_number}_status" style="display: none;">STATUS_TEXT
+            <div class="group" id="page_author_${p_number}_group" style="left: 0px; width: 352px;">
+                <div class="label_tab" id="page_author_label_tab">Page Author
+                    <div class="status_box" id="page_author_${p_number}_status" style="display: none;">STATUS_TEXT
                         <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                     </div>
                 </div>
-                <div><input type="text" class="input_1" id="page_display_name_${p_number}" autocomplete="off" autocorrect="off" placeholder="What is the character's display name?"></div>
-                <div class="help_box" id="page_display_name_help_box" style="width: calc(328px + 8px);">What is the character's display name? This will be shown in the profile list.</div>
-                <div class="input_dot" id="page_display_name_${p_number}_verified" style="display: none;">
-                    <a id="page_display_name_${p_number}_verified_source" href="https://www.example.com" target="_blank" tabindex="-1">
+                <div><input type="text" readonly class="input_1" id="page_author_${p_number}" autocomplete="off" autocorrect="off" placeholder="Who is the page's author?"></div>
+                <div class="input_dot" id="page_author_${p_number}_verified" style="display: none;">
+                    <a id="page_author_${p_number}_verified_source" href="https://www.example.com" target="_blank" tabindex="-1">
                     <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div></a>
                 </div>
-                <div class="input_dot" id="page_display_name_${p_number}_generated" style="display: none;">
+                <div class="input_dot" id="page_author_${p_number}_generated" style="display: none;">
                     <img src="/media/icons/feather_icons/database.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px;">Generated</div>
                 </div>
-                <div class="input_dot" id="page_display_name_${p_number}_locked" style="display: none; top: 54px;">
+                <div class="input_dot" id="page_author_${p_number}_locked" style="display: none; top: 54px;">
                     <img src="/media/icons/feather_icons/lock.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: 42px; left: -6px;">Locked</div>
                 </div>
-                <div class="input_dot" id="page_display_name_${p_number}_history" style="display: none; top: 54px;">
+                <div class="input_dot" id="page_author_${p_number}_history" style="display: none; top: 54px;">
                     <img src="/media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
                 </div>
@@ -68,7 +67,7 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
             <!--—————————————————————[ BRAND-ICON ]—————————————————————-->
             <!--————————————————————————————————————————————————————————-->
             <div class="group" id="brand_icon_group" style="top: -18px; left: 376px;" title="Brand Banner">
-                <div><input id="brand_icon_media_input" type="file" accept="image/*,video/*" style="display: none; height: 96px; width: calc(328px + 24px);">
+                <div><input readonly id="brand_icon_media_input" type="file" accept="image/*,video/*" style="display: none; height: 96px; width: calc(328px + 24px);">
                     <label for="brand_icon_media_input">
                         <div class="image_input_2" id="brand_icon_container" style="width: calc(328px + 24px); height: 96px; border-radius: 12px;">
                             <img class="brand_icon_selected_image" id="brand_icon_selected_image" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%; opacity: 0.35; cursor: pointer; z-index: 30;" src="/media/icons/feather_icons/plus.svg">
@@ -82,27 +81,26 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
             <!--————————————————————————————————————————————————————————-->
             <!--———————————————————[ WRITTEN-DATE-${p_number} ]———————————————————-->
             <!--————————————————————————————————————————————————————————-->
-            <div class="group" id="pfp_${p_number}_group" style="left: 752px;">
-                <div class="label_tab" id="pfp_label_tab">Picture Link
-                    <div class="status_box" id="pfp_${p_number}_status" style="display: none;">STATUS_TEXT
+            <div class="group" id="written_date_${p_number}_group" style="left: 752px;">
+                <div class="label_tab" id="written_date_label_tab">Created on OpenProfile
+                    <div class="status_box" id="written_date_${p_number}_status" style="display: none;">STATUS_TEXT
                         <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                     </div>
                 </div>
-                <div><input type="text" class="input_1" id="pfp_${p_number}" autocomplete="off" autocorrect="off" placeholder="What does the character looks like?"></div>
-                <div class="help_box" id="pfp_help_box" style="width: calc(328px + 8px);">Include a direct picture link to represent the character. This will be shown in the profile list.</div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none;">
+                <div><input type="text" readonly class="input_1" id="written_date_${p_number}" autocomplete="off" autocorrect="off" placeholder="When was this page written?"></div>
+                <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none;">
                     <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
                 </div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none;">
+                <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none;">
                     <img src="/media/icons/feather_icons/database.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px;">Generated</div>
                 </div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none; top: 54px;">
+                <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none; top: 54px;">
                     <img src="/media/icons/feather_icons/lock.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: 42px; left: -6px;">Locked</div>
                 </div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none; top: 54px;">
+                <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none; top: 54px;">
                     <img src="/media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                     <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
                 </div>
@@ -158,8 +156,7 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
                                     <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                                 </div>
                             </div>
-                            <div><input type="text" class="input_1" id="${id}" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></div>
-                            <div class="help_box" id="${id}_help_box" style="width: calc(328px + 8px);">${help}</div>
+                            <div><input type="text" readonly class="input_1" id="${id}" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></div>
                             <div class="input_dot" id="${id}_input_dot" style="display: none;">
                                 <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                                 <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
@@ -186,8 +183,7 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
                                     <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                                 </div>
                             </div>
-                            <div><input type="text" class="input_1" id="${id}" style="width: 704px;" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></div>
-                            <div class="help_box" id="${id}_help_box" style="width: calc(704px + 8px);">${help}</div>
+                            <div><input type="text" readonly class="input_1" id="${id}" style="width: 704px;" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></div>
                             <div class="input_dot" id="${id}_input_dot" style="display: none;">
                                 <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                                 <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
@@ -214,8 +210,7 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
                                         <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                                     </div>
                                 </div>
-                                <div><input type="text" class="input_1" id="${id}" style="width: 1080px;" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></div>
-                                <div class="help_box" id="${id}_help_box" style="width: calc(1080px + 8px);">${help}</div>
+                                <div><input type="text" readonly class="input_1" id="${id}" style="width: 1080px;" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></div>
                                 <div class="input_dot" id="${id}_input_dot" style="display: none;">
                                     <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                                     <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
@@ -242,8 +237,7 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
                                             <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                                         </div>
                                     </div>
-                                    <div><textarea type="text" id="${id}" style="width: 1080px; height: 300px" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></textarea></div>
-                                    <div class="help_box" id="${id}_help_box" style="width: calc(1080px + 8px); top: 303px">${help}</div>
+                                    <div><textarea type="text" readonly id="${id}" style="width: 1080px; height: 300px" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></textarea></div>
                                     <div class="input_dot" id="${id}_input_dot" style="display: none;">
                                         <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                                         <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
@@ -270,8 +264,7 @@ alert('Profile pages are bugged and only fully load about 80% of the time. If no
                                             <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                                         </div>
                                     </div>
-                                    <div><textarea type="text" id="${id}" style="width: 1080px; height: 550px" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></textarea></div>
-                                    <div class="help_box" id="${id}_help_box" style="width: calc(1080px + 8px); top: 553px">${help}</div>
+                                    <div><textarea type="text" readonly id="${id}" style="width: 1080px; height: 550px" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></textarea></div>
                                     <div class="input_dot" id="${id}_input_dot" style="display: none;">
                                         <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                                         <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>

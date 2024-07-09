@@ -165,7 +165,8 @@ async function loginUser() {
             const storedUsername = localStorage.getItem('username');
 
             // Redirect to a new page or perform any other actions for a successful login
-            window.location.href = `/author/${storedUsername}`; // Redirect to the author's page
+            //window.location.href = `/author/${storedUsername}`; // Redirect to the author's page
+            closeloginpopup()
 
             // Set the user label
             label_top_account.textContent = storedUsername;
@@ -176,8 +177,10 @@ async function loginUser() {
             // You can perform further actions with the user data here
         } else {
             // If login fails, display an error message
-            if (response.status === 401 && responseData.message === 'Please verify your email within 24 hours') {
+            if (response.status === 401 && responseData.message === 'Please verify your email within 24 hours.') {
                 alert('Please verify your email within 24 hours.');
+            } if (response.status === 402 && responseData.message === 'You have been banned. If you believe this was a mistake, email "support@openprofile.app".') {
+                alert('You have been banned. If you believe this was a mistake, email "support@openprofile.app".');
             } else {
                 alert('Login failed. Please check your email and password.');
             }
@@ -185,7 +188,7 @@ async function loginUser() {
     } catch (error) {
         console.error('Error:', error);
         // Handle any errors that occur during the login process
-        alert('An error occurred during login. Please try again later.');
+        alert('You are logged in!');
     }
 }
 

@@ -1,8 +1,8 @@
-// Function to load user data when logged in
+// Function to load user data when logged in or public
 function loadUserData(userData) {
-    // Extract username from current URL
     const urlprofile = window.location.pathname.split('/').pop();
 
+    // Fetch user profile data
     fetch(`/data/author/${urlprofile}.json`)
         .then(response => {
             if (!response.ok) {
@@ -11,95 +11,189 @@ function loadUserData(userData) {
             return response.json();
         })
         .then(data => {
+            // Check if the user is banned
+            if (data.banned) {
+                console.log('User is banned');
+                return; // Return early if banned
+            }
+
             // Update profile information
-            const profileInfo = document.getElementById('profile_info');
-            document.title = `OpenProfile 5 - ${data.username}`;
-            document.querySelector('meta[property="og:title"]').setAttribute('content', `OpenProfile 5 - ${data.username}`);
-
-            // Format join date
-            const joinDate = new Date(data.todayDate);
-            const formattedJoinDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
-            profileInfo.innerHTML = `
-                <img src="/media/images/openprofile/openprofile_logo_512_jpeg.jpeg" style="width: 128px; height: 128px; border-radius: 50%;"><br>
-                <div style="display: inline-flex; align-items: center; justify-items: center; transform: translate(0px, -50px)">
-                    <p id="author_profile_displayname" style="font-size: 48px; font-family: NotoSans-Bold;">${data.displayname ? data.displayname : data.username}</p>
-                    <img id="moderator_badge" src="/media/icons/feather_icons/shield.svg" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; background-color: #cf1516; margin-top: 10px; margin-left: 10px;">
-                    <img id="contributor_badge" src="/media/icons/feather_icons/toggle-right.svg" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; background-color: #2b4eda; margin-top: 10px; margin-left: 10px;">
-                    <img id="verified_badge" src="/media/icons/feather_icons/check.svg" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; background-color: #cf1516; margin-top: 10px; margin-left: 10px;">
-                    <img id="promoted_badge" src="/media/icons/feather_icons/arrow-up.svg" style="width: 36px; height: 36px; padding: 4px; border-radius: 50%; background-color: #cfa715; margin-top: 10px; margin-left: 10px;">
-                    <img id="premium_badge" src="/media/icons/feather_icons/openprofile_logo_not_feather_icons.svg" style="width: 36px; height: 36px; padding: 4px; border-radius: 50%; background-color: #cfa715; margin-top: 10px; margin-left: 10px;">
-                </div>
-                <p id="profile_username" style="display: relative; font-size: 24px; font-family: NotoSans-Medium; margin-bottom: 60px; transform: translate(0px, -120px)">@${data.username}</p>
-                <p style="display: relative; font-size: 24px; font-family: NotoSans-Medium;">Joined ${formattedJoinDate}</p>
-            `;
-
-            // Get references to the images
-            const moderator_badge = document.getElementById('moderator_badge');
-            const verified_badge = document.getElementById('verified_badge');
-            const premium_badge = document.getElementById('premium_badge');
-            const contributor_badge = document.getElementById('contributor_badge');
-            const promoted_badge = document.getElementById('promoted_badge');
-
-            // Conditionally show or hide the icons based on certain conditions
-            if (data.moderator == true) {
-                moderator_badge.style.display = 'block';
-            } else {
-                moderator_badge.style.display = 'none';
-            }
-
-            if (data.verified == true) {
-                verified_badge.style.display = 'block';
-            } else {
-                verified_badge.style.display = 'none';
-            }
-
-            if (data.premium == true) {
-                premium_badge.style.display = 'block';
-            } else {
-                premium_badge.style.display = 'none';
-            }
-
-            if (data.contributor == true) {
-                contributor_badge.style.display = 'block';
-            } else {
-                contributor_badge.style.display = 'none';
-            }
-
-            if (data.promoted == true) {
-                promoted_badge.style.display = 'block';
-            } else {
-                promoted_badge.style.display = 'none';
-            }
+            updateProfileInfo(data, userData);
 
             // Check if the user is viewing their own profile
             if (userData && userData.username === urlprofile) {
                 createEditProfileButton(data);
             }
 
+            // Fetch profiles for the specified author
+            fetchProfiles(urlprofile);
         })
-        .catch(error => console.error('Error fetching JSON:', error));
+        .catch(error => console.error('Error fetching user data:', error));
+}
+
+// Function to update profile information
+function updateProfileInfo(data, userData) {
+    
+    const profileInfo = document.getElementById('profile_info');
+    const joinDate = new Date(data.todayDate);
+    const formattedJoinDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    profileInfo.innerHTML = `
+        <img src="${data.pfp}" style="width: 128px; height: 128px; border-radius: 50%;"><br>
+        <div style="display: inline-flex; align-items: center; justify-items: center; transform: translate(0px, -50px)">
+            <p id="author_profile_displayname" style="font-size: 48px; font-family: NotoSans-Bold;">${data.displayname ? data.displayname : data.username}</p>
+            ${renderBadge(data.moderator, 'shield.svg', '#cf1516')}
+            ${renderBadge(data.contributor, 'toggle-right.svg', '#2b4eda')}
+            ${renderBadge(data.verified, 'check.svg', '#cf1516')}
+            ${renderBadge(data.premium, 'openprofile_logo_not_feather_icons.svg', '#cfa715')}
+            ${renderBadge(data.early, 'bold.svg', '#7b15cf')}
+            
+        </div>
+        <p id="profile_username" style="display: relative; font-size: 24px; font-family: NotoSans-Medium; margin-bottom: 60px; transform: translate(0px, -120px)">@${data.username}</p>
+        <p id="profile_names" style="display: relative; font-size: 24px; font-family: NotoSans-Medium; margin-bottom: 60px; transform: translate(0px, -160px)">Characters: </p>
+        <p style="display: relative; font-size: 24px; font-family: NotoSans-Medium;">Joined ${formattedJoinDate}</p>
+    `;
+
+    function renderBadge(condition, icon, color) {
+        return condition ? `<img src="/media/icons/feather_icons/${icon}" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; background-color: ${color}; margin-top: 10px; margin-left: 10px;">` : '';
+    }
+}
+
+// Function to fetch and display profiles
+function fetchProfiles(urlprofile) {
+    fetch(`/profiles-fetch-author/${urlprofile}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch profiles');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const profileNamesElement = document.getElementById('profile_names');
+            const profiles = data.profiles;
+
+            console.log(`Total matching profiles: ${data.totalMatchingProfiles}`);
+
+            profiles.forEach((profile, index) => {
+                const profileLink = document.createElement('a');
+                profileLink.href = `https://preview.openprofile.app/profile/${profile.url}`;
+                profileLink.textContent = profile.displayname;
+                profileLink.target = "_blank";
+                profileNamesElement.appendChild(profileLink);
+
+                if (index !== profiles.length - 1) {
+                    profileNamesElement.appendChild(document.createTextNode(', '));
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching profiles:', error));
+}
+
+// Function to create edit profile button
+function createEditProfileButton(data) {
+    const button = document.createElement('button');
+    button.id = 'edit_user_data_profile';
+    button.textContent = 'Edit Profile';
+    button.style.top = '-230px';
+    const profileInfo = document.getElementById('profile_info');
+    profileInfo.appendChild(button);
+
+    button.addEventListener('click', () => {
+        let newDataValue = prompt('Enter your new display name:');
+        let pfpurl = prompt('Enter the URL of your new profile picture (leave blank for none):');
+
+        // Validate URLs and handle user input
+        validateAndUpdate(data, newDataValue, pfpurl);
+    });
+}
+
+// Validate user input and update profile
+function validateAndUpdate(data, newDataValue, pfpurl) {
+    const urlPattern = new RegExp('^(https?:\\/\\/)?((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d_]*)?$', 'i');
+    
+    if (!pfpurl) {
+        pfpurl = "/media/images/openprofile/openprofile_logo_512_jpeg.jpeg";
+    }
+
+    if (pfpurl !== "/media/images/openprofile/openprofile_logo_512_jpeg.jpeg" && !urlPattern.test(pfpurl)) {
+        alert("That's not a valid URL.");
+        return;
+    }
+
+    // Additional validation, such as blacklisted words
+    fetch('/blacklist.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch blacklist');
+            }
+            return response.text();
+        })
+        .then(blacklist => {
+            const blacklistArray = blacklist.split(',').map(word => word.trim().toLowerCase());
+
+            if (containsBlacklistedWord(newDataValue, blacklistArray)) {
+                alert('Usernames must be community friendly.');
+                return;
+            }
+
+            const combinedData = {
+                editData: {
+                    filePath: data.username,
+                    dataName: 'displayname',
+                    dataValue: newDataValue,
+                },
+                editData2: {
+                    filePath: data.username,
+                    dataName: 'pfp',
+                    dataValue: pfpurl,
+                },
+            };
+
+            fetch('/edit-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(combinedData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to edit data');
+                }
+                return response.json();
+            })
+            .then(responseData => {
+                console.log('Edit successful:', responseData);
+                alert('Profile updated successfully.');
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Error editing data:', error);
+                alert('Failed to update profile. Please try again later.');
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching blacklist:', error);
+            alert('Failed to fetch blacklist. Please try again later.');
+        });
+}
+
+// Check if newDataValue contains blacklisted words
+function containsBlacklistedWord(newDataValue, blacklist) {
+    const lowerCaseValue = newDataValue.trim().toLowerCase();
+    return blacklist.some(word => lowerCaseValue.includes(word));
 }
 
 // Call the function when the page loads
-window.onload = function() {
-    // Check if the user is logged in and load user data accordingly
+window.onload = function () {
     fetch('/check-login')
         .then(response => response.json())
         .then(data => {
+            const account = document.getElementById('label_top_account');
             if (data.loggedIn) {
-                // Access userData if available and use it
-                const userData = data.userData;
-                if (userData) {
-                    // Do something with userData, for example:
-                    console.log('User Data:', userData);
-                }
-                const account = document.getElementById('label_top_account');
-                account.textContent = `Logged in with @${userData.username}`;
-                // Call loadUserData when logged in
-                loadUserData(userData);
+                account.textContent = `Logged in with @${data.userData.username}`;
+                loadUserData(data.userData);
             } else {
-                // If not logged in, load public user data
                 loadUserDataPublic();
             }
         })
@@ -110,9 +204,7 @@ window.onload = function() {
 
 // Function to load public user data
 function loadUserDataPublic() {
-    // Extract username from current URL
     const urlprofile = window.location.pathname.split('/').pop();
-
     fetch(`/data/author/${urlprofile}.json`)
         .then(response => {
             if (!response.ok) {
@@ -120,111 +212,9 @@ function loadUserDataPublic() {
             }
             return response.json();
         })
-        .then(data => {
-            // Update profile information
-            const profileInfo = document.getElementById('profile_info');
-            document.title = `OpenProfile 5 - ${data.username}`;
-            document.querySelector('meta[property="og:title"]').setAttribute('content', `OpenProfile 5 - ${data.username}`);
-
-            // Format join date
-            const joinDate = new Date(data.todayDate);
-            const formattedJoinDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
-            profileInfo.innerHTML = `
-            <img src="/media/images/openprofile/openprofile_logo_512_jpeg.jpeg" style="width: 128px; height: 128px; border-radius: 50%;"><br>
-            <div style="display: inline-flex; align-items: center; justify-items: center; transform: translate(0px, -50px)">
-                <p id="author_profile_displayname" style="font-size: 48px; font-family: NotoSans-Bold;">${data.displayname ? data.displayname : data.username}</p>
-                <img id="moderator_badge" src="/media/icons/feather_icons/shield.svg" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; background-color: #cf1516; margin-top: 10px; margin-left: 10px;">
-                <img id="contributor_badge" src="/media/icons/feather_icons/toggle-right.svg" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; background-color: #2b4eda; margin-top: 10px; margin-left: 10px;">
-                <img id="verified_badge" src="/media/icons/feather_icons/check.svg" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; background-color: #cf1516; margin-top: 10px; margin-left: 10px;">
-                <img id="premium_badge" src="/media/icons/feather_icons/openprofile_logo_not_feather_icons.svg" style="width: 36px; height: 36px; padding: 4px; border-radius: 50%; background-color: #cfa715; margin-top: 10px; margin-left: 10px;">
-            </div>
-            <p id="profile_username" style="display: relative; font-size: 24px; font-family: NotoSans-Medium; margin-bottom: 60px; transform: translate(0px, -120px)">@${data.username}</p>
-            <p style="display: relative; font-size: 24px; font-family: NotoSans-Medium;">Joined ${formattedJoinDate}</p>
-            `;
-
-            // Get references to the images
-            const moderator_badge = document.getElementById('moderator_badge');
-            const verified_badge = document.getElementById('verified_badge');
-            const premium_badge = document.getElementById('premium_badge');
-            const contributor_badge = document.getElementById('contributor_badge');
-
-            // Conditionally show or hide the icons based on certain conditions
-            if (data.moderator == true) {
-                moderator_badge.style.display = 'block';
-            } else {
-                moderator_badge.style.display = 'none';
-            }
-
-            if (data.verified == true) {
-                verified_badge.style.display = 'block';
-            } else {
-                verified_badge.style.display = 'none';
-            }
-
-            if (data.premium == true) {
-                premium_badge.style.display = 'block';
-            } else {
-                premium_badge.style.display = 'none';
-            }
-
-            if (data.contributor == true) {
-                contributor_badge.style.display = 'block';
-            } else {
-                contributor_badge.style.display = 'none';
-            }
-
+        .then(userData => {
+            updateProfileInfo(userData, null);
+            fetchProfiles(urlprofile);
         })
-        .catch(error => console.error('Error fetching JSON:', error));
-}
-
-// Function to create the edit profile button
-function createEditProfileButton(data) {
-    // Create the edit profile button
-    const button = document.createElement('button');
-    button.id = 'edit_user_data_profile';
-    button.textContent = 'Edit Profile';
-    button.style.top = '-230px'
-    // Append the button to the profile_info div
-    const profileInfo = document.getElementById('profile_info');
-    profileInfo.appendChild(button);
-
-    // Add an event listener to the button
-    button.addEventListener('click', function() {
-        // Prompt for the new value
-        let newDataValue = prompt('Enter your new display name:');
-        if (newDataValue !== null && newDataValue.trim() !== '') {
-        // Example data for the edit
-        const editData = {
-                filePath: data.username,
-                dataName: 'displayname',
-                dataValue: newDataValue
-            };
-
-            // Send a POST request to the server
-            fetch('/edit-data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(editData)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to edit data');
-                }
-                return response.text();
-            })
-            .then(message => {
-                console.log(message); // Log success message
-            })
-            .catch(error => {
-                console.error('Error editing data:', error); // Log error message
-                alert('Failed to update data');
-            });
-            // Load in new data
-            const authorProfileDisplayName = document.getElementById('author_profile_displayname')
-            authorProfileDisplayName.textContent = newDataValue;
-        }
-    });
+        .catch(error => console.error('Error fetching public user data:', error));
 }

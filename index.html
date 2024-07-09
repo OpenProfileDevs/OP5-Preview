@@ -160,6 +160,37 @@
         <a class="top_button" id="premium_button" href="https://ko-fi.com/openprofile" target="_blank" style="background: #cfa715; border-radius: 25px; text-indent: 32px; margin-left: 192px;">Go Premium
             <img src="/media/icons/openprofile_logo.svg" style="position: absolute; left: 0px; height: 28px; transform-origin: top left; margin: 2px;">
         </a>
+        <a class="top_button" href="https://preview.openprofile.app/authors" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Authors</a>
+        <a class="top_button" href="https://preview.openprofile.app/profiles" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Profiles</a>
+        <div class="top_button" id="uniqueID" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff"></div>
+        <!--WARNING: PROFILE SAVES CURRENTLY OPERATES LOCALLY VIA ID FETCHING. MODIFYING OR TEMPERING WITH YOUR PROFILE'S ID RISKS DAMAGING YOUR PROFILES AND WILL GET YOUR ACCOUNT BANNED UNDER ATTEMPTS OF DAMAGING THE APPLICATION.-->
+        <script>
+            // Get the current URL path
+            const path = window.location.pathname;
+            
+            // Split the path by '/' and filter out empty segments
+            const segments = path.split('/').filter(segment => segment.trim() !== '');
+
+            // Check if segments array is empty
+            if (segments.length === 0) {
+                // Fetch the ID from the server if segments array is empty
+                fetch('/iduniqueload')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Use the ID in the response
+                        const uniqueID = document.getElementById('uniqueID');
+                        uniqueID.textContent = data.id;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching ID:', error);
+                    });
+            } else {
+                // Use the last segment of the URL path
+                const lastSegment = segments[segments.length - 1];
+                const uniqueID = document.getElementById('uniqueID');
+                uniqueID.textContent = lastSegment;
+            }
+          </script>
 
         <div class="control_button" id="app_close" style="background-color: #CE1616;">
             <img src="/media/icons/feather_icons/x.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
@@ -226,6 +257,10 @@
         </div>
         <div class="control_button" style="opacity: 0; pointer-events: none;">
         </div>
+        <div class="control_button" id="saveButtonServer">
+            <img class="icon" id="icon_save" src="/media/icons/feather_icons/globe.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top" id="saveButtonServerText">Save Online</div>
+        </div>
         <div class="control_button" id="saveButton">
             <img class="icon" id="icon_save" src="/media/icons/feather_icons/save.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
             <div class="label_top">Download Profile</div>
@@ -244,6 +279,34 @@
             <img class="icon" id="icon_account" src="/media/icons/feather_icons/upload.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
             <div class="label_top">Import Profile</div>
         </div>
+        <script>
+            // Call the function when the page loads
+window.onload = function() {
+    // Check if the user is logged in and load user data accordingly
+    fetch('/check-login')
+        .then(response => response.json())
+        .then(data => {
+            if (data.loggedIn) {
+                // Access userData if available and use it
+                const userData = data.userData;
+                if (userData) {
+                    // Do something with userData, for example:
+                    console.log('User Data:', userData);
+                }
+                const account = document.getElementById('label_top_account');
+                account.textContent = `Logged in with @${userData.username}`;
+            } else {
+                // If not logged in
+                const saveButtonServer = document.getElementById('saveButtonServer')
+                const saveButtonServerText = document.getElementById('saveButtonServerText')
+                saveButtonServer.id = '';
+            }
+        })
+        .catch(error => {
+            console.error('Error checking login status:', error);
+        });
+};
+        </script>
 
         <!--<div class="control_button" id="button_print" title="Print">
             <img class="icon" src="/media/icons/feather_icons/printer.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
@@ -728,11 +791,14 @@
     <script src="/scripts/switch_page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <script src="/scripts/save_load.js"></script> <!-- Needs to be very last to save and load properly -->
+    <script src="/scripts/save_profile_server.js"></script> <!-- Needs to be very last to save and load properly -->
     <script src="/scripts/id_generator.js"></script>
     <script src="/scripts/universe_manager.js"></script>
     <script src="/scripts/profile_manager.js"></script> <!-- Needs to be very last to save and load properly -->
+    <script src="/scripts/edit_profile_server.js"></script>
     <script src="/scripts/translate.js"></script>
     <script src="/scripts/quick_share.js"></script>
+    <script src="/scripts/load_profile.js"></script>
 
 
 <!--<button style="z-index: 500; position: absolute; top: 0; left: 0;" id="discord">Send Message to Discord</button>
