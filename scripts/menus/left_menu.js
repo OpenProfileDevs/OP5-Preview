@@ -11,22 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggle_left_menu_option = document.querySelector('#toggle_left_menu_option');
 
     toggle_left_menu.addEventListener('click', function () {
-        if (left_inner.style.display === 'none') {
-            left_inner.style.display = 'block';
+        if (left_inner.style.transform === "translateX(-432px)") {
             left_inner.style.transform = "translateX(96px)";
             center.style.left = "50%";
             left.style.borderRadius = "0px";
             toggle_left_menu_option.option = "option_1";
-            toggle_left_menu_option.textContent = "Hide Menu"; // TEMP ONLY
+            toggle_left_menu_option.textContent = "Hide Profiles"; // TEMP ONLY
         } else {
             left_inner.style.transform = "translateX(-432px)";
             center.style.left = "38.5%";
-            left.style.borderRadius = "0px 32px 0px 0px";
+            left.style.borderRadius = "0px 32px 32px 0px";
             toggle_left_menu_option.option = "option_2";
-            toggle_left_menu_option.textContent = "Show Menu"; // TEMP ONLY
-            setTimeout(function () {
-                left_inner.style.display = 'none';
-            }, 200);
+            toggle_left_menu_option.textContent = "Show Profiles"; // TEMP ONLY
         }
     });
 });
