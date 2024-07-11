@@ -120,7 +120,7 @@ function validateAndUpdate(data, newDataValue, pfpurl) {
         return;
     }
 
-    // Additional validation, such as blacklisted words
+    // Fetch the blacklist
     fetch('/blacklist.txt')
         .then(response => {
             if (!response.ok) {
@@ -131,11 +131,16 @@ function validateAndUpdate(data, newDataValue, pfpurl) {
         .then(blacklist => {
             const blacklistArray = blacklist.split(',').map(word => word.trim().toLowerCase());
 
-            if (containsBlacklistedWord(newDataValue, blacklistArray)) {
+            // Ensure newDataValue is lowercase for comparison
+            const lowerCaseValue = newDataValue.trim().toLowerCase();
+
+            // Check if the newDataValue exactly matches any blacklisted word
+            if (isBlacklisted(lowerCaseValue, blacklistArray)) {
                 alert('Usernames must be community friendly.');
                 return;
             }
 
+            // If no blacklisted words found, proceed with updating profile data
             const combinedData = {
                 editData: {
                     filePath: data.username,
@@ -178,10 +183,10 @@ function validateAndUpdate(data, newDataValue, pfpurl) {
         });
 }
 
-// Check if newDataValue contains blacklisted words
-function containsBlacklistedWord(newDataValue, blacklist) {
-    const lowerCaseValue = newDataValue.trim().toLowerCase();
-    return blacklist.some(word => lowerCaseValue.includes(word));
+// Check if newDataValue is blacklisted
+function isBlacklisted(newDataValue, blacklist) {
+    // Check if newDataValue exactly matches any blacklisted word
+    return blacklist.includes(newDataValue);
 }
 
 // Call the function when the page loads
