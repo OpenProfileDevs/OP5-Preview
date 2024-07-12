@@ -16,7 +16,7 @@
             .then(data => {
                 // Process the data as needed
                 createPage(data);
-                console.log(data);
+                //console.log(data);
             })
             .catch(error => console.error(`Error fetching JSON from ${filePath}:`, error));
         }
@@ -298,7 +298,6 @@
             inner_page_loader.appendChild(rowDiv);
         }
     }
-
 
     // Helper function to get nested values from a string key
     function getNestedValue(obj, key) {

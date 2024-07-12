@@ -8,6 +8,8 @@ function showBanner0() {
     const banner_0_text = document.getElementById('banner_0_text');
     const bannerClose = document.getElementById('banner_0_close');
     const storedText = localStorage.getItem('bannerText');
+    const changelog_popup = document.querySelector('.changelog_popup');    
+    const triangle = document.querySelector('.triangle');    
 
     if (!storedText || storedText !== banner_0_text.textContent) {
         banner_0.style.display = 'block';
@@ -16,8 +18,12 @@ function showBanner0() {
         right.style.transform = 'translateY(48px)';
         top.style.transform = 'translateY(48px)';
         center.style.transform = 'translate(-50%, 48px)';
+        changelog_popup.style.top = '120px';
+        triangle.style.top = '72px';
     } else {
         top.style.transform = 'translateY(0px)';
+        changelog_popup.style.top = '72px';
+        triangle.style.top = '24px';
     }
 
     // Handle the close button click event
@@ -33,6 +39,9 @@ function showBanner0() {
         center.style.transform = 'translate(-50%, 0px)';
         right.style.transform = 'translateY(0px)';
         top.style.transform = 'translateY(0px)';
+        changelog_popup.style.top = '72px';
+        triangle.style.top = '24px';
+
 
         setTimeout(() => {
             banner_0.style.display = 'none'; // Hide the banner after the transition

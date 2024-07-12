@@ -124,3 +124,6 @@ function onLoadAll() {
 }
 
 window.onload = onLoadAll;
+setTimeout(function() {
+    load_local_scheme()
+}, 1000);

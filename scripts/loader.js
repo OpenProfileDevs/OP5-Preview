@@ -13,7 +13,7 @@ function simulateAppLoading(speed) {
     const simulatePageLoad = () => {
         let progress = 0;
         const interval = 10; // Adjust the interval as needed (milliseconds)
-        const totalDuration = interval * 200; // Total loading time based on 100% progress
+        const totalDuration = interval * 100; // Total loading time based on 100% progress
 
         const updateProgress = () => {
             if (progress <= 100) {

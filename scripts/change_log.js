@@ -7,28 +7,27 @@
       const changelog = release.body;
       const name = release.name;
       const releaseDate = new Date(release.published_at);
-      // Only take the version ID
       const versionString = `${name}`;
       const releaseId = versionString.replace(/ Preview$/, '');
       const releaseLink = `https://github.com/OpenProfileApp/OP5-Preview/releases/tag/${releaseId}`;
 
       // Function to format the date as requested
-    function formatDate(date) {
-      const today = new Date();
-      const yesterday = new Date(today);
-      yesterday.setDate(yesterday.getDate() - 1);
-      
-      if (date.toDateString() === today.toDateString()) {
-          return `today`;
-      } else if (date.toDateString() === yesterday.toDateString()) {
-          return `yesterday`;
-      } else {
-          const day = date.getDate().toString().padStart(2, '0');
-          const month = (date.getMonth() + 1).toString().padStart(2, '0');
-          const year = date.getFullYear();
-          return `on ${month}/${day}/${year}`;
+      function formatDate(date) {
+        const today = new Date();
+        const yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate() - 1);
+        
+        if (date.toDateString() === today.toDateString()) {
+            return `today`;
+        } else if (date.toDateString() === yesterday.toDateString()) {
+            return `yesterday`;
+        } else {
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            return `on ${month}/${day}/${year}`;
+        }
       }
-  }
 
       const formattedDate = formatDate(releaseDate);
 
@@ -84,9 +83,21 @@
       const changelogName = document.getElementById('changelog_popup_version');
       const changelogTopVersion = document.getElementById('openprofile_version_text');
       changelogDiv.innerHTML = `${formattedHTML}`;
-      changelogName.innerHTML = `What's new in ${name}</a>?<br><div style="font-size: 16px; font-family: NotoSans-Regular;"> Released ${formattedDate}!</div>`;
-      changelogTopVersion.textContent = versionString
-      load_dynamic_elements_scheme();
+      changelogName.innerHTML = `What's new in ${name}?<br><div style="font-size: 16px; font-family: NotoSans-Regular;"> Released ${formattedDate}!</div>`;
+      changelogTopVersion.textContent = versionString;
+
+      // Check local storage for previous version
+      const storedVersion = localStorage.getItem('op5-preview-version');
+
+      if (storedVersion && storedVersion !== versionString) {
+        // Show a message or alert that a new version is available
+        alert(`A new version (${versionString}) is available!`);
+      }
+
+      // Save current version to local storage
+      localStorage.setItem('op5-preview-version', versionString);
+
+      load_dynamic_elements_scheme(); // Assuming this function handles any other dynamic elements
     } else {
       console.error('Error fetching latest release:', response.statusText);
     }

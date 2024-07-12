@@ -16,7 +16,7 @@
             .then(data => {
                 // Process the data as needed
                 createPage(data);
-                console.log(data);
+                //console.log(data);
             })
             .catch(error => console.error(`Error fetching JSON from ${filePath}:`, error));
         }

@@ -3,28 +3,28 @@
 /*/————————————————————————————————————————————————————————/*/
 @font-face {
   font-family: "NotoSans-Bold";
-  src: url("fonts/NotoSans-Bold.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Bold.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSans-Medium";
-  src: url("fonts/NotoSans-Medium.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Medium.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSans-Regular";
-  src: url("fonts/NotoSans-Regular.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSans-Italic";
-  src: url("fonts/NotoSans-Italic.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Light.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -1392,7 +1392,7 @@ textarea::-webkit-scrollbar-track {
 .top_button {
   position: relative;
   display: inline-flex;
-  background: #160202;
+  background: #390707;
   font-family: "NotoSans-Medium";
   font-size: 18px;
   color: #ffffff;
@@ -1425,7 +1425,7 @@ textarea::-webkit-scrollbar-track {
   width: 32px;
   height: 32px;
   margin-right: 8px;
-  background: #160202;
+  background: #390707;
   border-radius: 100px;
   transform-origin: center center;
   transition: 0.1s scale;
@@ -1488,7 +1488,7 @@ textarea::-webkit-scrollbar-track {
   width: 64px;
   height: 64px;
   border-radius: 16px;
-  background: #160202;
+  background: #390707;
   margin-bottom: 16px;
   transform-origin: center center;
   transition: 0.1s scale;

@@ -3,28 +3,28 @@
 /*/————————————————————————————————————————————————————————/*/
 @font-face {
   font-family: "NotoSans-Bold";
-  src: url("fonts/NotoSans-Bold.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Bold.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSans-Medium";
-  src: url("fonts/NotoSans-Medium.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Medium.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSans-Regular";
-  src: url("fonts/NotoSans-Regular.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSans-Italic";
-  src: url("fonts/NotoSans-Italic.ttf") format("truetype");
+  src: url("fonts/static/Alexandria-Light.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -1391,7 +1391,7 @@ textarea::-webkit-scrollbar-track {
 .top_button {
   position: relative;
   display: inline-flex;
-  background: #160202;
+  background: #390707;
   font-family: "NotoSans-Medium";
   font-size: 18px;
   color: #ffffff;
@@ -1424,7 +1424,7 @@ textarea::-webkit-scrollbar-track {
   width: 32px;
   height: 32px;
   margin-right: 8px;
-  background: #160202;
+  background: #390707;
   border-radius: 100px;
   transform-origin: center center;
   transition: 0.1s scale;
@@ -1487,7 +1487,7 @@ textarea::-webkit-scrollbar-track {
   width: 64px;
   height: 64px;
   border-radius: 16px;
-  background: #160202;
+  background: #390707;
   margin-bottom: 16px;
   transform-origin: center center;
   transition: 0.1s scale;
@@ -1793,14 +1793,14 @@ textarea::-webkit-scrollbar-track {
   position: fixed;
   grid-template-columns: repeat(3, 1fr);
   top: 72px;
-  right: 134px;
+  right: 16px;
   min-height: 112px;
   height: fit-content;
   max-height: 338px;
   width: 490px;
   font-size: 20px;
   opacity: 1;
-  border-radius: 32px;
+  border-radius: 16px;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 12px;
@@ -2248,7 +2248,7 @@ textarea::-webkit-scrollbar-track {
   display: none;
   position: fixed;
   top: 72px;
-  right: 420px;
+  right: 300px;
   height: fit-content;
   max-height: 480px;
   width: 480px;
@@ -2266,6 +2266,7 @@ textarea::-webkit-scrollbar-track {
   overflow-y: auto;
   box-shadow: 0px 0px 1px 0px #00000020;
   z-index: 4999;
+  transition: top 0.1s;
 }
 
 .triangle {
@@ -2276,4 +2277,5 @@ textarea::-webkit-scrollbar-track {
   border-right: 40px solid transparent;
   border-top: 100px solid #CE1616;
   border-radius: 12px;
+  transition: top 0.1s;
 }

@@ -8,6 +8,7 @@ window.addEventListener('load', function () {
     //baseTag.href = currentDomain;
 
     handleUserJoinProfile();
+    simulateAppLoading("100") // The number is to change speed, put 500 for dev and 100 for release
     load_local_scheme()
     //updateElementsByTimeOfYear();
     translateSpecificElements(selectedLanguage); // Use config language later
@@ -123,3 +124,6 @@ function onLoadAll() {
 }
 
 window.onload = onLoadAll;
+setTimeout(function() {
+    load_local_scheme()
+}, 1000);

@@ -274,23 +274,11 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const a = document.querySelectorAll('a');
     const li = document.querySelectorAll('.menu li');
     const schemes_layer = document.querySelector('.schemes_layer');
-    const loader_outer = document.querySelector('.loader_outer');
-    const loader_inner = document.querySelector('.loader_inner');
-    const loader_inner_color = document.querySelector('.loader_inner_color');
     const loading_image = document.querySelector('#loading_image')
     const loading_message = document.querySelectorAll('.loading_message');
-    const loader_social_button = document.querySelectorAll('.loader_social_button')
     const icon = document.querySelectorAll('.icon')
     const banner = document.querySelectorAll('.banner')
     const top = document.querySelector('.top');
-    const left = document.querySelector('.left');
-    const left_inner = document.querySelector('.left_inner');
-    const left_top_list = document.querySelector('.left_top_list');
-    const right = document.querySelector('.right');
-    const right_bottom = document.querySelector('.right_bottom');
-    const bottom = document.querySelector('.bottom');
-    const input_search = document.querySelectorAll('.input_search');
-    const menu = document.querySelectorAll('.menu');
     const changelog_popup = document.querySelectorAll('.changelog_popup');
     const side_button = document.querySelectorAll('.side_button');
     const top_button = document.querySelectorAll('.top_button');
@@ -311,7 +299,6 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const help_box = document.querySelectorAll('.help_box');
     const triangle = document.querySelectorAll('.triangle')
     const label_top = document.querySelectorAll('.label_top')
-    const label_tab = document.querySelectorAll('.label_tab')
     const label_bottom = document.querySelectorAll('.label_bottom')
     const side_lower_button = document.querySelectorAll('.side_lower_button')
     const textarea = document.querySelectorAll('textarea')
@@ -319,6 +306,8 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const openprofile_title_text = document.querySelector('#openprofile_title_text')
     const openprofile_version_text = document.querySelector('#openprofile_version_text')
     const openprofile_title_logo = document.querySelector('#openprofile_title_logo')
+    const profile_info = document.querySelector('.profile_info')
+
     //const popup_prompt = document.querySelector('.popup_prompt');
     
     //————————————————————————————————————————————————————————//
@@ -335,22 +324,6 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 
     a.forEach((a) => {
         a.style.color = scheme_accent;
-    });
-
-    // Sets the scheme of the loader elements.
-    loader_outer.style.backgroundColor = scheme_shade_1;
-    loader_inner.style.border = `8px solid ${scheme_text}`;
-    loader_inner_color.style.backgroundColor = scheme_text;
-
-
-    loader_social_button.forEach((loader_social_button) => {
-        loader_social_button.style.backgroundColor = scheme_shade_2;
-        loader_social_button.addEventListener('mouseover', () => {
-            loader_social_button.style.backgroundColor = scheme_accent;
-        });
-        loader_social_button.addEventListener('mouseout', () => {
-            loader_social_button.style.backgroundColor = scheme_shade_2;
-        });
     });
 
     // Checks if the text color is closer to white or black
@@ -411,36 +384,6 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 
     // Sets the scheme of the main elements.
     top.style.backgroundColor = scheme_shade_2;
-    left.style.backgroundColor = scheme_shade_2;
-    left_inner.style.backgroundColor = scheme_shade_2;
-    left_top_list.style.backgroundColor = scheme_shade_2;
-    right.style.backgroundColor = scheme_shade_2;
-    right_bottom.style.backgroundColor = scheme_shade_2;
-    bottom.style.backgroundColor = scheme_shade_2;
-
-    // Sets the scheme of the input elements.
-    input_search.forEach((input_search) => {
-        input_search.style.backgroundColor = scheme_shade_1;
-        input_search.addEventListener('mouseover', () => {
-            input_search.style.backgroundColor = scheme_shade_1;
-        });
-        input_search.addEventListener('mouseout', () => {
-            if (!input_search.matches(':focus')) {
-                input_search.style.backgroundColor = scheme_shade_1;
-            }
-        });
-        input_search.addEventListener('focus', () => {
-            input_search.style.backgroundColor = scheme_shade_1;
-        });
-        input_search.addEventListener('blur', () => {
-            input_search.style.backgroundColor = scheme_shade_1;
-        });
-    });
-
-    // Sets the scheme of the menu elements.
-    menu.forEach((menu) => {
-        menu.style.backgroundColor = scheme_accent;
-    });
 
     // Sets the scheme of the banner elements.
     banner.forEach((banner) => {
@@ -455,10 +398,6 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     // Sets the scheme of the pop-up elements.
     triangle.forEach((triangle) => {
         triangle.style.borderTop = `100px solid ${scheme_accent}`;
-    });
-
-    label_tab.forEach((label_tab) => {
-        label_tab.style.color = scheme_text;
     });
 
     side_button.forEach((side_button) => {
@@ -514,6 +453,9 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     modify_button.forEach((modify_button) => {
         modify_button.style.backgroundColor = scheme_accent;
     });
+
+    profile_info.style.backgroundColor = scheme_shade_2;
+    profile_info.style.color = scheme_text;
 
     // Sets the scheme of the scheme manager elements.
     schemes_manager.style.backgroundColor = scheme_accent;
@@ -578,11 +520,9 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     });
     input_1.forEach((input_1) => {
         input_1.style.backgroundColor = scheme_shade_1;
-        input_1.style.color = scheme_text;
     });
     textarea.forEach((textarea) => {
         textarea.style.backgroundColor = scheme_shade_1;
-        textarea.style.color = scheme_text;
     });
     help_box.forEach((help_box) => {
         help_box.style.backgroundColor = scheme_accent;
