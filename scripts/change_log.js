@@ -91,7 +91,7 @@
 
       if (storedVersion && storedVersion !== versionString) {
         // Show a message or alert that a new version is available
-        alert(`A new version (${versionString}) is available!`);
+        //alert(`A new version (${versionString}) is available!`);
       }
 
       // Save current version to local storage

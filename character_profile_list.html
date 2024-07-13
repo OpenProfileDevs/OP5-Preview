@@ -28,7 +28,7 @@
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ STYLESHEETS ]—————————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <link rel="stylesheet" type="text/css" href="/author_profile_desktop.css">
+    <link rel="stylesheet" type="text/css" href="/profile_list_desktop.css">
     <!--<link rel="stylesheet" type="text/css" href="mobile_styles.css">-->
     <!--<link rel="stylesheet" type="text/css" media="print" href="print_styles.css">-->
 </head>
@@ -210,7 +210,12 @@
                     const fullVisualDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         
                     const authorDiv = document.createElement('div');
-                    authorDiv.classList.add('author_card');
+                    authorDiv.classList.add('author-card');
+                    authorDiv.style.backgroundImage = `url('${author.pfp_1}')`;
+                    authorDiv.onclick = function() {
+                        window.location.href = `${window.location.origin}/profile/${author.url}`;
+                    };
+
 
                     const badges = [];
                     if (author.verified) badges.push({ src: '/media/icons/feather_icons/check.svg', backgroundColor: '#cf1516', scale: '0.8' });
@@ -231,19 +236,17 @@
                     const profileADMIN = admin.map(admin => `
                         <img class="admin-icon" id="${admin.id}" src="${admin.src}" style="width: 28px; height: 28px; padding: 8px; border-radius: 50%; margin-top: 10px; margin-left: 4px; transform: scale(${admin.scale}); cursor: pointer;">
                     `).join('');
-        
+
                     authorDiv.innerHTML = `
-                    <div style="width: 200px; overflow: hidden;">
-                        <img src="${author.pfp_1}" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 48px; margin-top: 8px; cursor: pointer; object-fit: cover; display: block; margin-left: auto; margin-right: auto;" onclick="window.location.href=\`\${window.location.origin}/profile/${author.url}\`">                        
-                        <p style="font-size: 32px; font-family: NotoSans-Bold; transform: translateY(-50px); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" onclick="window.location.href=\`\${window.location.origin}/profile/${author.url}\`">${author.page_display_name_1 ? author.page_display_name_1 : author.url}</p><br>
-                        <p style="font-size: 9px; font-family: NotoSans-Medium; transform: translateY(-110px); cursor: pointer;" onclick="window.location.href=\`\${window.location.origin}/profile/${author.url}\`">openprofile.app/profile/${author.url}</p>
-                        <div style="display: inline-flex; align-items: center; justify-items: center; transform: translate(-2px, -128px); overflow-x: auto;">
-                            ${badgesHTML}
-                            ${profileADMIN}
-                        </div>
-                        <p style="font-size: 16px; font-family: NotoSans-Medium; transform: translateY(-145px); cursor: pointer;" onclick="window.location.href=\`\${window.location.origin}/author/${author.owner2}\`">By @${author.owner2}</p>
-                        <p style="position: absolute; font-size: 16px; font-family: NotoSans-Medium; bottom: -4px; left: 50%; transform: translateX(-50%); width: 200px; text-align: center;">Updated on ${fullVisualDate}</p>
-                    </div>
+                            <div class="badges">
+                                ${badgesHTML}
+                                ${profileADMIN}
+                            </div>
+                            <div class="content">
+                                <p class="name">${author.page_display_name_1 ? author.page_display_name_1 : author.url}</p>
+                                <p class="byline" onclick="window.location.href=\`\${window.location.origin}/author/${author.owner2}\`">By @${author.owner2}</p>
+                                <p class="update-date">Updated on ${fullVisualDate}</p>
+                            </div>
                     `;
         
                     authorsInfo.appendChild(authorDiv);

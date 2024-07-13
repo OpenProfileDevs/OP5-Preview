@@ -307,7 +307,6 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const openprofile_version_text = document.querySelector('#openprofile_version_text')
     const openprofile_title_logo = document.querySelector('#openprofile_title_logo')
     const author_list = document.querySelector('.author_list')
-    const author_card = document.querySelectorAll('.author_card')
 
     //const popup_prompt = document.querySelector('.popup_prompt');
     
@@ -457,15 +456,6 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 
     author_list.style.backgroundColor = scheme_shade_2;
     author_list.style.color = scheme_text;
-
-
-
-    author_card.forEach(author_card => {
-        author_card.style.backgroundColor = scheme_shade_1;
-        if (author_card.style.border === '2px solid #cfa715') {
-            author_card.style.border = `2px solid ${scheme_accent}`;
-        }
-    });
 
     // Sets the scheme of the scheme manager elements.
     schemes_manager.style.backgroundColor = scheme_accent;
