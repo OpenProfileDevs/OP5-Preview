@@ -71,10 +71,6 @@ function validateUsernameAndRegister(username, email, password, button) {
         const lowercaseUsername = username.toLowerCase();
         const containsBlacklistedWord = blacklistArray.some(word => lowercaseUsername.includes(word));
 
-        if (containsBlacklistedWord) {
-            alert('Usernames must be community friendly.');
-            return; // Halt the execution here
-        }
 
         if (usernameCheck.exists) {
             alert('Username already exists. Please choose a different username.');
