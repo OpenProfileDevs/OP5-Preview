@@ -1,6 +1,6 @@
 // Function to check if element exists
 function checkElement() {
-    const element = document.getElementById('page_display_name_1');
+    const element = document.getElementById('full_name');
     if (element) {
         // Element found, do nothing
         console.log('Element found!');

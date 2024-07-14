@@ -99,8 +99,8 @@ function createEditProfileButton(data) {
     profileInfo.appendChild(button);
 
     button.addEventListener('click', () => {
-        let newDataValue = prompt('Enter your new display name:');
-        let pfpurl = prompt('Enter the URL of your new profile picture (leave blank for none):');
+        let newDataValue = prompt('Enter your new display name:', data.displayname || '');
+        let pfpurl = prompt('Enter the URL of your new profile picture (leave blank for none):', data.pfp || '');
 
         // Validate URLs and handle user input
         validateAndUpdate(data, newDataValue, pfpurl);

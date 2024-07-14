@@ -39,13 +39,19 @@ setTimeout(function() {
                         const value = userData[key];
                         const element = document.getElementById(key);
                         if (element) {
-                            // Replace <br> with newline characters for form input fields
-                            const formattedValue = value.replace(/<br>/g, '\n');
-                            element.value = formattedValue;
-
-                            // Replace newline characters with <br> for other elements
-                            const displayValue = value.replace(/\n/g, '<br>');
-                            element.innerHTML = displayValue;
+                            if (element.tagName.toLowerCase() === 'textarea') {
+                                // Convert \n to new lines for textarea
+                                const formattedValue = value.replace(/\\n/g, '\n');
+                                element.value = formattedValue;
+                            } else {
+                                // Replace <br> with newline characters for form input fields
+                                const formattedValue = value.replace(/<br>/g, '\n');
+                                element.value = formattedValue;
+    
+                                // Replace newline characters with <br> for other elements
+                                const displayValue = value.replace(/\n/g, '<br>');
+                                element.innerHTML = displayValue;
+                            }
                         }
                     }
                 }
