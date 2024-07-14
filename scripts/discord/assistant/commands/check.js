@@ -27,14 +27,13 @@ function redactName(name) {
             // Checking if the name contains any blacklisted words
             for (const word of blacklist) {
                 const pattern = new RegExp(`\\b${word}\\b`, 'gi');
-                name = name.replace(pattern, '#');
             }
             return name;
         });
 }
 
 function getDiscordWebhookURL() {
-    return fetch('/webhook.txt')
+    return fetch('/public-webhook')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch Discord webhook URL');
