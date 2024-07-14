@@ -97,6 +97,7 @@ function validateUsernameAndRegister(username, email, password, button) {
                 // Registration successful, change button text to "Success"
                 button.textContent = 'Success';
                 switchToLogin();
+                alert('Please check your email for an account activation link.');
             }
         })
         .catch(error => {
