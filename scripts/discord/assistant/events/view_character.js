@@ -32,7 +32,7 @@ async function sendSessionDataToServer(sessionData) {
 }
 
 // Example usage
-async function handleUserJoin() {
+async function handleUserJoinProfile() {
     const joinTime = new Date().getTime();
 
     try {

@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
     var baseTag = document.querySelector("base");
     //baseTag.href = currentDomain;
 
-    handleUserJoin();
+    handleUserJoinHome();
     load_local_scheme()
     //updateElementsByTimeOfYear();
     translateSpecificElements(selectedLanguage); // Use config language later
