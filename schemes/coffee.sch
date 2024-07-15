@@ -2,7 +2,7 @@
     "name": "Coffee",
     "id": "scheme_coffee",
     "author": "OpenProfile",
-    "version": "v5.0.091",
+    "version": "v5.0.109",
     "tag": "BETA",
     "icon": "coffee",
     "text": "#ffffff",
