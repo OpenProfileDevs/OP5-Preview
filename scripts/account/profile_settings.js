@@ -23,6 +23,7 @@ function loadUserData(userData) {
             // Check if the user is viewing their own profile
             if (userData && userData.username === urlprofile) {
                 createEditProfileButton(data);
+                createDiscordProfileButton();
             }
 
             // Fetch profiles for the specified author
@@ -105,6 +106,16 @@ function createEditProfileButton(data) {
         // Validate URLs and handle user input
         validateAndUpdate(data, newDataValue, pfpurl);
     });
+}
+
+// Function to create edit profile button
+function createDiscordProfileButton() {
+    const button = document.createElement('button');
+    button.id = 'edit_user_data_profile';
+    button.textContent = 'Edit Profile';
+    button.style.top = '-230px';
+    const profileInfo = document.getElementById('discord_info');
+    profileInfo.appendChild(button);
 }
 
 // Validate user input and update profile

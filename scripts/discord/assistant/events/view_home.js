@@ -52,13 +52,13 @@ async function handleUserJoin() {
                     if (userData) {
                         // Do something with userData and specificElementData, for example:
                         console.log('User Data:', userData);
-                        const sessionData = `➡️ **@${userData.username}** viewed **OpenProfile 5 Editor Preview** from **${name}** ${emoji}`;
+                        const sessionData = `➡️ **@${userData.username}** viewed **OpenProfile 5 Homepage** from **${name}** ${emoji}`;
                         // Send message to server with session data
                         sendSessionDataToServer(sessionData);
                     }
                 } else {
                     // If not logged in, handle accordingly
-                    const sessionData = `➡️ **Guest** viewed **OpenProfile 5 Editor Preview** from **${name}** ${emoji}`;
+                    const sessionData = `➡️ **Guest** viewed **OpenProfile 5 Homepage** from **${name}** ${emoji}`;
                     // Send message to server with session data
                     sendSessionDataToServer(sessionData);
                 }

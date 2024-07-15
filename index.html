@@ -40,6 +40,7 @@
     <script src="/scripts/page_generation/page_check.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="/scripts/google_api.js"></script>
+    <script src="/scripts/account/discord_auth.js"></script>
     <script src="/scripts/account/login.js"></script>
     <script src="/scripts/countrycodes.js"></script>
     <!--<script src="/scripts/discord/activity/activity_main.js"></script>-->
@@ -52,6 +53,23 @@
     <script src="/scripts/history/generate_timestamp.js"></script>
     <script src="/scripts/print.js"></script>
     <script src="/scripts/account/session_load.js"></script>
+    <script>
+        (async function() {
+            try {
+                const response = await fetch('/check-login');
+                const data = await response.json();
+    
+                if (!data.loggedIn) {
+                    alert('You need to be logged in to access this page.');
+                    window.location.href = '/'; // Redirect to the home page
+                    return;
+                }
+            } catch (error) {
+                console.error('Error checking login status:', error);
+            }
+        })();
+    </script>
+    
     
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ PAGE-LOADER ]—————————————————————-->
@@ -153,12 +171,12 @@
     <!--————————————————————[ TOP-ELEMENTS ]————————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <div class="top">
-        <img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 36px; margin: 6px;">
+        <img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" href="http://localhost:3000" style="position: absolute; height: 28px; margin: 10px;">
         <p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Bold; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p>
         <p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Version failed to load...</p>
 
         <a class="top_button" id="premium_button" href="https://ko-fi.com/openprofile" target="_blank" style="border-radius: 25px; text-indent: 32px; margin-left: 192px;">Go Premium
-            <img src="/media/icons/openprofile_logo.svg" style="position: absolute; left: 0px; height: 28px; transform-origin: top left; margin: 2px;">
+            <img src="/media/icons/openprofile_logo.svg" style="position: absolute; left: 0px; height: 20px; transform-origin: top left; margin: 6px;">
         </a>
         <a class="top_button" href="https://preview.openprofile.app/authors" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Authors</a>
         <a class="top_button" href="https://preview.openprofile.app/profiles" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Profiles</a>
@@ -228,7 +246,7 @@
         <div class="label_top">Reports</div>
         </div>
         <div class="control_button" id="button_official" onclick="manualchangelog()">
-            <img class="icon" id="icon_official" src="/media/icons/openprofile_logo.svg" style="height: 27px; transform-origin: top left; margin: 2px; opacity: 0.8;">
+            <img class="icon" id="icon_official" src="/media/icons/openprofile_logo.svg" style="height: 24px; transform-origin: top left; margin: 4px; opacity: 0.8;">
             <div class="notification_dot" id="notification_dot_official" style="display: none;"></div>
             <div class="label_top">Official News</div>
         </div>

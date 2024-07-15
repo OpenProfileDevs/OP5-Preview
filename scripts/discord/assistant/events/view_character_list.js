@@ -11,7 +11,7 @@ function generateRandomUserID() {
 
 async function sendSessionDataToServer(sessionData) {
     try {
-        const response = await fetch('/save-session', {
+        const response = await fetch('/save-session-profile', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ async function sendSessionDataToServer(sessionData) {
 }
 
 // Example usage
-async function handleUserJoin() {
+async function handleUserJoinProfile() {
     const joinTime = new Date().getTime();
 
     try {
@@ -43,6 +43,9 @@ async function handleUserJoin() {
         // Extract country name and flag from the country information
         const { name, emoji } = countryInfo;
 
+        // Get data from the specific element with ID 'specificElementId'
+        const specificElementData = document.getElementById('profile_username').innerText;
+
         fetch('/check-login') // Assuming this route checks if the user is logged in
             .then(response => response.json())
             .then(data => {
@@ -52,13 +55,15 @@ async function handleUserJoin() {
                     if (userData) {
                         // Do something with userData and specificElementData, for example:
                         console.log('User Data:', userData);
-                        const sessionData = `➡️ **@${userData.username}** viewed **OpenProfile 5 Editor Preview** from **${name}** ${emoji}`;
+                        console.log('Specific Element Data:', specificElementData);
+                        const sessionData = `➡️ **@${userData.username}** viewed **OpenProfile 5 Profile List** from **${name}** ${emoji}`;
                         // Send message to server with session data
                         sendSessionDataToServer(sessionData);
                     }
                 } else {
                     // If not logged in, handle accordingly
-                    const sessionData = `➡️ **Guest** viewed **OpenProfile 5 Editor Preview** from **${name}** ${emoji}`;
+                    console.log('Specific Element Data:', specificElementData);
+                    const sessionData = `➡️ **Guest** viewed **OpenProfile 5 Profile List** from **${name}** ${emoji}`;
                     // Send message to server with session data
                     sendSessionDataToServer(sessionData);
                 }
@@ -72,6 +77,7 @@ async function handleUserJoin() {
 
     // Call other functions or perform other actions here
 }
+
 async function fetchUserCountry() {
     try {
         const response = await fetch('https://api.ipify.org?format=json');

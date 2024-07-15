@@ -26,7 +26,7 @@ document.addEventListener('click', function(event) {
 
                 if (authorId === authorId) {
                     // Forward to the edit URL if the profile ID matches
-                    window.location.href = `/edit/${authorId}`;
+                    window.location.href = `/editor/${authorId}`;
                 } else {
                     console.log('Typed profile ID does not match. editing canceled.');
                 }

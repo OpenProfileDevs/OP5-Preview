@@ -217,6 +217,7 @@ function switchToLogin() {
                 <div><input type="password" class="input_text_popup_prompt" id="login_password_input" style="text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your password"></div>
             </div>
             <button onclick="loginUser()" style="top: 120px; left: 0px; z-index: 4999;">Login</button>
+            <a href="${window.location.origin}/discord-auth"><button style="top: 120px; left: 0px; z-index: 4999;">Login with Discord</button></a>
             <div class="h-captcha" data-sitekey="a1709015-a704-4a60-b17f-f3383b6e2238"></div>
             <script src="https://hcaptcha.com/1/api.js" async defer></script>
             <div class="information_text" id="information_text_login" style="top: 68%; font-size: 10px; z-index: 4999; cursor: pointer;" onclick="switchToRegister()">Don't have an account? Click to register.</div>
@@ -250,6 +251,7 @@ function switchToRegister() {
                 <div><input type="password" class="input_text_popup_prompt" id="confirm_register_password_input" style="text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your password"></div>
             </div>
             <button onclick="registerUser()" style="top: 216px; left: 0px; z-index: 4999;">Register</button>
+            <a href="${window.location.origin}/discord-auth"><button style="top: 215px; left: 0px; z-index: 4999;">Register with Discord</button></a>
             <div class="h-captcha" data-sitekey="a1709015-a704-4a60-b17f-f3383b6e2238"></div>
             <script src="https://hcaptcha.com/1/api.js" async defer></script>
             <div class="information_text" id="information_text_register" style="top: 83%; font-size: 10px; z-index: 4999; cursor: pointer;" onclick="switchToLogin()">Already have an account? Click to login.</div>
