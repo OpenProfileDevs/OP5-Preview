@@ -411,6 +411,7 @@ used_ids.txt
 nopassword.txt
 .env
 discord_activity.ts
+views.txt
 
 # Custom Folders
 users/
