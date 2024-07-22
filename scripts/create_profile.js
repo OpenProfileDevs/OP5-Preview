@@ -47,7 +47,7 @@ function switchToInputPopup() {
                 const owner2 = userData.username;
                 let pfpurl = document.getElementById('character_pfp').value;
                 if (!pfpurl) {
-                    pfpurl = 'http://localhost:3000/media/images/openprofile/openprofile_logo_512_jpeg.jpeg';
+                    pfpurl = '/media/images/openprofile/openprofile_logo_512_jpeg.jpeg';
                 }
                 const profileid = data2.id
 
