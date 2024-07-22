@@ -1,10 +1,13 @@
 function simulateAppLoading(speed) {
+    const top = document.querySelector('.top');
     const center = document.querySelector('.center');
+    const bottom = document.querySelector('.bottom');
     const loader = document.querySelector(".loader_outer");
     const loader2 = document.querySelector(".loader_container");
     const loader3 = document.querySelector(".loader_inner_color");
     const loader4 = document.querySelector(".loader_container_2");
     const loader_maintenance = document.getElementById("loading_message_maintenance");
+    const loading_image = document.getElementById('loading_image');
 
     const simulatePageLoad = () => {
         let progress = 0;
@@ -20,17 +23,21 @@ function simulateAppLoading(speed) {
 
             if (progress === 100) {
                 // Hide the loaders and show app when loading is complete
+                top.style.display = "block";
                 center.style.display = "block";
                 loader4.style.opacity = "0";
-                loader2.style.transform = "translateY(40px)";
+                bottom.style.opacity = "0";
+                loading_image.style.top = "-100px";
                 setTimeout(() => {
-                    loader2.style.transform = "translateY(40px)";
+                    loading_image.style.top = "-100px";
                 }, 100);
                 setTimeout(() => {
-                    loader2.style.transform = "translateY(35px) scale(1.2)";
+                    loading_image.style.top = "-100px";
+                    loading_image.style.scale = "1.2";
                 }, 400);
                 setTimeout(() => {
-                    loader2.style.transform = "translateY(40px) scale(1)";
+                    loading_image.style.top = "-100px";
+                    loading_image.style.scale = "1";
                 }, 800);
                 setTimeout(() => {
                     loader.style.opacity = "0";

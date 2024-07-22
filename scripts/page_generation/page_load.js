@@ -1,29 +1,30 @@
-    const fileListEndpoint = '/fileList';
-    const element = document.getElementById('your_element_id');
-    var current_page = -1;
-    var current_z = 99;
-    var field_z = 9998;
+const fileListEndpoint = '/fileList';
+const element = document.getElementById('your_element_id');
+var current_page = -1;
+var current_z = 99;
+var field_z = 9998;
 
-    // Fetch the file list and folder path
-    fetch(fileListEndpoint)
-    .then(response => response.json())
-    .then(({ folderPath, files }) => {
-        files.forEach(fileName => {
-        if (fileName.endsWith('.pge')) {
-            const filePath = `/${folderPath}/${fileName}`;
-            fetch(filePath)
-            .then(response => response.json())
-            .then(data => {
-                // Process the data as needed
-                createPage(data);
-                //console.log(data);
-            })
-            .catch(error => console.error(`Error fetching JSON from ${filePath}:`, error));
-        }
-        });
-    })
-    .catch(error => console.error('Error fetching file list:', error));
+// Fetch the file list and folder path
+fetch(fileListEndpoint)
+  .then(response => response.json())
+  .then(({ folderPath, files }) => {
+    files.forEach(fileName => {
+      if (fileName.endsWith('.pge')) {
+        const filePath = `/${folderPath}/${fileName}`;
 
+        // Fetch JSON data for each file
+        fetch(filePath)
+          .then(response => response.json())
+          .then(data => {
+            // Process the data as needed
+            createPage(data); // Assuming createPage function processes the fetched data
+            //console.log(data); // Log the fetched data to console
+          })
+          //.catch(error => console.error(`Error fetching JSON from ${filePath}:`, error));
+      }
+    });
+  })
+  //.catch(error => console.error('Error fetching file list:', error));
     function createPage(data) {
         const page_loader = document.getElementById('center');
         current_page++;
@@ -32,82 +33,74 @@
         const current_index = (99 - p_number);
 
         // Original code for creating a page
-        page_loader.innerHTML += `<div class="page" id="page_${p_number}" style="z-index: ${current_index}; top: 0px;">
-        <div class="row" style="z-index: 9999; top: 12px;">
-            <!--————————————————————————————————————————————————————————-->
-            <!--———————————————————[ PAGE-display_name-${p_number} ]————————————————————-->
-            <!--————————————————————————————————————————————————————————-->
-            <div class="group" id="page_display_name_${p_number}_group" style="left: 0px; width: 352px;">
-                <div class="label_tab" id="page_display_name_label_tab">Display Name
-                    <div class="status_box" id="page_display_name_${p_number}_status" style="display: none;">STATUS_TEXT
-                        <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
-                    </div>
-                </div>
-                <div><input type="text" class="input_1" id="page_display_name_${p_number}" autocomplete="off" autocorrect="off" placeholder="What is the character's display name?"></div>
-                <div class="help_box" id="page_display_name_help_box" style="width: calc(328px + 8px);">What is the character's display name? This will be shown in the profile list.</div>
-                <div class="input_dot" id="page_display_name_${p_number}_verified" style="display: none;">
-                    <a id="page_display_name_${p_number}_verified_source" href="https://www.example.com" target="_blank" tabindex="-1">
-                    <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div></a>
-                </div>
-                <div class="input_dot" id="page_display_name_${p_number}_generated" style="display: none;">
-                    <img src="/media/icons/feather_icons/database.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px;">Generated</div>
-                </div>
-                <div class="input_dot" id="page_display_name_${p_number}_locked" style="display: none; top: 54px;">
-                    <img src="/media/icons/feather_icons/lock.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: 42px; left: -6px;">Locked</div>
-                </div>
-                <div class="input_dot" id="page_display_name_${p_number}_history" style="display: none; top: 54px;">
-                    <img src="/media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
+    page_loader.innerHTML += `<div class="page" id="page_${p_number}" style="z-index: ${current_index}; top: 0px;">
+    <div class="row" style="z-index: 9999; top: 12px;">
+        <!--————————————————————————————————————————————————————————-->
+        <!--———————————————————[ PAGE-AUTHOR-${p_number} ]————————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <div class="group" id="page_author_${p_number}_group" style="left: 0px; width: 352px;">
+            <div class="label_tab" id="page_author_${p_number}_label_tab">Page Author
+                <div class="status_box" id="page_author_${p_number}_status" style="display: none;">STATUS_TEXT
+                    <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
                 </div>
             </div>
-            <!--————————————————————————————————————————————————————————-->
-            <!--—————————————————————[ BRAND-ICON ]—————————————————————-->
-            <!--————————————————————————————————————————————————————————-->
-            <div class="group" id="brand_icon_group" style="top: -18px; left: 376px;" title="Brand Banner">
-                <div><input id="brand_icon_media_input" type="file" accept="image/*,video/*" style="display: none; height: 96px; width: calc(328px + 24px);">
-                    <label for="brand_icon_media_input">
-                        <div class="image_input_2" id="brand_icon_container" style="width: calc(328px + 24px); height: 96px; border-radius: 12px;">
-                            <img class="brand_icon_selected_image" id="brand_icon_selected_image" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%; opacity: 0.35; cursor: pointer; z-index: 30;" src="/media/icons/feather_icons/plus.svg">
-                            <img class="brand_icon_selected_image" id="brand_icon_selected_image" style="border-radius: 12px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%; display: none;  z-index: 30;" src="" alt="Selected Media">
-                            <video class="brand_icon_selected_video" id="brand_icon_selected_video" controls style="border-radius: 12px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%; display: none; z-index: 30;"></video>
-                        </div>
-                    </label>
-                </div>
-                <script src="scripts/media/import/brand_icon_import_media.js"></script>
+            <div><input type="text" class="input_1" id="page_author_${p_number}" autocomplete="off" autocorrect="off" placeholder="Who is the page's author?"></div>
+            <div class="help_box" id="page_author_help_box" style="width: calc(328px + 8px);">What is your name or pseudonym? If you're working as part of a collaboration, include the fellow author's name or pseudonym next to yours.</div>
+            <div class="input_dot" id="page_author_${p_number}_verified" style="display: none;">
+                <a id="page_author_${p_number}_verified_source" href="https://www.example.com" target="_blank" tabindex="-1">
+                <img src="media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div></a>
             </div>
-            <!--————————————————————————————————————————————————————————-->
-            <!--———————————————————[ WRITTEN-DATE-${p_number} ]———————————————————-->
-            <!--————————————————————————————————————————————————————————-->
-            <div class="group" id="pfp_${p_number}_group" style="left: 752px;">
-                <div class="label_tab" id="pfp_label_tab">Picture Link
-                    <div class="status_box" id="pfp_${p_number}_status" style="display: none;">STATUS_TEXT
-                        <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
-                    </div>
-                </div>
-                <div><input type="text" class="input_1" id="pfp_${p_number}" autocomplete="off" autocorrect="off" placeholder="What does the character looks like?"></div>
-                <div class="help_box" id="pfp_help_box" style="width: calc(328px + 8px);">Include a direct picture link to represent the character. This will be shown in the profile list.</div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none;">
-                    <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
-                </div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none;">
-                    <img src="/media/icons/feather_icons/database.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px;">Generated</div>
-                </div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none; top: 54px;">
-                    <img src="/media/icons/feather_icons/lock.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: 42px; left: -6px;">Locked</div>
-                </div>
-                <div class="input_dot" id="pfp_${p_number}_input_dot" style="display: none; top: 54px;">
-                    <img src="/media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
-                </div>
+            <div class="input_dot" id="page_author_${p_number}_generated" style="display: none;">
+                <img src="media/icons/feather_icons/database.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px;">Generated</div>
+            </div>
+            <div class="input_dot" id="page_author_${p_number}_locked" style="display: none; top: 54px;">
+                <img src="media/icons/feather_icons/lock.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: 42px; left: -6px;">Locked</div>
+            </div>
+            <div class="input_dot" id="page_author_${p_number}_history" style="display: none; top: 54px;">
+                <img src="media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
             </div>
         </div>
-    </div>`;
+        <!--————————————————————————————————————————————————————————-->
+        <!--—————————————————————[ BRAND-ICON ]—————————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <div class="group" id="brand_icon_group" style="top: 0px; left: 376px; position: absolute; display: flex; align-items: center; justify-content: center; width: 354px; height: 100px; overflow: hidden; border-radius: 12px; scale: 0.9;" title="Brand Banner">
+            <img class="brand_icon_selected_image" id="brand_icon_selected_image" src="/media/images/openprofile/openprofile_banner_t_png.png" alt="Brand Icon" style="border-radius: 12px; height: 100%; width: 100%; object-fit: contain;">
+        </div>
+
+        <!--————————————————————————————————————————————————————————-->
+        <!--———————————————————[ WRITTEN-DATE-${p_number} ]———————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <div class="group" id="written_date_${p_number}_group" style="left: 752px;">
+            <div class="label_tab" id="written_date_${p_number}_label_tab">Written Date
+                <div class="status_box" id="written_date_${p_number}_status" style="display: none;">STATUS_TEXT
+                    <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
+                </div>
+            </div>
+            <div><input type="text" class="input_1" id="written_date_${p_number}" autocomplete="off" autocorrect="off" placeholder="When was this page written?"></div>
+            <div class="help_box" id="written_date_help_box" style="width: calc(328px + 8px);">What date was this page written on? You can include multiple dates in any format seperated by commas.</div>
+            <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none;">
+                <img src="media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
+            </div>
+            <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none;">
+                <img src="media/icons/feather_icons/database.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px;">Generated</div>
+            </div>
+            <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none; top: 54px;">
+                <img src="media/icons/feather_icons/lock.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: 42px; left: -6px;">Locked</div>
+            </div>
+            <div class="input_dot" id="written_date_${p_number}_input_dot" style="display: none; top: 54px;">
+                <img src="media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
+            </div>
+        </div>
+    </div>
+</div>`;
 
         const inner_page_loader = document.getElementById(`page_${data.page_number}`);
         const numRows = 21;
@@ -298,7 +291,6 @@
             inner_page_loader.appendChild(rowDiv);
         }
     }
-
     // Helper function to get nested values from a string key
     function getNestedValue(obj, key) {
     return key.split('.').reduce((acc, cur) => acc[cur], obj);

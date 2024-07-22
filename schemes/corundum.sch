@@ -4,7 +4,7 @@
     "author": "OpenProfile",
     "version": "v5.0.091",
     "tag": "BETA",
-    "icon": "openprofile_logo_not_feather_icons",
+    "icon": "diamond",
     "text": "#ffffff",
     "accent": "#ce1616",
     "shade_1": "#160202",

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ PAGE-INFORMATION ]——————————————————-->
     <!--————————————————————————————————————————————————————————-->
@@ -10,67 +9,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
 
-    <!-- Dynamic domain -->
-    <base href="">
-
     <!--————————————————————————————————————————————————————————-->
     <!--—————————————————————[ META-TAGS ]——————————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OpenProfile 5 Preview" />
     <meta property="twitter:creator" content="@OpenProfileApp" />
-    <meta property="og:description" content="OpenProfile is the most advanced character profile template in the world and a GNU open source project. Created freely for writers by writers!" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/OpenProfileApp/OP5-Preview/web/media/images/openprofile/lunar/openprofile_logo_lunar_red_512_jpeg.jpeg" />
+    <meta property="og:description" content="OpenProfile is a collaborative application for authors to create and share original characters using an advanced template and a public database." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/OpenProfileApp/OP5-Preview/web/media/images/openprofile/preview/openprofile_logo_preview_512_jpeg.jpeg" />
     <meta property="og:url" content="https://preview.openprofile.app" />
-    <meta property="theme-color" content="#e5b432" />
+    <meta property="theme-color" content="#8515cf" />
+    <meta name="google-adsense-account" content="ca-pub-5934702627096796">
 
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ STYLESHEETS ]—————————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <link rel="stylesheet" type="text/css" href="/desktop_styles.css">
     <link rel="stylesheet" type="text/css" href="/mobile_styles.css">
-    <link rel="stylesheet" type="text/css" media="print" href="/print_styles.css">
 </head>
 <body>
 
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ BASE-SCRIPTS ]————————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="/scripts/google_api.js"></script>
     <script src="/scripts/account/discord_auth.js"></script>
     <script src="/scripts/account/login.js"></script>
     <script src="/scripts/countrycodes.js"></script>
-    <!--<script src="/scripts/discord/activity/activity_main.js"></script>-->
-    <script src="/scripts/discord/assistant/events/view_home.js"></script>
-    <script src="/scripts/scheme_manager_home.js"></script>
+    <script src="/scripts/discord/assistant/events/view.js"></script>
+    <script src="/scripts/scheme_manager.js"></script>
     <script src="/scripts/seasonal_changes.js"></script>
     <script src="/scripts/banner.js"></script>
-    <script src="/scripts/banner_profile.js"></script>
     <script src="/scripts/loader.js"></script>
     <script src="/scripts/onload_home.js"></script>
-    <script src="/scripts/account/session_load.js"></script>
+    <script src="/scripts/change_log.js"></script>
     
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ POP-UP-ELEMENTS ]———————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <div class="changelog_popup" id="changelog_popup">
-        <div class="triangle" style=" top: 20px; right: 316px;"></div>
-        <p id="changelog_popup_version" style="font-family: NotoSans-Bold; font-size: 24px; text-align: center; transform: translateY(-5px);">What's new in v5.0.090?</p>
-        <p id="changelog_popup_changelog" style="text-align: left; font-family: NotoSans-Regular; font-size: 20px; transform: translateY(0px);">Introducing a brand new, faster, and more manageable UI!</p>
-        <div class="changelog_popup_close" id="changelog_popup_close">
-            <img id="changelog_popup_close_img" src="/media/icons/feather_icons/x.svg" style="position: absolute; top: 18px; right: 18px; scale: 0.35; transform-origin: top right; z-index: 3000; cursor: pointer;">
-        </div>        
-        <script src="/scripts/popup.js"></script>
-    </div>
-
-    <!-- The universe manager (id="popup_universe_manage") and 
-    (id="popup_universe_manage_more") HTML IDs are managed by
-    the universe manager script which can be found under the
-    following path (src="/scripts/universe_manager.js") -->
-    <div id="popup_universe_manager"></div>
-    <div id="popup_universe_manager_more"></div>
-
     <div id="login_register_account_manager">
         <div class="information_text" id="registrationMessage" style="top: 59%; font-size: 9px; z-index: 4999; display: none;"></div>
     </div>
@@ -89,61 +64,29 @@
     <!--————————————————————[ TOP-ELEMENTS ]————————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <div class="top" style="display: block;">
-        <img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" href="http://localhost:3000" style="position: absolute; height: 28px; margin: 10px;">
-        <p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Bold; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p>
-        <p id="openprofile_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Web Preview</p>
+        <a href="/" id="local_domain_text"><img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 28px; margin: 10px;"></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Black; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Web Preview</p></a>
 
-        <a class="top_button" href="https://preview.openprofile.app/editor" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 192px; color: #ffffff">Launch Editor Preview</a>
-        <a class="top_button" href="https://preview.openprofile.app/authors" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Authors</a>
-        <a class="top_button" href="https://preview.openprofile.app/profiles" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Profiles</a>
-
+        <a class="top_button" id="premium_button_text" href="https://ko-fi.com/openprofile" style="background: #efbe0b; border-radius: 25px; margin-left: 192px; color: #ffffff">Get Premium</a>
+        <a class="top_button" id="local_domain_text" href="/editor" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Launch Editor Preview</a>
+        <a class="top_button" id="local_domain_text" href="/authors" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Authors</a>
+        <a class="top_button" id="local_domain_text" href="/profiles" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Profiles</a>
         <div class="control_button" id="login_register_account">
-            <img class="icon" id="icon_account" src="/media/icons/feather_icons/user.svg" style="scale: 0.24; transform-origin: top left; margin: 4px; opacity: 0.8;">
+            <img class="icon2" id="icon_account" src="/media/icons/user.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
             <div class="label_top" id="label_top_account">Account</div>
             <script src="/scripts/account/login.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
         </div>
         <div class="control_button" id="button_scheme">
-            <img class="icon" id="icon_scheme" src="/media/icons/feather_icons/droplet.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <img class="icon" id="icon_scheme" src="/media/icons/droplet-half.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
             <div class="label_top">Schemes</div>
         </div>
         <div class="control_button" id="user_check_hello">
-            <img class="icon" id="icon_wave" src="/media/icons/media_icons/discord.svg" style="width: 20px; transform-origin: top left; margin-top: 8px; margin-left: 6px; opacity: 0.8;">
-            <div class="label_top">Wave</div>
+            <img class="icon" id="icon_wave" src="/media/icons/wave.svg" style="width: 20px; scale: 1.2; transform-origin: top left; margin-top: 5px; margin-left: 4px;">
+            <div class="label_top">Wave to Discord</div>
             <script src="/scripts/wave.js"></script>
             <script src="/scripts/discord/assistant/commands/check.js"></script>
-        </div>
-        <script>
-            // Call the function when the page loads
-window.onload = function() {
-    // Check if the user is logged in and load user data accordingly
-    fetch('/check-login')
-        .then(response => response.json())
-        .then(data => {
-            if (data.loggedIn) {
-                // Access userData if available and use it
-                const userData = data.userData;
-                if (userData) {
-                    // Do something with userData, for example:
-                    console.log('User Data:', userData);
-                }
-                const account = document.getElementById('label_top_account');
-                account.textContent = `Logged in with @${userData.username}`;
-            } else {
-                // If not logged in
-                const saveButtonServer = document.getElementById('saveButtonServer')
-                const saveButtonServerText = document.getElementById('saveButtonServerText')
-                saveButtonServer.id = '';
-            }
-        })
-        .catch(error => {
-            console.error('Error checking login status:', error);
-        });
-};
-        </script>
-
-        <!--<div class="control_button" id="button_print" title="Print">
-            <img class="icon" src="/media/icons/feather_icons/printer.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
         </div>
 
         <!--————————————————————————————————————————————————————————-->
@@ -162,17 +105,26 @@ window.onload = function() {
     <!--————————————————————————————————————————————————————————-->
     <div class="center" id="center" style="display: flex; justify-content: center; align-items: center; height: 600px; text-align: center; padding: 40px; border-radius: 10px; color: #fff; left: 38%;">
         <div style="max-width: 800px;">
-            <h1 class="header" style="font-size: 4em; margin: 0; font-family: NotoSans-Bold;">OpenProfile 5</h1>
-            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 10px;">OpenProfile is an upcoming collaborative cross-platform application for writers, producers, and role-players to share minds and create diverse characters using an immensely advanced and FREE character profile template. For fandoms and authors, we even have a public database in the works that would enable users to learn more about your characters and the universe that goes around them!</p>
-            <a href="https://preview.openprofile.app/editor"><button class="top_button" style="padding: 20px; color: #fff; background-color: #ce1616; border: none; border-radius: 32px; cursor: pointer; top: 30px;">Get Started</button></a>
-            <a href="https://discord.gg/w6aV9gkz8g"><button class="top_button" style="padding: 20px; color: #fff; background-color: #ce1616; border: none; border-radius: 32px; cursor: pointer; top: 30px;">Join our Discord!</button></a>
+            <p><a class="info" style="font-size: 24px; left: 50%; top: 20%; transform: translateX(-50%); font-family: NotoSans-Black; position: absolute; color: #ce1616;">OPENPROFILE IS NOT YET MOBILE COMPATIBLE</a></p>
+            <h1 class="header" id="home_header" style="font-size: 4em; margin: 0; font-family: NotoSans-Bold;">OpenProfile 5</h1>
+            <p class="info" id="home_info" style="font-size: 1.2em; margin: 20px 0; top: 10px;">OpenProfile is a collaborative application for authors to create and share original characters using an advanced template and a public database.</p>
+            <a href="/editor"><button class="top_button_1" id="local_domain_text" style="padding: 20px; color: #fff; background-color: #ce1616; border: none; border-radius: 32px; cursor: pointer; top: 30px;">Get Started</button></a>
+            <a href="https://discord.gg/w6aV9gkz8g"><button class="top_button_1" style="padding: 20px; color: #fff; background-color: #5865f2; border: none; border-radius: 32px; cursor: pointer; top: 30px; text-indent: 28px;">Join our Discord!
+                <img src="/media/icons/media_icons/discord.svg" style="position: absolute; left: 8px; height: 20px; transform-origin: top left; margin: 6px;">
+            </button></a>
             <!--<br><br>
             <a><button class="top_button" style="padding: 20px; color: #fff; background-color: #ce1616; border: none; border-radius: 32px; cursor: pointer; top: 30px;">Download OpenProfile Desktop (coming soon)</button></a>-->
-            <div class="social_buttons" style="bottom: 20px; left: 50%; transform: translateX(-50%)scale(2); display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
-                <a class="loader_social_button" id="website_button" href="https://bio.link/openprofile" target="_blank">
-                    <img class="icon" src="/media/icons/feather_icons/globe.svg" style="width: 18px; margin: 4px;">
-                    <div class="label_bottom">Website</div>
-                </a>
+        </div>
+    </div>
+
+        <!--————————————————————————————————————————————————————————-->
+        <!--——————————————————[ BOTTOM-ELEMENTS ]———————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <div class="bottom" style="display: block;">
+            <a href="/privacy" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 20px; margin-top: 12px; left: 0px; position: fixed;">Privacy Policy</p></a>
+            <a href="/terms" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 180px; margin-top: 12px; left: 0px; position: fixed;">Terms of Service</p></a>
+            <p class="info" style="font-size: 1.2em; margin-right: 20px; margin-top: 12px; right: 0px; position: fixed;">© OpenProfile 2024, All Rights Reserved</p>
+            <div class="social_buttons" style="bottom: 8px; left: 50%; transform: translateX(-50%)scale(1.6); display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
                 <a class="loader_social_button" id="youtube_button" href="https://www.youtube.com/@openprofile" target="_blank">
                     <img class="icon" src="/media/icons/media_icons/youtube.png" style="width: 18px; margin: 4px;">
                     <div class="label_bottom">YouTube</div>
@@ -189,131 +141,26 @@ window.onload = function() {
                     <img class="icon" src="/media/icons/media_icons/instagram.svg" style="width: 18px; margin: 4px;">
                     <div class="label_bottom">Instagram</div>
                 </a>
-                <a class="loader_social_button" id="pinterest_button" href="https://www.pinterest.com/openprofileapp/" target="_blank">
-                    <img class="icon" src="/media/icons/media_icons/pinterest.png" style="width: 18px; margin: 4px;">
-                    <div class="label_bottom">Pinterest</div>
-                </a>
                 <a class="loader_social_button" id="discord_button" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
                     <img class="icon" src="/media/icons/media_icons/discord.svg" style="width: 18px; margin: 4px; margin-top: 6px;">
                     <div class="label_bottom">Discord</div>
                 </a>
+                <a class="loader_social_button" id="github_button" href="https://www.github.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/github.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">GitHub</div>
+                </a>
                 <a class="loader_social_button" id="email_button" href="mailto:support@openprofile.app" target="_blank">
-                    <img class="icon" src="/media/icons/feather_icons/mail.svg" style="width: 18px; margin: 4px;">
+                    <img class="icon" src="/media/icons/mail.svg" style="width: 18px; margin: 4px;">
                     <div class="label_bottom">Support</div>
                 </a>
             </div>
-            
-        </div>       
-            
+        </div>
+
         <!--————————————————————————————————————————————————————————-->
-        <!--———————————————————[ PAGE-ELEMENTS ]————————————————————-->
+        <!--—————————————————[ DEVELOPER-ELEMENTS ]—————————————————-->
         <!--————————————————————————————————————————————————————————-->
-                    
-
-    <div style="top: 1491px; height: 25px; position: relative; display: block; font-size: 0px; opacity: 0;" tabindex="-1"> </div>
-
-
-    <!--————————————————————————————————————————————————————————-->
-    <!--—————————————————[ DEVELOPER-ELEMENTS ]—————————————————-->
-    <!--————————————————————————————————————————————————————————-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-    <script src="/scripts/translate.js"></script>
-
-<!--<button style="z-index: 500; position: absolute; top: 0; left: 0;" id="discord">Send Message to Discord</button>
-<script>
-    const discordButton = document.getElementById('discord');
-
-    discordButton.addEventListener('click', () => {
-        // Send a POST request to your server to trigger sending the message to Discord
-        fetch('/send-message-to-discord', {
-            method: 'POST',
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.message);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    });
-</script>-->
-
-<!--<script>
-    // Create a WebSocket connection to the server
-const socket = new WebSocket('ws://localhost:3000');
-
-// Listen for WebSocket messages
-socket.addEventListener('message', (event) => {
-    const newText = event.data;
-    
-    // Update the page_author_0 textbox with the received text
-    document.getElementById('page_author_0').value = newText;
-});
-
-
-<li id="theme_option" style="opacity: 0.35;">🎨 Change Scheme ></li>
-        <div id="themeSubMenu" class="menu" style="scale: 100%;">
-            <script src="/scripts/menus/theme_menu.js"></script>
-            <ul>
-            <li id="release" style="opacity: 0.35;">🔴 Release</li>
-            <li id="beta" style="opacity: 0.35;">🔵 Beta</li>
-            <li id="preview" style="opacity: 0.35;">🟣 Preview</li>
-            <li>
-                <label for="fileInput" id="labelCustomStyles" style="opacity: 0.35;">⚪ Import Custom</label>
-                <input type="file" id="customStyleInput" name="fileInput" style="display: none;">
-            </li>
-            </ul>
-            <script src="/scripts/theme_changer.js"></script>
-        </div>-->
-
-</script>
-
-    <div class="history_popup">
-        <!-- History content will be added here -->
-    </div>
-
-
-
-    <script>
-        // Check if the user is already logged in
-const loggedInUser = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
-
-// Reference to the logout button
-const logoutButton = document.getElementById('logoutButton');
-
-if (loggedInUser) {
-    // User is logged in
-    // Show the logout button
-    logoutButton.style.display = 'block';
-
-    // Add a click event listener to the logout button
-    logoutButton.addEventListener('click', () => {
-        // Clear the stored user data (log out the user)
-        localStorage.removeItem('loggedInUser');
-        sessionStorage.removeItem('loggedInUser');
-        const styleSheetLink = document.getElementById('styleSheet');
-        styleSheetLink.href = 'desktop_styles.css';
-
-        // Redirect the user to the login page
-        window.location.href = 'login.html';
-    });
-} else {
-    // User is not logged in
-    // Hide the logout button
-    logoutButton.style.display = 'none';
-    const styleSheetLink = document.getElementById('styleSheet');
-    styleSheetLink.href = 'mobile_styles.css';
-}
-
-    </script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+        <script src="/scripts/account/session_load.js"></script>
+        <script src="/scripts/local_domain_text.js"></script>
+    </body>
 </html>
-
-  <!--————————————————————————————————————————————————————————-->
-  <!--——————————————————[ BOTTOM-ELEMENTS ]———————————————————-->
-  <!--————————————————————————————————————————————————————————-->
-  <!--<div class="bottom">
-    <div style="text-align: right; font-size: 12px; transform: translateX(-16px) translateY(2px);">
-        <a id="version_placeholder" style="color: #ffffff;" href="https://www.example.com/OP5-Preview"></a>
-    </div>
-  </div>

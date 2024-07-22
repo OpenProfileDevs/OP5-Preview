@@ -416,4 +416,6 @@ views.txt
 # Custom Folders
 users/
 data/
+uploads/
+backups/
 registrations.json

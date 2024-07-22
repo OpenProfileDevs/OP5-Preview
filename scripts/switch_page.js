@@ -47,7 +47,7 @@ function switchToPage(pageId, target) {
     }, 300);
     if (target === "next") {
     currentPage.style.animation = "page_slide_out 0.4s linear";
-    currentPage.style.left = "-100vw";
+    currentPage.style.left = "-140vw";
     } else {
     pageElement.style.animation = "page_slide_in 0.4s linear";
     pageElement.style.left = "0vw";

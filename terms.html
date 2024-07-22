@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ PAGE-INFORMATION ]——————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <title>OpenProfile 5 Preview</title>
+    <link rel="icon" href="media/icons/openprofile_logo.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--—————————————————————[ META-TAGS ]——————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="OpenProfile 5 Preview" />
+    <meta property="twitter:creator" content="@OpenProfileApp" />
+    <meta property="og:description" content="OpenProfile is a collaborative application for authors to create and share original characters using an advanced template and a public database." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/OpenProfileApp/OP5-Preview/web/media/images/openprofile/preview/openprofile_logo_preview_512_jpeg.jpeg" />
+    <meta property="og:url" content="https://preview.openprofile.app" />
+    <meta property="theme-color" content="#8515cf" />
+    <meta name="google-adsense-account" content="ca-pub-5934702627096796">
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--————————————————————[ STYLESHEETS ]—————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <link rel="stylesheet" type="text/css" href="/desktop_styles.css">
+    <link rel="stylesheet" type="text/css" href="/mobile_styles.css">
+</head>
+<body>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--————————————————————[ BASE-SCRIPTS ]————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <script src="/scripts/account/discord_auth.js"></script>
+    <script src="/scripts/account/login.js"></script>
+    <script src="/scripts/countrycodes.js"></script>
+    <script src="/scripts/discord/assistant/events/view.js"></script>
+    <script src="/scripts/scheme_manager.js"></script>
+    <script src="/scripts/seasonal_changes.js"></script>
+    <script src="/scripts/banner.js"></script>
+    <script src="/scripts/loader.js"></script>
+    <script src="/scripts/onload_home.js"></script>
+    <script src="/scripts/change_log.js"></script>
+    
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ POP-UP-ELEMENTS ]———————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div id="login_register_account_manager">
+        <div class="information_text" id="registrationMessage" style="top: 59%; font-size: 9px; z-index: 4999; display: none;"></div>
+    </div>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--————————————————————[ TOP-ELEMENTS ]————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="top" style="display: block;">
+        <a href="/" id="local_domain_text"><img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 28px; margin: 10px;"></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Black; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Web Preview</p></a>
+
+        <a class="top_button" id="premium_button_text" href="https://ko-fi.com/openprofile" style="background: #efbe0b; border-radius: 25px; margin-left: 192px; color: #ffffff">Get Premium</a>
+        <a class="top_button" id="local_domain_text" href="/editor" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Launch Editor Preview</a>
+        <a class="top_button" id="local_domain_text" href="/authors" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Authors</a>
+        <a class="top_button" id="local_domain_text" href="/profiles" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Profiles</a>
+        <div class="control_button" id="login_register_account">
+            <img class="icon2" id="icon_account" src="/media/icons/user.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
+            <div class="label_top" id="label_top_account">Account</div>
+            <script src="/scripts/account/login.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        </div>
+        <div class="control_button" id="button_scheme">
+            <img class="icon" id="icon_scheme" src="/media/icons/droplet-half.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Schemes</div>
+        </div>
+        <div class="control_button" id="user_check_hello">
+            <img class="icon" id="icon_wave" src="/media/icons/wave.svg" style="width: 20px; scale: 1.2; transform-origin: top left; margin-top: 5px; margin-left: 4px;">
+            <div class="label_top">Wave to Discord</div>
+            <script src="/scripts/wave.js"></script>
+            <script src="/scripts/discord/assistant/commands/check.js"></script>
+        </div>
+
+        <!--————————————————————————————————————————————————————————-->
+        <!--——————————————————[ SCHEMES-MANAGER ]———————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <!-- The scheme manager (class="schemes_manager") and the
+        scheme layer (class="schemes_layer") HTML is managed by the
+        scheme manager script which can be found under the following
+        path (src="/scripts/scheme_manager.js") -->
+        <div class="schemes_manager"></div>
+        <div class="schemes_layer"></div>
+    </div>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ CENTER-ELEMENTS ]———————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="center" id="center" style="display: flex; justify-content: center; align-items: center; height: 100%; text-align: center; padding: 40px; border-radius: 10px; color: #fff; left: 38%; top: 950px;">
+        <div style="max-width: 1200px;">
+            <h1 class="header" style="font-size: 4em; margin: 0; font-family: NotoSans-Bold;">OpenProfile 5 Terms of Service</h1>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium;">Last updated July 22, 2024</h1>
+            <br><br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">1. Introduction</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">Welcome to OpenProfile 5 (referred to as “OP5” or “OpenProfile”), a collaborative platform designed for authors and creators to develop, share, and explore original characters through our advanced templates and extensive public database. By accessing or using OpenProfile, you agree to adhere to and be legally bound by these Terms of Service. If you do not agree with any part of these terms, you must discontinue use of the platform immediately.</p>
+            <br><br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">2. User Generated Content (UGC)</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">When you upload original characters to OpenProfile, you represent and warrant that:</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">- You are the sole author of the content or possess the necessary fair use rights or permissions to upload and share it.</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">- Your content does not violate the intellectual property rights, privacy rights, or any other rights of third parties.</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">- Your content complies with all applicable laws and regulations, including but not limited to copyright, trademark, and privacy laws.</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">OpenProfile does not claim ownership of the content you upload but does require that you assume full responsibility for any legal issues that may arise from your content.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">3. Intellectual Property and Rights</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">By uploading content to OpenProfile, you grant us a non-exclusive, royalty-free, worldwide license to use, display, and distribute your content solely for the purposes of operating, promoting, and improving the platform. This license does not transfer ownership of your content. If you remove or delete content from OpenProfile, the license will terminate, though OpenProfile may retain archival copies as needed.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">4. Dispute Resolution and DMCA Takedown Policy</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">If a third party alleges that your uploaded content infringes their intellectual property rights, OpenProfile reserves the right to investigate and take appropriate action, including removing the content from our database or transferring the profile to the rightful owner. To file a legitimate claim, rights holders must provide verifiable proof of ownership. </p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">OpenProfile will review and respond to claims in a timely manner but is not liable for any disputes arising from such claims. You agree to indemnify and hold harmless OpenProfile from any claims, losses, or liabilities related to the content you upload.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">5. Prohibited Uses and Content</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">Users are prohibited from:</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">- Uploading or sharing content that is explicit, offensive, defamatory, or illegal.</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">- Engaging in harassment, threats, or any form of abusive behavior.</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">- Violating the intellectual property rights or privacy of individuals, including but not limited to real-life persons.</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">OpenProfile reserves the right to monitor, review, and enforce compliance with these terms, including removing offending content and suspending or terminating user accounts as necessary.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">6. User Account Responsibilities</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">Users are responsible for maintaining the confidentiality of their account credentials and for all activities that occur under their account. You agree to notify OpenProfile immediately of any unauthorized use of your account or any other security breaches. OpenProfile will not be liable for any loss or damage arising from your failure to protect your account information.</p>        
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">7. Profile Content and Community Standards</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">Profile media and names must comply with OpenProfile’s community standards and should be suitable for all audiences. We reserve the right to request changes or remove profile content that does not meet these standards. Non-compliance may result in account suspension or other actions deemed appropriate by OpenProfile.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">8. Changes to Terms</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">OpenProfile reserves the right to modify these Terms of Service at any time. Users will be notified of significant changes via email or platform notifications. Continued use of the platform following such changes constitutes acceptance of the revised terms.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">9. Termination and Suspension</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">OpenProfile may terminate or suspend your account and access to the platform at our sole discretion if you breach these Terms of Service or for any other reason deemed appropriate. Upon termination, you will no longer have access to your account and associated content.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">10. Limitation of Liability</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">To the maximum extent permitted by law, OpenProfile shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of the platform, including but not limited to damages for loss of profits, goodwill, or data.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">11. Governing Law</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction in which OpenProfile is located, without regard to its conflict of laws principles.</p>
+            <br>
+            <p class="header" style="font-size: 2em; margin: 0; font-family: NotoSans-Medium; text-align: left;">12. Contact Information</h1>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">For questions or concerns regarding these Terms of Service, please contact us at <a href="mailto:support@openprofile.com">support@openprofile.com</a>.</p>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;">By using OpenProfile, you acknowledge that you have read, understood, and agree to these Terms of Service in their entirety.</p>
+            <br><br><br><br>
+            <p class="info" style="font-size: 1.2em; margin: 20px 0; top: 20px; text-align: left; opacity: 0.8;"> </p>
+        </div>
+    </div>
+
+        <!--————————————————————————————————————————————————————————-->
+        <!--——————————————————[ BOTTOM-ELEMENTS ]———————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <div class="bottom" style="display: block;">
+            <a href="/privacy" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 20px; margin-top: 12px; left: 0px; position: fixed;">Privacy Policy</p></a>
+            <a href="/terms" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 180px; margin-top: 12px; left: 0px; position: fixed;">Terms of Service</p></a>
+            <p class="info" style="font-size: 1.2em; margin-right: 20px; margin-top: 12px; right: 0px; position: fixed;">© OpenProfile 2024, All Rights Reserved</p>
+            <div class="social_buttons" style="bottom: 8px; left: 50%; transform: translateX(-50%)scale(1.6); display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
+                <a class="loader_social_button" id="youtube_button" href="https://www.youtube.com/@openprofile" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/youtube.png" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">YouTube</div>
+                </a>
+                <a class="loader_social_button" id="x_button" href="https://x.com/openprofileapp" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/x_twitter.svg" style="width: 16px; margin: 5px;">
+                    <div class="label_bottom">X (Twitter)</div>
+                </a>
+                <a class="loader_social_button" id="facebook_button" href="https://www.facebook.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/facebook.png" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">Facebook</div>
+                </a>
+                <a class="loader_social_button" id="instagram_button" href="https://instagram.com/openprofileapp" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/instagram.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">Instagram</div>
+                </a>
+                <a class="loader_social_button" id="discord_button" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/discord.svg" style="width: 18px; margin: 4px; margin-top: 6px;">
+                    <div class="label_bottom">Discord</div>
+                </a>
+                <a class="loader_social_button" id="github_button" href="https://www.github.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/github.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">GitHub</div>
+                </a>
+                <a class="loader_social_button" id="email_button" href="mailto:support@openprofile.app" target="_blank">
+                    <img class="icon" src="/media/icons/mail.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">Support</div>
+                </a>
+            </div>
+        </div>
+
+        <!--————————————————————————————————————————————————————————-->
+        <!--—————————————————[ DEVELOPER-ELEMENTS ]—————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+        <script src="/scripts/account/session_load.js"></script>
+        <script src="/scripts/local_domain_text.js"></script>
+    </body>
+</html>

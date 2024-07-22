@@ -1,38 +1,88 @@
-// Function to show the modal dialog
+// Function to show the modal dialog with a delay
 function showTextPopup() {
   const popup = document.getElementById('changelog_popup');
-  const changelog_popup_version = document.getElementById('changelog_popup_version');
+  const changelogPopupVersion = document.getElementById('changelog_popup_version');
   const storedText = localStorage.getItem('updateText');
-  const notification_dot_official = document.getElementById('notification_dot_official');
+  const currentVersion = changelogPopupVersion.textContent.trim();
 
-  // Check if the stored text is different from the current one or if it's not stored
-  if (!storedText || storedText !== changelog_popup_version.textContent) {
-    // Display the popup with opacity transition
+  // Display the popup
+  function displayPopup() {
     popup.style.display = 'block';
-    popup.style.opacity = '1';
-    notification_dot_official.display = 'block';
-    // Assuming load_current_scheme() function is defined elsewhere
-    load_current_scheme();
+    setTimeout(() => {
+      popup.style.opacity = '1';
+    }, 0); // Ensure transition effect
   }
 
-  // Close the modal with delay and opacity transition on left-click
-  const modal = document.getElementById('changelog_popup_close');
-  modal.addEventListener('click', (event) => {
-    if (!event.target.classList.contains('social_buttons')) {
-      popup.style.opacity = '0'; // Set opacity to 0 for the transition effect
-      // Save the updated text to localStorage
-      localStorage.setItem('updateText', changelog_popup_version.textContent);
-      
-      // Hide the modal after the transition
-      setTimeout(() => {
-        popup.style.display = 'none';
-      }, 200); // Wait for the transition duration (0.2s)
+  // Close the popup
+  function closeModal() {
+    popup.style.opacity = '0';
+    setTimeout(() => {
+      popup.style.display = 'none';
+      localStorage.setItem('updateText', currentVersion);
+    }, 200); // 200ms for transition
+  }
+
+  // Handle click events outside the popup
+  function handleClickOutside(event) {
+    if (popup.style.display === 'block' && !popup.contains(event.target) && !modalClose.contains(event.target)) {
+      closeModal();
+    }
+  }
+
+  // Initialize the popup display with a delay
+  function initPopup() {
+    if (!storedText || (storedText !== currentVersion && changelogPopupVersion.textContent !== "")) {
+      setTimeout(displayPopup, 2000); // Delay before showing the popup
+    }
+  }
+
+  // Add event listeners
+  const modalClose = document.getElementById('changelog_popup_close');
+  if (modalClose) {
+    modalClose.addEventListener('click', (event) => {
+      if (event.target.id !== 'button_official' && event.target.id !== 'icon_official') {
+        closeModal();
+      }
+    });
+  }
+
+  document.addEventListener('click', modalClose);
+
+  // Cleanup event listeners after transition
+  popup.addEventListener('transitionend', () => {
+    if (popup.style.display === 'none') {
+      document.removeEventListener('click', modalClose);
     }
   });
+
+  // Execute the popup initialization
+  initPopup();
 }
 
-function manualchangelog() {
-  const popup = document.getElementById('changelog_popup');
-  popup.style.display = 'block';
-  popup.style.opacity = '1';
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Function to show the modal manually
+  function manualChangelog() {
+    const popup = document.getElementById('changelog_popup');
+    popup.style.display = 'block';
+    setTimeout(() => {
+      popup.style.opacity = '1';
+    }, 0); // Ensure transition effect
+  }
+
+  // Event listener for the button click
+  const showChangelogButton = document.getElementById('button_official');
+  const iconOfficial = document.getElementById('icon_official');
+
+  if (showChangelogButton) {
+    showChangelogButton.addEventListener('click', manualChangelog);
+  }
+
+  if (iconOfficial) {
+    iconOfficial.addEventListener('click', manualChangelog);
+  }
+
+  // Delay the entire script by 1.5 seconds
+  setTimeout(() => {
+    showTextPopup();
+  }, 1500); // 1.5 seconds delay
+});

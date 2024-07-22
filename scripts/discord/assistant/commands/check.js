@@ -2,10 +2,10 @@ function redactAndSendMessage(name, button) {
     localStorage.setItem('discordwavesent', 'sent');
     button.style.display = "none";
     //stopVibration();
-    alert('Thanks for your wave!');
+    alert('Thanks for your wave on Discord! Join our server to see your wave: discord.gg/w6aV9gkz8g');
     redactName(name)
         .then(redactedName => {
-            const message = `👋 **${redactedName}** sent a wave from web!`;
+            const message = `<:openprofile_wave_icon:1263080718511243304> **${redactedName}** sent a wave from web!`;
             sendMessageToDiscord(message);
         })
         .catch(error => {

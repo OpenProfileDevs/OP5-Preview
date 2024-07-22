@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ PAGE-INFORMATION ]——————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <title>OpenProfile 5 Preview</title>
+    <link rel="icon" href="media/icons/openprofile_logo.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--—————————————————————[ META-TAGS ]——————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="OpenProfile 5 Editor Preview" />
+    <meta property="twitter:creator" content="@OpenProfileApp" />
+    <meta property="og:description" content="You need to be logged in to access the editor." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/OpenProfileApp/OP5-Preview/web/media/images/openprofile/preview/openprofile_logo_preview_512_jpeg.jpeg" />
+    <meta property="og:url" content="https://preview.openprofile.app" />
+    <meta property="theme-color" content="#8515cf" />
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--————————————————————[ STYLESHEETS ]—————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <link rel="stylesheet" type="text/css" href="/desktop_styles.css">
+    <link rel="stylesheet" type="text/css" href="/mobile_styles.css">
+</head>
+<body>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--————————————————————[ BASE-SCRIPTS ]————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <script>
+        // Function to dynamically load a script
+        function loadScript(src) {
+            var script = document.createElement('script');
+            script.src = src;
+            document.head.appendChild(script);
+        }
+    
+        // Check if the URL contains 'edit'
+        if (window.location.href.includes('/editor/')) {
+            loadScript('/scripts/page_generation/page_load.js');
+            loadScript('/scripts/page_generation/page_check.js');
+        }
+    </script>
+    <script src="/scripts/account/discord_auth.js"></script>
+    <script src="/scripts/account/login.js"></script>
+    <script src="/scripts/countrycodes.js"></script>
+    <script src="/scripts/discord/assistant/events/view.js"></script>
+    <script src="/scripts/scheme_manager.js"></script>
+    <script src="/scripts/seasonal_changes.js"></script>
+    <script src="/scripts/loader.js"></script>
+    <script src="/scripts/onload.js"></script>
+    <script src="/scripts/change_log.js"></script>
+    <script src="/scripts/menus/left_menu.js"></script>
+    <script src="/scripts/profile_fetcher_editor.js"></script>
+    
+    <!--————————————————————————————————————————————————————————-->
+    <!--————————————————————[ PAGE-LOADER ]—————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="loader_outer">
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.1"></script>
+        <div class="loader_container">            
+            <div style="position: fixed; top: 50%; left: 50%; transform-origin: center; transform: translate(-50%, -50%); z-index: 9999;">
+                <img id="loading_image" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 128px; width: 128px; top: -128px; left: -64px; transition: all 0.3s;">
+            </div>
+        </div>
+        <div class="loader_container_2">
+            <div class="loader_inner" style="transform: translate(-50%, 150%)">
+                <div class="loader_inner_color"></div>
+            </div>
+            <div class="loading_message" id="loading_message_default" style="top: 75%; font-style: italic;">loading...</div>
+            <div class="loading_message" id="loading_message_maintenance" style="top: 75%;">MAINTENANCE MODE ENABLED</div>
+            <div class="loading_message" id="loading_message_spooky_1" style="top: 75%; font-style: italic;">you hear bats surrounding you...</div>
+            <div class="loading_message" id="loading_message_spooky_2" style="top: 75%;">Beware! Haunting in Progress...</div>
+            <div class="loading_message" id="loading_message_spooky_3" style="top: 75%; font-style: italic;">ghosts are stirring...</div>
+            <div class="loading_message" id="loading_message_spooky_4" style="top: 75%; font-style: italic;">witching you a spine-tingling wait...</div>
+            <div class="loading_message" id="loading_message_spooky_5" style="top: 75%;">Zombies Approaching... Just Kidding!</div>
+            <div class="loading_message" id="loading_message_spooky_6" style="top: 75%; font-style: italic;">pumpkin spice loading...</div>
+            <div class="loading_message" id="loading_message_lunar" style="top: 75%;">Happy Lunar New Years!</div>
+        </div>
+        <div class="bottom" style="display: block; z-index: 9999;">
+            <a href="/privacy" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 20px; margin-top: 12px; left: 0px; position: fixed;">Privacy Policy</p></a>
+            <a href="/terms" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 180px; margin-top: 12px; left: 0px; position: fixed;">Terms of Service</p></a>
+            <p class="info" style="font-size: 1.2em; margin-right: 20px; margin-top: 12px; right: 0px; position: fixed;">© OpenProfile 2024, All Rights Reserved</p>
+            <div class="social_buttons" style="bottom: 8px; left: 50%; transform: translateX(-50%)scale(1.6); display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
+                <a class="loader_social_button" id="youtube_button" href="https://www.youtube.com/@openprofile" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/youtube.png" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">YouTube</div>
+                </a>
+                <a class="loader_social_button" id="x_button" href="https://x.com/openprofileapp" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/x_twitter.svg" style="width: 16px; margin: 5px;">
+                    <div class="label_bottom">X (Twitter)</div>
+                </a>
+                <a class="loader_social_button" id="facebook_button" href="https://www.facebook.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/facebook.png" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">Facebook</div>
+                </a>
+                <a class="loader_social_button" id="instagram_button" href="https://instagram.com/openprofileapp" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/instagram.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">Instagram</div>
+                </a>
+                <a class="loader_social_button" id="discord_button" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/discord.svg" style="width: 18px; margin: 4px; margin-top: 6px;">
+                    <div class="label_bottom">Discord</div>
+                </a>
+                <a class="loader_social_button" id="github_button" href="https://www.github.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/github.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">GitHub</div>
+                </a>
+                <a class="loader_social_button" id="email_button" href="mailto:support@openprofile.app" target="_blank">
+                    <img class="icon" src="/media/icons/mail.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">Support</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ POP-UP-ELEMENTS ]———————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="changelog_popup" id="changelog_popup" style="right: 48px;">
+        <div class="triangle" style=" top: 20px; right: 64px;"></div>
+        <p id="changelog_popup_version" style="font-family: NotoSans-Bold; font-size: 24px; text-align: center; transform: translateY(-5px);"></p>
+        <p id="changelog_popup_changelog" style="text-align: left; font-family: NotoSans-Regular; font-size: 20px; transform: translateY(0px);"></p>
+        <div class="changelog_popup_close" id="changelog_popup_close">
+            <img id="changelog_popup_close_img" src="/media/icons/feather_icons/x.svg" style="position: absolute; top: 18px; right: 18px; scale: 0.35; transform-origin: top right; z-index: 3000; cursor: pointer;">
+        </div>        
+        <script src="/scripts/popup.js"></script>
+    </div>
+
+    <!-- The universe manager (id="popup_universe_manage") and 
+    (id="popup_universe_manage_more") HTML IDs are managed by
+    the universe manager script which can be found under the
+    following path (src="/scripts/universe_manager.js") -->
+    <div id="popup_universe_manager"></div>
+    <div id="popup_universe_manager_more"></div>
+
+    <div id="login_register_account_manager">
+        <div class="information_text" id="registrationMessage" style="top: 59%; font-size: 9px; z-index: 4999; display: none;"></div>
+    </div>
+    
+    <!--————————————————————————————————————————————————————————-->
+    <!--————————————————————[ TOP-ELEMENTS ]————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="top">
+        <a href="/" id="local_domain_text"><img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 28px; margin: 10px;"></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Black; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Web Preview</p></a>
+
+        <a class="top_button" id="premium_button_text" href="https://ko-fi.com/openprofile" style="background: #efbe0b; border-radius: 25px; margin-left: 192px; color: #ffffff">Get Premium</a>
+        <a class="top_button" id="local_domain_text" href="/authors" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Authors</a>
+        <a class="top_button" id="local_domain_text" href="/profiles" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Profiles</a>
+        <div class="control_button" id="login_register_account">
+            <img class="icon2" id="icon_account" src="/media/icons/user.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
+            <div class="label_top" id="label_top_account">Account</div>
+            <script src="/scripts/account/login.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        </div>
+        <div class="control_button" id="button_scheme">
+            <img class="icon" id="icon_scheme" src="/media/icons/droplet-half.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Schemes</div>
+        </div>
+        <div class="control_button" id="button_official">
+            <img class="icon" id="icon_official" src="/media/icons/openprofile_logo.svg" style="height: 24px; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Official News</div>
+        </div>
+        <div class="control_button" id="user_check_hello">
+            <img class="icon" id="icon_wave" src="/media/icons/wave.svg" style="width: 20px; scale: 1.2; transform-origin: top left; margin-top: 5px; margin-left: 4px;">
+            <div class="label_top">Wave to Discord</div>
+            <script src="/scripts/wave.js"></script>
+            <script src="/scripts/discord/assistant/commands/check.js"></script>
+        </div>
+        <div class="control_button" style="opacity: 0; pointer-events: none; top: -100;">
+        </div>
+        <div class="control_button" id="import_profile">
+            <input type="file" id="loadFileInput" accept=".op5" style="display: none;">
+            <img class="icon" id="icon_account" src="/media/icons/feather_icons/upload.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Import Profile</div>
+        </div>
+        <script>
+            // Function to trigger the file input dialog
+            function triggerFileInput() {
+                var fileInput = document.getElementById('loadFileInput');
+                fileInput.click();
+            }
+    
+            // Add click event listener to the button
+            document.getElementById('import_profile').addEventListener('click', triggerFileInput);
+        </script>
+        <a class="control_button" id="icon_create" onclick="switchToInputPopup()">
+            <img class="icon" src="/media/icons/feather_icons/plus.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Create Profile</div>
+        </a>
+        <div class="control_button" id="saveButton" style="display: none;">
+            <img class="icon" id="icon_save" src="/media/icons/feather_icons/Download.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Download Profile</div>
+        </div>
+        <a class="control_button" id="edit_profile" onclick="switchToEditPopup()" style="display: none;">
+            <img class="icon" src="/media/icons/pencil.svg" style="scale: 1.04; transform-origin: top left; margin: 4px;">
+            <div class="label_top">Edit Profile</div>
+        </a>
+        <a class="control_button" id="public_profile" style="display: none;">
+            <img class="icon" src="/media/icons/world.svg" style="scale: 1.04; transform-origin: top left; margin: 4px;">
+            <div id="profile_publish_status" class="label_top">Publish Profile</div>
+        </a>
+        <script>
+            if (window.location.href.includes('/editor/')) {
+                const icon_create = document.getElementById('icon_create')
+                const saveButton = document.getElementById('saveButton')
+                const import_profile = document.getElementById('import_profile')
+                const edit_profile = document.getElementById('edit_profile')
+                const public_profile = document.getElementById('public_profile')
+                icon_create.style.display = "none"
+                saveButton.style.display = "block"
+                import_profile.style.display = "none"
+                edit_profile.style.display = "block"
+                public_profile.style.display = "block"
+            }
+        </script>
+        <div class="control_button" style=" opacity: 0; cursor: default; position: relative;"></div>
+        <div class="control_button" id="saveButtonServer" style=" opacity: 0; cursor: default; position: relative;">
+            <img class="icon" id="icon_save" src="/media/icons/feather_icons/globe.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
+            <div class="label_top" id="saveButtonServerText">Save Profile</div>
+        </div>
+
+        <!--————————————————————————————————————————————————————————-->
+        <!--——————————————————[ SCHEMES-MANAGER ]———————————————————-->
+        <!--————————————————————————————————————————————————————————-->
+        <!-- The scheme manager (class="schemes_manager") and the
+        scheme layer (class="schemes_layer") HTML is managed by the
+        scheme manager script which can be found under the following
+        path (src="/scripts/scheme_manager.js") -->
+        <div class="schemes_manager"></div>
+        <div class="schemes_layer"></div>
+
+        <div class="popup_background" id="popup_background" style="top: 540px;">
+            <div class="popup"id="profile_popup"></div>
+        </div>
+    </div>
+    
+    <!--————————————————————————————————————————————————————————-->
+    <!--———————————————————[ LEFT-ELEMENTS ]————————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="left">
+        <div class="side_button side_button_active" id="toggle_left_menu">
+            <img class="icon" src="/media/icons/user.svg" style="scale: 1.82; transform-origin: top left; margin: 10px;">
+            <div class="label_left" id="toggle_left_menu_option" option="option_1">Hide Profiles</div>
+        </div>
+        <div class="side_button" id="toggle_left_menu_4">
+            <img class="icon" src="/media/icons/world.svg" style="scale: 1.82; transform-origin: top left; margin: 10px;">
+            <div class="label_left" id="toggle_left_menu_option_4" option="option_1">Show Published</div>
+        </div>
+        <div class="side_button" id="toggle_left_menu_2" style="display: none;">
+            <img class="icon" src="/media/icons/trash.svg" style="scale: 1.82; transform-origin: top left; margin: 10px;">
+            <div class="label_left" id="toggle_left_menu_option_2" option="option_1">Show Deleted</div>
+        </div>
+        <div class="side_button" id="toggle_left_menu_3" style="display: none;">
+            <img class="icon" src="/media/icons/clock.svg" style="scale: 1.82; transform-origin: top left; margin: 10px;">
+            <div class="label_left" id="toggle_left_menu_option_3" option="option_1">Show Backups</div>
+        </div>
+        <div class="left_inner" id="authors_info" style="display: flex; flex-direction: column; align-items: center; overflow-y: visible; max-height: fit-content; transform: translateX(94px);">
+        </div>
+    </div>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--———————————————————[ RIGHT-ELEMENTS ]———————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="right_bottom" style="display: none;">
+        <div class="side_button" id="next_page" onclick="";>
+            <img class="icon" src="/media/icons/feather_icons/arrow-right.svg" style="scale: 0.44; transform-origin: top left; margin: 10px;">
+            <div class="label_right">Next Page</div>
+        </div>
+        <div class="side_button" id="previous_page" onclick="";>
+            <img class="icon" src="/media/icons/feather_icons/arrow-left.svg" style="scale: 0.44; transform-origin: top left; margin: 10px;">
+            <div class="label_right">Previous Page</div>
+        </div>
+    </div>
+    <script>
+        if (window.location.href.includes('/editor/')) {
+            const right_bottom = document.querySelector('.right_bottom')
+            right_bottom.style.display = "block"
+        }
+    </script>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ CENTER-ELEMENTS ]———————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="center" id="center">
+        <script>
+            // Check if the URL does NOT contain 'edit'
+            if (!window.location.href.includes('editor')) {
+                // Load the iframe dynamically
+                var iframe = document.createElement('iframe');
+                iframe.className = 'center_video';
+                iframe.id = 'center_video';
+                iframe.width = 1280;
+                iframe.height = 720;
+                iframe.src = 'https://www.youtube.com/embed/7NHA8kaM9iQ?si=xZt1SJnNfXwZEXrU';
+                iframe.allowfullscreen = true;
+                
+                // Append the iframe to the appropriate container in your HTML
+                document.getElementById('center').appendChild(iframe);
+            }
+        </script>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ BOTTOM-ELEMENTS ]———————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="bottom_1" style="display: block; z-index: 9999;">
+        <a href="/privacy" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 20px; margin-top: 12px; left: 0px; position: fixed;">Privacy Policy</p></a>
+        <a href="/terms" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 180px; margin-top: 12px; left: 0px; position: fixed;">Terms of Service</p></a>
+        <p class="info" style="font-size: 1.2em; margin-right: 20px; margin-top: 12px; right: 0px; position: fixed;">© OpenProfile 2024, All Rights Reserved</p>
+        <div class="social_buttons" style="bottom: 8px; left: 50%; transform: translateX(-50%)scale(1.6); display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
+            <a class="loader_social_button" id="youtube_button" href="https://www.youtube.com/@openprofile" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/youtube.png" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">YouTube</div>
+            </a>
+            <a class="loader_social_button" id="x_button" href="https://x.com/openprofileapp" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/x_twitter.svg" style="width: 16px; margin: 5px;">
+                <div class="label_bottom">X (Twitter)</div>
+            </a>
+            <a class="loader_social_button" id="facebook_button" href="https://www.facebook.com/openprofileapp/" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/facebook.png" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">Facebook</div>
+            </a>
+            <a class="loader_social_button" id="instagram_button" href="https://instagram.com/openprofileapp" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/instagram.svg" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">Instagram</div>
+            </a>
+            <a class="loader_social_button" id="discord_button" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/discord.svg" style="width: 18px; margin: 4px; margin-top: 6px;">
+                <div class="label_bottom">Discord</div>
+            </a>
+            <a class="loader_social_button" id="github_button" href="https://www.github.com/openprofileapp/" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/github.svg" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">GitHub</div>
+            </a>
+            <a class="loader_social_button" id="email_button" href="mailto:support@openprofile.app" target="_blank">
+                <img class="icon" src="/media/icons/mail.svg" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">Support</div>
+            </a>
+        </div>
+    </div>
+
+    <!--————————————————————————————————————————————————————————-->
+    <!--—————————————————[ DEVELOPER-ELEMENTS ]—————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function checkLoggedIn() {
+                fetch('/check-login')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to check login status');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.loggedIn) {
+                            const userData = data.userData;
+                            if (userData) {
+                                console.log('User Data:', userData);
+                            }
+                            // User is logged in, proceed as usual
+                        } else {
+                            switchToLogin();
+                            load_local_scheme();
+                            hideElements();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+
+            function hideElements() {
+                const top = document.querySelector('.top');
+                const left = document.querySelector('.left');
+                const right_bottom = document.querySelector('.right_bottom');
+                const center = document.querySelector('.center');
+                const login_close = document.getElementById('login_close');
+                const closeloginpopup = document.getElementById('closeloginpopup');
+                if (closeloginpopup) closeloginpopup.style.opacity = '1';
+                if (closeloginpopup) closeloginpopup.style.backgroundColor = '#160202';
+                if (login_close) login_close.style.display = 'none';
+                if (top) top.style.display = 'none';
+                if (left) left.style.display = 'none';
+                if (right_bottom) right_bottom.style.display = 'none';
+                if (center) center.style.display = 'none';
+            }
+            checkLoggedIn();
+        });
+    </script>
+    <script src="/scripts/switch_page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="/scripts/save_profile_server.js"></script> <!-- Needs to be very last to save and load properly -->
+    <script src="/scripts/id_generator.js"></script>
+    <script src="/scripts/edit_profile_server.js"></script>
+    <script src="/scripts/delete_profile_server.js"></script>
+    <script src="/scripts/verify_profile.js"></script>
+    <script src="/scripts/promote_profile.js"></script>
+    <script src="/scripts/restore_profile_server.js"></script>
+    <script src="/scripts/backup_restore_profile_server.js"></script>
+    <script src="/scripts/visiblity_profile_server.js"></script>
+    <script src="/scripts/create_profile.js"></script>    
+    <script src="/scripts/edit_profile.js"></script>    
+    <script src="/scripts/load_profile_editor.js"></script>
+    <script src="/scripts/local_domain_text.js"></script>
+    <script src="/scripts/unique_id.js"></script>
+    <script src="/scripts/auto_saver.js"></script>
+    <script src="/scripts/download_profile_server.js"></script>
+    <script src="/scripts/upload_profile_server.js"></script>
+    <script src="/scripts/account/session_load.js"></script>
+</body>
+</html>

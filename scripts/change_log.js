@@ -82,8 +82,10 @@
       const changelogDiv = document.getElementById('changelog_popup_changelog');
       const changelogName = document.getElementById('changelog_popup_version');
       const changelogTopVersion = document.getElementById('openprofile_version_text');
+      if (changelogDiv) {
       changelogDiv.innerHTML = `${formattedHTML}`;
       changelogName.innerHTML = `What's new in ${name}?<br><div style="font-size: 16px; font-family: NotoSans-Regular;"> Released ${formattedDate}!</div>`;
+      }
       changelogTopVersion.textContent = versionString;
 
       // Check local storage for previous version
@@ -97,7 +99,7 @@
       // Save current version to local storage
       localStorage.setItem('op5-preview-version', versionString);
 
-      load_dynamic_elements_scheme(); // Assuming this function handles any other dynamic elements
+      load_local_scheme(); // Assuming this function handles any other dynamic elements
     } else {
       console.error('Error fetching latest release:', response.statusText);
     }

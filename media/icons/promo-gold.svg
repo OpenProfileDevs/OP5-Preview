@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M24 0L24 0L24 24L0 24L0 0L24 0Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="promo">
+    <path d="M24 0L24 0L24 24L0 24L0 0L24 0Z" id="promo" fill="none" stroke="none" />
+    <path d="M0 0L24 0L24 24L0 24L0 0Z" id="Shape" fill="none" stroke="none" clip-path="url(#clip_1)" />
+    <path d="M10.586 3L4 9.586C3.42767 10.158 3.25636 11.0184 3.566 11.766L3.634 11.911C3.97594 12.5793 4.66331 12.9998 5.414 13L8 13L8 15C8 15.5523 8.44772 16 9 16L15 16L15.117 15.993C15.6205 15.9337 15.9999 15.507 16 15L15.999 13L18.586 13C19.3948 12.9998 20.1239 12.5125 20.4334 11.7653C20.7428 11.0181 20.5718 10.158 20 9.586L13.414 3C12.633 2.21924 11.367 2.21924 10.586 3L10.586 3Z" id="Shape" fill="#EFBE0B" stroke="none" clip-path="url(#clip_1)" />
+    <path d="M15 20C15.5291 20.0006 15.9662 20.4132 15.9972 20.9414C16.0282 21.4696 15.6424 21.9305 15.117 21.993L15 22L9 22C8.47091 21.9994 8.03384 21.5868 8.00283 21.0586C7.97182 20.5304 8.35761 20.0695 8.883 20.007L9 20L15 20L15 20Z" id="Shape" fill="#EFBE0B" stroke="none" clip-path="url(#clip_1)" />
+    <path d="M15 17C15.5291 17.0006 15.9662 17.4132 15.9972 17.9414C16.0282 18.4696 15.6424 18.9305 15.117 18.993L15 19L9 19C8.47091 18.9994 8.03384 18.5868 8.00283 18.0586C7.97182 17.5304 8.35761 17.0695 8.883 17.007L9 17L15 17L15 17Z" id="Shape" fill="#EFBE0B" stroke="none" clip-path="url(#clip_1)" />
+  </g>
+</svg>

@@ -9,6 +9,24 @@ function generateRandomUserID() {
     return randomUserID;
 }
 
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
 async function sendSessionDataToServer(sessionData) {
     try {
         const response = await fetch('/save-session', {
@@ -30,8 +48,16 @@ async function sendSessionDataToServer(sessionData) {
 }
 
 // Example usage
-async function handleUserJoin() {
+async function handleUserDiscordView() {
     const joinTime = new Date().getTime();
+    const pathname = window.location.pathname;
+    let urlEnding = pathname.split('/').pop(); // Extract URL ending
+    if (!urlEnding) {
+        urlEnding = 'homepage'; // Assign default value if URL ending is empty or null
+    }
+    
+    const isAuthor = pathname.includes('/author/'); // Check if URL contains /author/
+    const isEditor = pathname.includes('/editor/'); // Check if URL contains /author/
 
     try {
         // Fetch user's country
@@ -46,22 +72,26 @@ async function handleUserJoin() {
         fetch('/check-login') // Assuming this route checks if the user is logged in
             .then(response => response.json())
             .then(data => {
+                let sessionData;
                 if (data.loggedIn) {
                     // Access userData if available and use it
                     const userData = data.userData;
                     if (userData) {
                         // Do something with userData and specificElementData, for example:
                         console.log('User Data:', userData);
-                        const sessionData = `➡️ **@${userData.username}** viewed **OpenProfile 5 Editor Preview** from **${name}** ${emoji}`;
-                        // Send message to server with session data
-                        sendSessionDataToServer(sessionData);
+                        sessionData = `<:openprofile_view_icon:1262897067844567101> **@${userData.username}** ${isEditor ? 'is editing' : 'viewed'} **${isAuthor ? '@' : ''}${urlEnding}** from **${name}** ${emoji}`;
                     }
                 } else {
-                    // If not logged in, handle accordingly
-                    const sessionData = `➡️ **Guest** viewed **OpenProfile 5 Editor Preview** from **${name}** ${emoji}`;
-                    // Send message to server with session data
-                    sendSessionDataToServer(sessionData);
+                    // If not logged in, generate or get guest ID and handle accordingly
+                    let guestID = getCookie('guestID');
+                    if (!guestID) {
+                        guestID = generateRandomUserID();
+                        setCookie('guestID', guestID, 30);
+                    }
+                    sessionData = `<:openprofile_view_icon:1262897067844567101> **Guest_${guestID}** viewed **${isAuthor ? '@' : ''}${urlEnding}** from **${name}** ${emoji}`;
                 }
+                // Send message to server with session data
+                sendSessionDataToServer(sessionData);
             })
             .catch(error => {
                 console.error('Error checking login status:', error);
@@ -72,6 +102,7 @@ async function handleUserJoin() {
 
     // Call other functions or perform other actions here
 }
+
 async function fetchUserCountry() {
     try {
         const response = await fetch('https://api.ipify.org?format=json');
@@ -99,4 +130,9 @@ document.addEventListener('visibilitychange', async () => {
             await handleUserLeave(userID);
         }
     }
+});
+
+// Run handleUserJoin function when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
+    await handleUserDiscordView();
 });

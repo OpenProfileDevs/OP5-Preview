@@ -69,6 +69,7 @@ document.getElementById('login_discord').addEventListener('click', () => {
 
         // Redirect to the user's author page
         window.location.href = `/author/${username}`;
+        checkLoggedIn()
       } else {
         console.error('Token or username not found in URL parameters');
       }

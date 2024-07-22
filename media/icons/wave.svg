@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M24 0L24 0L24 24L0 24L0 0L24 0Z" id="path_1" />
+    <path d="M2.14577e-06 0L0 23.9832L23.9832 23.9832L23.9832 1.90735e-06L2.14577e-06 0Z" id="path_2" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+    <clipPath id="clip_2">
+      <use xlink:href="#path_2" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="openprofile_logo_">
+    <path d="M24 0L24 0L24 24L0 24L0 0L24 0Z" id="openprofile_logo_" fill="none" stroke="none" />
+    <g id="Frame" clip-path="url(#clip_1)">
+      <path d="M2.14577e-06 0L0 23.9832L23.9832 23.9832L23.9832 1.90735e-06L2.14577e-06 0Z" id="Frame" fill="none" stroke="none" transform="matrix(-0.7660443 0.64278775 0.64278775 0.7660443 13.872073 -5.8125)" />
+      <path d="M15.4889 2.99803Q15.2117 2.99803 14.9652 3.02879Q14.7431 0.999141 12.4913 0.999141Q10.2395 0.999141 10.0173 3.02884Q9.7707 2.99803 9.49325 2.99803Q8.24412 2.99803 7.61956 3.62259Q6.995 4.24715 6.995 5.49628L6.995 10.5957C6.00359 9.74614 4.91652 9.67619 3.73379 10.3859C2.34425 11.2189 2.04668 12.3415 2.84108 13.7535Q5.67461 18.7902 6.15913 19.5341L6.35634 19.8359C7.68082 21.8471 9.52448 22.8946 11.8873 22.9782C11.9046 22.9801 11.922 22.9814 11.9394 22.9823C11.9568 22.9832 11.9741 22.9837 11.9916 22.9837L13.9902 22.9837C15.9218 22.9837 17.5706 22.3008 18.9364 20.9349C20.3023 19.569 20.9852 17.9202 20.9852 15.9886L20.9852 7.49456C20.9852 5.82906 20.1525 4.99631 18.487 4.99631Q18.2095 4.99631 17.9628 5.02714Q17.8638 4.12378 17.3626 3.62259Q16.738 2.99803 15.4889 2.99803Z" id="Vector-Union" fill="#FFFFFF" fill-rule="evenodd" stroke="none" clip-path="url(#clip_2)" transform="matrix(-0.7660443 0.64278775 0.64278775 0.7660443 13.872073 -5.8125)" />
+    </g>
+  </g>
+</svg>

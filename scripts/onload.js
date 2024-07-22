@@ -7,11 +7,11 @@ window.addEventListener('load', function () {
     var baseTag = document.querySelector("base");
     //baseTag.href = currentDomain;
 
-    handleUserJoin();
+    document.body.style.zoom = "80%";
     simulateAppLoading("100") // The number is to change speed, put 500 for dev and 100 for release
     load_local_scheme()
     //updateElementsByTimeOfYear();
-    translateSpecificElements(selectedLanguage); // Use config language later
+    //translateSpecificElements(selectedLanguage); // Use config language later
     showTextPopup()
     showBanner0()
 });

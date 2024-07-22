@@ -2,12 +2,12 @@
     "name": "Carbon",
     "id": "scheme_carbon",
     "author": "OpenProfile",
-    "version": "v5.0.091",
+    "version": "v5.0.110",
     "tag": "BETA",
-    "icon": "codesandbox",
+    "icon": "radar",
     "text": "#ffffff",
-    "accent": "#333333",
-    "shade_1": "#070707",
-    "shade_2": "#181818",
+    "accent": "#303030",
+    "shade_1": "#080808",
+    "shade_2": "#111111",
     "custom_html": "<div></div>"
 }

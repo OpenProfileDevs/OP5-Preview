@@ -2,9 +2,89 @@ var isButtonClickable = true;
 
 // Function to handle the login/register button click event
 document.getElementById("login_register_account").addEventListener("click", function() {
-    switchToLogin();
-    load_local_scheme();
+    function checkLoggedIn() {
+        fetch('/check-login')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to check login status');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.loggedIn) {
+                    const userData = data.userData;
+                    if (userData) {
+                        console.log('User Data:', userData);
+                    }
+                    logout();
+                } else {
+                    switchToLogin();
+                    load_local_scheme();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    checkLoggedIn();
 });
+
+// Utility function to set a cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Function to get a specific cookie by name
+function getCookie(name) {
+    let cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+        let [cookieName, cookieValue] = cookie.split('=');
+        if (cookieName === name) {
+            return cookieValue;
+        }
+    }
+    return null;
+}
+
+  async function autoLogin() {
+    try {
+        // Get a specific cookie by name
+        const token = getCookie('token');
+
+        if (!token) {
+        console.log('No token found in cookies');
+        } else {
+        console.log('Token found:', token);
+        // Use the token as needed
+        }
+
+      // Send request to /login-auto endpoint with token in the request body
+      const loginResponse = await fetch('/login-auto', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ token }) // Pass token in the request body
+      });
+  
+      if (loginResponse.ok) {
+        const responseData = await loginResponse.json();
+        console.log(`Auto-logging in user with username: ${responseData.username}`);
+        // Optionally, you can handle further actions after successful login
+      } else {
+        console.log('Auto-login failed:', loginResponse.statusText);
+        // Handle failed login attempt
+      }
+    } catch (error) {
+      console.error('Auto-login failed:', error);
+      // Handle error
+    }
+  }
+  
+  
 
 function registerUser() {
     if (!isButtonClickable) {
@@ -157,13 +237,10 @@ async function loginUser() {
         // Check if the response contains a token
         if (response.ok && responseData.token) {
             // If login is successful, store the token and username in localStorage or sessionStorage
-            localStorage.setItem('token', responseData.token); // You can change this to sessionStorage if you want the token to be session-based
-            localStorage.setItem('username', responseData.username);
-            const storedUsername = localStorage.getItem('username');
-
-            // Redirect to a new page or perform any other actions for a successful login
-            //window.location.href = `/author/${storedUsername}`; // Redirect to the author's page
-            closeloginpopup()
+            if (response.ok && responseData.token) {
+                label_top_account.textContent = `Logged in with @${responseData.username}`;
+                closeloginpopup();
+            }
 
             // Set the user label
             label_top_account.textContent = storedUsername;
@@ -174,18 +251,18 @@ async function loginUser() {
             // You can perform further actions with the user data here
         } else {
             // If login fails, display an error message
-            if (response.status === 401 && responseData.message === 'Please verify your email within 24 hours.') {
-                alert('Please verify your email within 24 hours.');
-            } if (response.status === 402 && responseData.message === 'You have been banned. If you believe this was a mistake, email "support@openprofile.app".') {
-                alert('You have been banned. If you believe this was a mistake, email "support@openprofile.app".');
+            if (response.status === 401) {
+                alert('If you recently created an account, please verify your email within 24 hours.');
+            } else if (response.status === 402) {
+                alert('You have been banned. If you believe this was a mistake, email "support@openprofile.app"');
             } else {
-                alert('Login failed. Please check your email and password.');
+                alert('There was an error logging you in.');
             }
         }
     } catch (error) {
         console.error('Error:', error);
         // Handle any errors that occur during the login process
-        alert('You are logged in!');
+        //alert('You are logged in!');
     }
 }
 
@@ -206,7 +283,7 @@ function switchToLogin() {
 
     const loginHTML = `
     <div class="popup_background" id="closeloginpopup" style="display: block; z-index: 900000;">
-        <div class="popup_prompt" style="height: 300px;">
+        <div class="popup_prompt" style="height: 300px; top: 540px;">
             <img class="icon" onclick="closeloginpopup()" id="login_close" src="/media/icons/feather_icons/x.svg" style="position: absolute; cursor: pointer; top: 0px; right: 0px; scale: 0.30; margin: 10px; transform-origin: top right; z-index: 3000;">
             <div class="group" id="login_email_group" style="top: 32px; left: 38px; z-index: 17;">
                 <div class="label_tab" id="login_email_label_tab">Email</div>
@@ -216,15 +293,18 @@ function switchToLogin() {
                 <div class="label_tab" id="login_password_label_tab">Password</div>
                 <div><input type="password" class="input_text_popup_prompt" id="login_password_input" style="text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your password"></div>
             </div>
-            <button onclick="loginUser()" style="top: 120px; left: 0px; z-index: 4999;">Login</button>
-            <a href="${window.location.origin}/discord-auth"><button style="top: 120px; left: 0px; z-index: 4999;">Login with Discord</button></a>
+            <button onclick="loginUser()" class="top_button" style="padding: 20px; color: #fff; background-color: #ce1616; border: none; border-radius: 32px; cursor: pointer; top: 146px; left: -4px">Login</button>
+            <a href="${window.location.origin}/discord-auth"><button class="top_button_1" style="padding: 20px; color: #fff; background-color: #5865f2; border: none; border-radius: 32px; cursor: pointer; top: 146px; left: 4px; text-indent: 28px;">Login with Discord
+                <img src="/media/icons/media_icons/discord.svg" style="position: absolute; left: 8px; height: 20px; transform-origin: top left; margin: 6px;">
+            </button></a>
             <div class="h-captcha" data-sitekey="a1709015-a704-4a60-b17f-f3383b6e2238"></div>
             <script src="https://hcaptcha.com/1/api.js" async defer></script>
-            <div class="information_text" id="information_text_login" style="top: 68%; font-size: 10px; z-index: 4999; cursor: pointer;" onclick="switchToRegister()">Don't have an account? Click to register.</div>
+            <div class="information_text" id="information_text_login" style="top: 68%; font-size: 10px; z-index: 4999; cursor: pointer; border-radius: 100px" onclick="switchToRegister()">Don't have an account? Click to register.</div>
         </div>
     </div>
     `;
     popupLoginRegisterManager.innerHTML = loginHTML;
+    load_local_scheme()
 }
 
 function switchToRegister() {
@@ -232,7 +312,7 @@ function switchToRegister() {
 
     const registerHTML = `
     <div class="popup_background" id="closeloginpopup" style="display: block; z-index: 900000;">
-        <div class="popup_prompt" style="height: 460px;">
+        <div class="popup_prompt" style="height: 480px;">
             <img class="icon" id="register_close" onclick="closeloginpopup()" src="/media/icons/feather_icons/x.svg" style="position: absolute; cursor: pointer; top: 0px; right: 0px; scale: 0.30; margin: 10px; transform-origin: top right; z-index: 3000;">
             <div class="group" id="register_username_group" style="top: 25px; left: 38px; z-index: 17;">
                 <div class="label_tab" id="register_username_label_tab">Username</div>
@@ -250,19 +330,61 @@ function switchToRegister() {
                 <div class="label_tab" id="confirm_register_password_label_tab">Confirm Password</div>
                 <div><input type="password" class="input_text_popup_prompt" id="confirm_register_password_input" style="text-align: center;" autocomplete="off" autocorrect="off" placeholder="Enter your password"></div>
             </div>
-            <button onclick="registerUser()" style="top: 216px; left: 0px; z-index: 4999;">Register</button>
-            <a href="${window.location.origin}/discord-auth"><button style="top: 215px; left: 0px; z-index: 4999;">Register with Discord</button></a>
+            <button onclick="registerUser()" class="top_button" style="padding: 20px; color: #fff; background-color: #ce1616; border: none; border-radius: 32px; cursor: pointer; top: 240px; left: -4px">Register</button>
+            <a href="${window.location.origin}/discord-auth"><button class="top_button_1" style="padding: 20px; color: #fff; background-color: #5865f2; border: none; border-radius: 32px; cursor: pointer; top: 240px; left: 4px; text-indent: 28px;">Register with Discord
+                <img src="/media/icons/media_icons/discord.svg" style="position: absolute; left: 8px; height: 20px; transform-origin: top left; margin: 6px;">
+            </button></a>
             <div class="h-captcha" data-sitekey="a1709015-a704-4a60-b17f-f3383b6e2238"></div>
             <script src="https://hcaptcha.com/1/api.js" async defer></script>
-            <div class="information_text" id="information_text_register" style="top: 83%; font-size: 10px; z-index: 4999; cursor: pointer;" onclick="switchToLogin()">Already have an account? Click to login.</div>
+            <div class="information_text" id="information_text_register" style="top: 81%; font-size: 10px; z-index: 4999; cursor: pointer; border-radius: 100px" onclick="switchToLogin()">Already have an account? Click to login.</div>
         </div>
     </div>
     `;
-
     popupLoginRegisterManager.innerHTML = registerHTML;
+    load_local_scheme()
 }
-
 function closeloginpopup() {
     const closeloginpopup = document.getElementById('closeloginpopup')
     closeloginpopup.style.display = "none";
+    checkLoggedIn()
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    autoLogin();
+});
+
+async function logout() {
+    try {
+        // Retrieve the token from cookies
+        const token = getCookie('token');
+        if (!token) {
+            alert('No token found in cookies.');
+            return;
+        }
+
+        // Send a POST request to the /logout endpoint with the token as a URL parameter
+        const response = await fetch(`/logout/${token}`, {
+            method: 'POST',
+            credentials: 'include', // Ensure cookies are sent with the request
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            //alert(data.message); // Display success message
+            window.location.href = '/'; // Redirect to login page or home
+        } else {
+            const errorData = await response.json();
+            alert(`Logout failed: ${errorData.message}`);
+        }
+    } catch (error) {
+        console.error('Error logging out:', error);
+        alert('An error occurred while logging out.');
+    }
+}
+
+// Example implementation of getCookie function
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }

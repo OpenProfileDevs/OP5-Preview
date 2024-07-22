@@ -74,8 +74,39 @@ document.addEventListener("DOMContentLoaded", function () {
     // This function will load the schemes into the manager
     // based on what has been registered at the end of the
     // script.
-    function generate_schemes() {
-
+    async function generate_schemes() {
+        let premium = null;
+        let early = null;
+    
+        try {
+            // Fetch the login status
+            const response = await fetch('/check-login');
+            if (!response.ok) {
+                throw new Error('Failed to check login status');
+            }
+            const data = await response.json();
+    
+            if (data.loggedIn) {
+                const userData = data.userData;
+                if (userData) {
+                    premium = userData.premium;
+                    early = userData.early;
+                    console.log('Premium:', premium);
+                    console.log('Early:', early);
+                } else {
+                    console.log('No user data available.');
+                }
+            } else {
+                console.log('User is not logged in.');
+                // Handle non-logged-in state if needed
+                // redirectToLogin(); // Example function
+            }
+        } catch (error) {
+            console.error('Error fetching login status:', error);
+            // Handle the error if needed
+            // showErrorMessage(error.message); // Example function
+        }
+    
         // This prevents non-verified schemes from showing up.
         let scheme_manager_html = '';
 
@@ -100,10 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const October = 10;
             const November = 11;
             const December = 12;
-                
+
+            if (premium || early) {
+                premium = true
+            }
+
             // Checks the current month and if not matching to seasonal
             // schemes to skip them until the month arrives.
-            if (currentMonth !== October && scheme.id === "scheme_spooky" || currentMonth !== February && scheme.id  === "scheme_lunar_red"  || currentMonth !== February && scheme.id  === "scheme_lunar_green" ) {
+            if (!premium && scheme.id === "scheme_coffee" || !premium && scheme.id === "scheme_carbon" || currentMonth !== October && scheme.id === "scheme_spooky" || currentMonth !== February && scheme.id  === "scheme_lunar_red"  || currentMonth !== February && scheme.id  === "scheme_lunar_green" ) {
                 // Blank html code when skipping schemes.
                 scheme_manager_html += ``;
             } else {
@@ -134,8 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="scheme_button" id="${scheme.id}" style="background: ${scheme.shade_1}" title="Apply Scheme" onmouseover="this.style.backgroundColor='${scheme.accent}'" onmouseout="this.style.backgroundColor='${scheme.shade_1}'">
                     <img id="${scheme.id}" src="/media/icons/feather_icons/download.svg" style="transform-origin: top left; max-width: 32px; margin: 8px; filter: ${icon_brightness};">
                 </div>
-                <img src="/media/icons/feather_icons/${scheme.icon}.svg" style="position: relative; top: -48px; max-width: 40px; transform-origin: top left; margin: 12px; filter: ${icon_brightness};">
-                <div class="scheme_text" id="scheme_name_${scheme.name}" style="color: ${scheme.text}">${scheme.name}</div>
+                <img src="/media/icons/${scheme.icon}.svg" style="position: relative; top: -48px; width: 42px; transform-origin: top left; margin: 12px; filter: ${icon_brightness};">
+                <div class="scheme_text" id="scheme_name_${scheme.name}" style="color: ${scheme.text};">${scheme.name}</div>
                 </div>
                 `;
 
@@ -272,23 +307,23 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const link = document.querySelector('link');
     const body = document.querySelector('body');
     const a = document.querySelectorAll('a');
+    const p = document.querySelectorAll('p');
     const li = document.querySelectorAll('.menu li');
     const schemes_layer = document.querySelector('.schemes_layer');
     const loader_outer = document.querySelector('.loader_outer');
     const loader_inner = document.querySelector('.loader_inner');
     const loader_inner_color = document.querySelector('.loader_inner_color');
-    const loading_image = document.querySelector('#loading_image')
+    const loading_image = document.querySelector('#loading_image');
     const loading_message = document.querySelectorAll('.loading_message');
-    const loader_social_button = document.querySelectorAll('.loader_social_button')
-    const icon = document.querySelectorAll('.icon')
-    const banner = document.querySelectorAll('.banner')
+    const loader_social_button = document.querySelectorAll('.loader_social_button');
+    const icon = document.querySelectorAll('.icon');
+    const banner = document.querySelectorAll('.banner');
     const top = document.querySelector('.top');
     const left = document.querySelector('.left');
     const left_inner = document.querySelector('.left_inner');
     const left_top_list = document.querySelector('.left_top_list');
     const right = document.querySelector('.right');
     const right_bottom = document.querySelector('.right_bottom');
-    const bottom = document.querySelector('.bottom');
     const input_search = document.querySelectorAll('.input_search');
     const menu = document.querySelectorAll('.menu');
     const changelog_popup = document.querySelectorAll('.changelog_popup');
@@ -309,18 +344,23 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     const page = document.querySelectorAll('.page');
     const input_1 = document.querySelectorAll('.input_1');
     const help_box = document.querySelectorAll('.help_box');
-    const triangle = document.querySelectorAll('.triangle')
-    const label_top = document.querySelectorAll('.label_top')
-    const label_tab = document.querySelectorAll('.label_tab')
-    const label_bottom = document.querySelectorAll('.label_bottom')
-    const side_lower_button = document.querySelectorAll('.side_lower_button')
-    const textarea = document.querySelectorAll('textarea')
-    const image_input_2 = document.querySelectorAll('.image_input_2')
-    const openprofile_title_text = document.querySelector('#openprofile_title_text')
-    const openprofile_version_text = document.querySelector('#openprofile_version_text')
-    const openprofile_title_logo = document.querySelector('#openprofile_title_logo')
-    //const popup_prompt = document.querySelector('.popup_prompt');
-    
+    const triangle = document.querySelectorAll('.triangle');
+    const label_top = document.querySelectorAll('.label_top');
+    const label_tab = document.querySelectorAll('.label_tab');
+    const label_bottom = document.querySelectorAll('.label_bottom');
+    const side_lower_button = document.querySelectorAll('.side_lower_button');
+    const textarea = document.querySelectorAll('textarea');
+    const image_input_2 = document.querySelectorAll('.image_input_2');
+    const openprofile_title_text = document.querySelector('#openprofile_title_text');
+    const openprofile_version_text = document.querySelector('#openprofile_version_text');
+    const openprofile_title_logo = document.querySelector('#openprofile_title_logo');
+    const popup_prompt = document.querySelector('.popup_prompt');
+    const input_text_popup_prompt = document.querySelectorAll('.input_text_popup_prompt');
+    const info = document.querySelector('.info');
+    const header = document.querySelector('.header');
+    const author1card = document.querySelectorAll('.author1-card');
+    const visibility = document.querySelectorAll('.visibility');
+
     //————————————————————————————————————————————————————————//
     //————————————————————[ SCHEME-APPLY ]————————————————————//
     //————————————————————————————————————————————————————————//
@@ -333,25 +373,52 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     // Sets the scheme of the default elements.
     body.style.backgroundColor = scheme_shade_1;
 
-    a.forEach((a) => {
-        a.style.color = scheme_accent;
-    });
+    if (header) {
+        header.style.color = scheme_text;
+        info.style.color = scheme_text;
+    }
+
+    if (author1card) {
+        author1card.forEach((author1card) => {
+            author1card.style.backgroundColor = scheme_shade_2;
+        });
+    }
+
+
+    if (popup_prompt) {
+        popup_prompt.style.backgroundColor = scheme_shade_2;
+    }
+
+    if (a) {
+        a.forEach((a) => {
+            a.style.color = scheme_accent;
+        });
+    }
+
+    if (p) {
+        p.forEach((p) => {
+            p.style.color = scheme_text;
+        });
+    }
 
     // Sets the scheme of the loader elements.
-    loader_outer.style.backgroundColor = scheme_shade_1;
-    loader_inner.style.border = `8px solid ${scheme_text}`;
-    loader_inner_color.style.backgroundColor = scheme_text;
 
+    if (loader_outer) {
+        loader_outer.style.backgroundColor = scheme_shade_1;
+        loader_inner.style.border = `8px solid ${scheme_text}`;
+        loader_inner_color.style.backgroundColor = scheme_text;
+    }
 
-    loader_social_button.forEach((loader_social_button) => {
-        loader_social_button.style.backgroundColor = scheme_shade_2;
-        loader_social_button.addEventListener('mouseover', () => {
-            loader_social_button.style.backgroundColor = scheme_accent;
+    if (loader_social_button) {
+        loader_social_button.forEach((loader_social_button) => {
+            loader_social_button.addEventListener('mouseover', () => {
+                loader_social_button.style.backgroundColor = scheme_accent;
+            });
+            loader_social_button.addEventListener('mouseout', () => {
+                loader_social_button.style.backgroundColor = '#00000000'
+            });
         });
-        loader_social_button.addEventListener('mouseout', () => {
-            loader_social_button.style.backgroundColor = scheme_shade_2;
-        });
-    });
+    }
 
     // Checks if the text color is closer to white or black
     // and sets the icon brightness based on the results.
@@ -362,16 +429,57 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
         // Text color is closer to white, set brightness to 100%
         icon.forEach((icon) => {
             icon.style.filter = 'brightness(100%)';
+            changeAuthorCardBackgroundBlack()
         });
         openprofile_title_logo.style.filter = 'brightness(100%)';
     } else {
         // Text color is closer to black, set brightness to 0%
         icon.forEach((icon) => {
             icon.style.filter = 'brightness(0%)';
+            changeAuthorCardBackgroundWhite()
         });
         openprofile_title_logo.style.filter = 'brightness(0%)';
     }
 
+    if (visibility) {
+        if (luminance >= 128) {
+            // Text color is closer to white, set brightness to 100%
+            visibility.forEach((visibility) => {
+                visibility.style.filter = 'brightness(100%)';
+            });
+        } else {
+            // Text color is closer to black, set brightness to 0%
+            visibility.forEach((visibility) => {
+                visibility.style.filter = 'brightness(0%)';
+            });
+        }
+    }
+
+    function changeAuthorCardBackgroundBlack() {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .author-card::before {
+                background: linear-gradient(to bottom, #00000000, #000000 60%) !important;
+            }
+            .profile-card::before {
+                background: linear-gradient(to bottom, #00000000, #000000 60%) !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function changeAuthorCardBackgroundWhite() {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .author-card::before {
+                background: linear-gradient(to bottom, #ffffff00, #ffffff 60%) !important;
+            }
+            .profile-card::before {
+                background: linear-gradient(to bottom, #ffffff00, #ffffff 60%) !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
 
     // Checks if an image associated with the selected scheme
     // exists using the scheme ID to access the media directory
@@ -395,11 +503,11 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
             link.href = loading_image_check;
         }
         // Continue with the code, whether the image exists or not.
-        callback(true);
+        //callback(true);
     };
     loading_image_new.onerror = function () {
         // Continue with the code if the image doesn't exist.
-        callback(false);
+        //callback(false);
     };
 
     // Start loading the image.
@@ -411,12 +519,22 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 
     // Sets the scheme of the main elements.
     top.style.backgroundColor = scheme_shade_2;
-    left.style.backgroundColor = scheme_shade_2;
-    left_inner.style.backgroundColor = scheme_shade_2;
-    left_top_list.style.backgroundColor = scheme_shade_2;
-    right.style.backgroundColor = scheme_shade_2;
-    right_bottom.style.backgroundColor = scheme_shade_2;
-    bottom.style.backgroundColor = scheme_shade_2;
+    if (left) {
+        left.style.backgroundColor = scheme_shade_2;
+        left_inner.style.backgroundColor = scheme_shade_2;
+    }
+    
+    if (left_top_list) {
+        left_top_list.style.backgroundColor = scheme_shade_2;
+    }
+
+    if (right) {
+        right.style.backgroundColor = scheme_shade_2;
+    }
+
+    if (right_bottom) {
+        right_bottom.style.backgroundColor = scheme_shade_2;
+    }
 
     // Sets the scheme of the input elements.
     input_search.forEach((input_search) => {
@@ -461,29 +579,54 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
         label_tab.style.color = scheme_text;
     });
 
-    side_button.forEach((side_button) => {
-        side_button.style.backgroundColor = scheme_shade_2;
-        side_button.addEventListener('mouseover', () => {
-            side_button.style.backgroundColor = scheme_accent;
+    if (side_button) {
+         side_button.forEach((side_button) => {
+            if (!side_button.classList.contains('side_button_active')) {
+                side_button.style.backgroundColor = scheme_shade_2; // Set initial background color
+            } else {
+                side_button.style.backgroundColor = scheme_accent; // Set initial background color
+            }
+        
+            side_button.addEventListener('mouseover', () => {
+                if (!side_button.classList.contains('side_button_active')) {
+                    side_button.style.backgroundColor = scheme_accent; // Change background on hover
+                }
+            });
+        
+            side_button.addEventListener('mouseout', () => {
+                if (!side_button.classList.contains('side_button_active')) {
+                    side_button.style.backgroundColor = scheme_shade_2; // Revert background on mouseout
+                }
+            });
         });
-        side_button.addEventListener('mouseout', () => {
-            side_button.style.backgroundColor = scheme_shade_2;
-        });
-    });
+    }
 
-    side_lower_button.forEach((side_lower_button) => {
-        side_lower_button.style.backgroundColor = scheme_shade_2;
-        side_lower_button.addEventListener('mouseover', () => {
-            side_lower_button.style.backgroundColor = scheme_accent;
-        });
-        side_lower_button.addEventListener('mouseout', () => {
+    if (side_lower_button) {
+        side_lower_button.forEach((side_lower_button) => {
             side_lower_button.style.backgroundColor = scheme_shade_2;
+            side_lower_button.addEventListener('mouseover', () => {
+                side_lower_button.style.backgroundColor = scheme_accent;
+            });
+            side_lower_button.addEventListener('mouseout', () => {
+                side_lower_button.style.backgroundColor = scheme_shade_2;
+            });
         });
-    });
+    }
+
+    if (input_text_popup_prompt) {
+        input_text_popup_prompt.forEach((input_text_popup_prompt) => {
+            input_text_popup_prompt.style.backgroundColor = scheme_shade_1;
+            input_text_popup_prompt.style.color = scheme_text;
+        });
+    }
 
     top_button.forEach((top_button) => {
+        if (top_button.id == 'premium_button_text') {
+            top_button.style.color = "#ffffff";
+        } else {
         top_button.style.backgroundColor = scheme_accent;
         top_button.style.color = "#ffffff";
+        }
     });
 
     bottom_button.forEach((bottom_button) => {
@@ -569,27 +712,30 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
 
     // Extra Stuff
     openprofile_title_text.style.color = scheme_text;
-    openprofile_version_text.style.color = scheme_text;
-    //popup_prompt.style.backgroundColor = scheme_shade_2;
+    if (openprofile_version_text) {
+        openprofile_version_text.style.color = scheme_text;
+    }
 
-    // Sets the scheme of the page elements.
-    page.forEach((page) => {
-        page.style.backgroundColor = scheme_shade_2;
-    });
-    input_1.forEach((input_1) => {
-        input_1.style.backgroundColor = scheme_shade_1;
-        input_1.style.color = scheme_text;
-    });
-    textarea.forEach((textarea) => {
-        textarea.style.backgroundColor = scheme_shade_1;
-        textarea.style.color = scheme_text;
-    });
-    help_box.forEach((help_box) => {
-        help_box.style.backgroundColor = scheme_accent;
-    });
-    image_input_2.forEach((image_input_2) => {
-        image_input_2.style.backgroundColor = scheme_shade_1;
-    });
+    if (page) {
+        // Sets the scheme of the page elements.
+        page.forEach((page) => {
+            page.style.backgroundColor = scheme_shade_2;
+        });
+        input_1.forEach((input_1) => {
+            input_1.style.backgroundColor = scheme_shade_1;
+            input_1.style.color = scheme_text;
+        });
+        textarea.forEach((textarea) => {
+            textarea.style.backgroundColor = scheme_shade_1;
+            textarea.style.color = scheme_text;
+        });
+        help_box.forEach((help_box) => {
+            help_box.style.backgroundColor = scheme_accent;
+        });
+        image_input_2.forEach((image_input_2) => {
+            image_input_2.style.backgroundColor = scheme_shade_1;
+        });
+    }
 
     // Sets and clears the scheme custom html code if any.
     let schemes_layer_html = ``;

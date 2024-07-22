@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ PAGE-INFORMATION ]——————————————————-->
     <!--————————————————————————————————————————————————————————-->
@@ -10,57 +9,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
 
-    <!-- Dynamic domain -->
-    <base href="">
-
     <!--————————————————————————————————————————————————————————-->
     <!--—————————————————————[ META-TAGS ]——————————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="OpenProfile 5 Preview" />
+    <meta property="og:title" content="OpenProfile 5 Editor Preview" />
     <meta property="twitter:creator" content="@OpenProfileApp" />
-    <meta property="og:description" content="Check out this character on OpenProfile!" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/OpenProfileApp/OP5-Preview/web/media/images/openprofile/lunar/openprofile_logo_lunar_red_512_jpeg.jpeg" />
+    <meta property="og:description" content="You need to be logged in to access the editor." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/OpenProfileApp/OP5-Preview/web/media/images/openprofile/preview/openprofile_logo_preview_512_jpeg.jpeg" />
     <meta property="og:url" content="https://preview.openprofile.app" />
-    <meta property="theme-color" content="#e5b432" />
-    <meta name="google-adsense-account" content="ca-pub-5934702627096796">
+    <meta property="theme-color" content="#8515cf" />
 
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ STYLESHEETS ]—————————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <link rel="stylesheet" type="text/css" href="/desktop_styles.css">
     <link rel="stylesheet" type="text/css" href="/mobile_styles.css">
-    <link rel="stylesheet" type="text/css" media="print" href="/print_styles.css">
 </head>
 <body>
 
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ BASE-SCRIPTS ]————————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <script src="/scripts/clear_cache.js" type="text/javascript"></script>
-    <script src="/scripts/page_generation/page_load_read.js"></script>
-    <script src="/scripts/profile_view.js"></script>
-    <script src="/scripts/page_generation/page_check.js"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="/scripts/google_api.js"></script>
+    <script>
+        // Function to dynamically load a script
+        function loadScript(src) {
+            var script = document.createElement('script');
+            script.src = src;
+            document.head.appendChild(script);
+        }
+    
+        // Check if the URL contains 'edit'
+        if (window.location.href.includes('/profile/')) {
+            loadScript('/scripts/page_generation/page_load.js');
+            loadScript('/scripts/page_generation/page_check.js');
+        }
+    </script>
     <script src="/scripts/account/discord_auth.js"></script>
     <script src="/scripts/account/login.js"></script>
     <script src="/scripts/countrycodes.js"></script>
-    <script src="/scripts/discord/activity/activity_main.js"></script>
-    <script src="/scripts/scheme_manager_profile.js"></script>
+    <script src="/scripts/discord/assistant/events/view.js"></script>
+    <script src="/scripts/scheme_manager.js"></script>
     <script src="/scripts/seasonal_changes.js"></script>
-    <script src="/scripts/banner_profile.js"></script>
+    <script src="/scripts/banner.js"></script>
     <script src="/scripts/loader_profile.js"></script>
-    <script src="/scripts/scheme_manager_profile.js"></script>
-    <script src="/scripts/onload_char.js"></script>
-    <script src="/scripts/history/generate_timestamp.js"></script>
-    <script src="/scripts/print.js"></script>
-    <script src="/scripts/account/session_load.js"></script>
-
-    <div id="login_register_account_manager">
-        <div class="information_text" id="registrationMessage" style="top: 59%; font-size: 9px; z-index: 4999; display: none;"></div>
-    </div>
-
+    <script src="/scripts/onload.js"></script>
+    <script src="/scripts/change_log.js"></script>
+    <script src="/scripts/profile_fetcher_editor.js"></script>
+    
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ PAGE-LOADER ]—————————————————————-->
     <!--————————————————————————————————————————————————————————-->
@@ -68,7 +64,7 @@
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.1"></script>
         <div class="loader_container">            
             <div style="position: fixed; top: 50%; left: 50%; transform-origin: center; transform: translate(-50%, -50%); z-index: 9999;">
-                <img id="loading_image" src="/media/icons/openprofile_logo.svg" style="position: fixed; transform-origin: center; transform: translate(-50%, -58%) scale(0.20); z-index: 9999;">
+                <img id="loading_image" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 128px; width: 128px; top: -128px; left: -64px; transition: all 0.3s;">
             </div>
         </div>
         <div class="loader_container_2">
@@ -84,38 +80,38 @@
             <div class="loading_message" id="loading_message_spooky_5" style="top: 75%;">Zombies Approaching... Just Kidding!</div>
             <div class="loading_message" id="loading_message_spooky_6" style="top: 75%; font-style: italic;">pumpkin spice loading...</div>
             <div class="loading_message" id="loading_message_lunar" style="top: 75%;">Happy Lunar New Years!</div>
-
-            <div class="social_buttons" style="bottom: 6px; left: 50%; transform: translate(-50%, -50%)scale(1.75); flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
-                <a class="loader_social_button" id="website_button" href="https://bio.link/openprofile" target="_blank">
-                    <img class="icon" src="/media/icons/feather_icons/globe.svg" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom">Website</div>
-                </a>
+        </div>
+        <div class="bottom" style="display: block; z-index: 9999;">
+            <a href="/privacy" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 20px; margin-top: 12px; left: 0px; position: fixed;">Privacy Policy</p></a>
+            <a href="/terms" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 180px; margin-top: 12px; left: 0px; position: fixed;">Terms of Service</p></a>
+            <p class="info" style="font-size: 1.2em; margin-right: 20px; margin-top: 12px; right: 0px; position: fixed;">© OpenProfile 2024, All Rights Reserved</p>
+            <div class="social_buttons" style="bottom: 8px; left: 50%; transform: translateX(-50%)scale(1.6); display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
                 <a class="loader_social_button" id="youtube_button" href="https://www.youtube.com/@openprofile" target="_blank">
-                    <img class="icon" src="/media/icons/media_icons/youtube.png" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <img class="icon" src="/media/icons/media_icons/youtube.png" style="width: 18px; margin: 4px;">
                     <div class="label_bottom">YouTube</div>
                 </a>
                 <a class="loader_social_button" id="x_button" href="https://x.com/openprofileapp" target="_blank">
-                    <img class="icon" src="/media/icons/media_icons/x_twitter.svg" style="position: absolute; width: 16px; transform-origin: top left; margin: 5px;">
+                    <img class="icon" src="/media/icons/media_icons/x_twitter.svg" style="width: 16px; margin: 5px;">
                     <div class="label_bottom">X (Twitter)</div>
                 </a>
                 <a class="loader_social_button" id="facebook_button" href="https://www.facebook.com/openprofileapp/" target="_blank">
-                    <img class="icon" src="/media/icons/media_icons/facebook.png" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <img class="icon" src="/media/icons/media_icons/facebook.png" style="width: 18px; margin: 4px;">
                     <div class="label_bottom">Facebook</div>
                 </a>
                 <a class="loader_social_button" id="instagram_button" href="https://instagram.com/openprofileapp" target="_blank">
-                    <img class="icon" src="/media/icons/media_icons/instagram.svg" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <img class="icon" src="/media/icons/media_icons/instagram.svg" style="width: 18px; margin: 4px;">
                     <div class="label_bottom">Instagram</div>
                 </a>
-                <a class="loader_social_button" id="pinterest_button" href="https://www.pinterest.com/openprofileapp/" target="_blank">
-                    <img class="icon" src="/media/icons/media_icons/pinterest.png" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
-                    <div class="label_bottom">Pinterest</div>
-                </a>
                 <a class="loader_social_button" id="discord_button" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
-                    <img class="icon" src="/media/icons/media_icons/discord.svg" style="position: absolute; width: 18px; transform-origin: top left; margin-top: 6px; margin-left: 4px;">
+                    <img class="icon" src="/media/icons/media_icons/discord.svg" style="width: 18px; margin: 4px; margin-top: 6px;">
                     <div class="label_bottom">Discord</div>
                 </a>
+                <a class="loader_social_button" id="github_button" href="https://www.github.com/openprofileapp/" target="_blank">
+                    <img class="icon" src="/media/icons/media_icons/github.svg" style="width: 18px; margin: 4px;">
+                    <div class="label_bottom">GitHub</div>
+                </a>
                 <a class="loader_social_button" id="email_button" href="mailto:support@openprofile.app" target="_blank">
-                    <img class="icon" src="/media/icons/feather_icons/mail.svg" style="position: absolute; width: 18px; transform-origin: top left; margin: 4px;">
+                    <img class="icon" src="/media/icons/mail.svg" style="width: 18px; margin: 4px;">
                     <div class="label_bottom">Support</div>
                 </a>
             </div>
@@ -123,83 +119,49 @@
     </div>
 
     <!--————————————————————————————————————————————————————————-->
-    <!--——————————————————[ BANNER-ELEMENTS ]———————————————————-->
+    <!--——————————————————[ POP-UP-ELEMENTS ]———————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <div class="banner" id="banner_0">
-        <div class="banner_text" id="banner_0_text">Profile pages are bugged and only fully load about 80% of the time. If no pages are present, or if you can't switch profile pages, simply reload the app!</div>
-        <div class="banner_close" id="banner_0_close">
-            <img src="/media/icons/feather_icons/x.svg" style="position: relative; top: 24px; right: 24px; scale: 1; transform-origin: top left; z-index: 3000;">
-        </div>
+
+    <!-- The universe manager (id="popup_universe_manage") and 
+    (id="popup_universe_manage_more") HTML IDs are managed by
+    the universe manager script which can be found under the
+    following path (src="/scripts/universe_manager.js") -->
+    <div id="popup_universe_manager"></div>
+    <div id="popup_universe_manager_more"></div>
+
+    <div id="login_register_account_manager">
+        <div class="information_text" id="registrationMessage" style="top: 59%; font-size: 9px; z-index: 4999; display: none;"></div>
     </div>
 
     <!--————————————————————————————————————————————————————————-->
     <!--————————————————————[ TOP-ELEMENTS ]————————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <div class="top" style="display: block;">
-        <img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" href="http://localhost:3000" style="position: absolute; height: 28px; margin: 10px;">
-        <p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Bold; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p>
-        <p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Version failed to load...</p>
+    <div class="top">
+        <a href="/" id="local_domain_text"><img id="openprofile_title_logo" src="/media/icons/openprofile_logo.svg" style="position: absolute; height: 28px; margin: 10px;"></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_title_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Black; left: 48px; top: -16px; font-size: 18px;">OpenProfile 5</p></a>
+        <a href="/" id="local_domain_text"><p id="openprofile_version_text" style="position: absolute; color: #ffffff; opacity: 1; font-family: NotoSans-Medium; left: 48px; top: 14px; font-size: 12px;">Web Preview</p></a>
 
-        <a class="top_button" id="premium_button" href="https://ko-fi.com/openprofile" target="_blank" style="background: #cfa715; border-radius: 25px; text-indent: 32px; margin-left: 192px; color: #ffffff;;">Go Premium
-            <img src="/media/icons/openprofile_logo.svg" style="position: absolute; left: 0px; height: 20px; transform-origin: top left; margin: 6px;">
-        </a>
-        <a class="top_button" id="app_button" href="https://preview.openprofile.app/editor" style="background: #ce1616; border-radius: 25px; text-indent: 9px; margin-left: 0px; color: #ffffff">Launch OpenProfile
-        </a>
-        <a class="top_button" id="app_button" href="https://preview.openprofile.app/authors" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Authors</a>
-        <a class="top_button" id="app_button" href="https://preview.openprofile.app/profiles" style="background: #ce1616; border-radius: 25px; text-indent: 8px; margin-left: 0px; color: #ffffff">Profiles</a>
-
+        <a class="top_button" id="premium_button_text" href="https://ko-fi.com/openprofile" style="background: #efbe0b; border-radius: 25px; margin-left: 192px; color: #ffffff">Get Premium</a>
+        <a class="top_button" id="local_domain_text" href="/editor" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Launch Editor Preview</a>
+        <a class="top_button" id="local_domain_text" href="/authors" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Authors</a>
+        <a class="top_button" id="local_domain_text" href="/profiles" style="background: #ce1616; border-radius: 25px; margin-left: 0px; color: #ffffff">Profiles</a>
         <div class="control_button" id="login_register_account">
-            <img class="icon" id="icon_account" src="/media/icons/feather_icons/user.svg" style="scale: 0.24; transform-origin: top left; margin: 4px; opacity: 0.8;">
+            <img class="icon2" id="icon_account" src="/media/icons/user.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
             <div class="label_top" id="label_top_account">Account</div>
             <script src="/scripts/account/login.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
         </div>
         <div class="control_button" id="button_scheme">
-            <img class="icon" id="icon_scheme" src="/media/icons/feather_icons/droplet.svg" style="scale: 0.24; transform-origin: top left; margin: 4px;">
-            <div class="notification_dot"></div>
+            <img class="icon" id="icon_scheme" src="/media/icons/droplet-half.svg" style="scale: 1; transform-origin: top left; margin: 4px;">
             <div class="label_top">Schemes</div>
         </div>
-        <div class="control_button" style="width: min-content; border-radius: 100px;">
-            <img class="icon" src="/media/icons/feather_icons/mail.svg" style="position: absolute; scale: 0.24; transform-origin: top left; margin-top: 4px; margin-left: 5px;">
-            <div class="notification_count" id="mail_count">0</div>
-            <div class="notification_dot"></div>
-            <div class="label_top">Messages</div>
-        </div>
-        <div class="control_button" style="width: min-content; border-radius: 100px;">
-            <img class="icon" src="/media/icons/feather_icons/bell.svg" style="position: absolute; scale: 0.24; transform-origin: top left; margin: 4px;">
-            <div class="notification_count" id="notif_count" style="transform: translateX(-2px);">0</div>
-            <div class="notification_dot"></div>
-            <div class="label_top">Notifications</div>
-        </div>
-        <div class="control_button" style="width: min-content; border-radius: 100px;">
-            <img class="icon" src="/media/icons/feather_icons/inbox.svg" style="position: absolute; scale: 0.22; transform-origin: top left; margin: 5px;">
-            <div class="notification_count" id="notif_count" style="transform: translateX(-2px);">0</div>
-            <div class="notification_dot"></div>
-            <div class="label_top">Tickets</div>
-        </div>
-        <div class="control_button" style="width: min-content; border-radius: 100px;">
-            <img class="icon" src="/media/icons/feather_icons/flag.svg" style="position: absolute; scale: 0.22; transform-origin: top left; margin: 5px;">
-            <div class="notification_count" id="notif_count" style="transform: translateX(-2px);">0</div>
-            <div class="notification_dot"></div>
-        <div class="label_top">Reports</div>
-        </div>
-        <div class="control_button" id="button_official" onclick="manualchangelog()">
-            <img class="icon" id="icon_official" src="/media/icons/openprofile_logo.svg" style="height: 24px; transform-origin: top left; margin: 4px; opacity: 0.8;">
-            <div class="notification_dot" id="notification_dot_official" style="display: none;"></div>
-            <div class="label_top">Official News</div>
-        </div>
         <div class="control_button" id="user_check_hello">
-            <img class="icon" id="icon_wave" src="/media/icons/media_icons/discord.svg" style="width: 20px; transform-origin: top left; margin-top: 8px; margin-left: 6px; opacity: 0.8;">
-            <div class="label_top">Wave</div>
+            <img class="icon" id="icon_wave" src="/media/icons/wave.svg" style="width: 20px; scale: 1.2; transform-origin: top left; margin-top: 5px; margin-left: 4px;">
+            <div class="label_top">Wave to Discord</div>
             <script src="/scripts/wave.js"></script>
             <script src="/scripts/discord/assistant/commands/check.js"></script>
         </div>
-        <div class="control_button" style="opacity: 0; pointer-events: none;">
-        </div>
-
-        <!--<div class="control_button" id="button_print" title="Print">
-            <img class="icon" src="/media/icons/feather_icons/printer.svg" style="scale: 0.15; transform-origin: top left; margin: 5px;">
-        </div>
+    </div>
 
         <!--————————————————————————————————————————————————————————-->
         <!--——————————————————[ SCHEMES-MANAGER ]———————————————————-->
@@ -210,144 +172,98 @@
         path (src="/scripts/scheme_manager.js") -->
         <div class="schemes_manager"></div>
         <div class="schemes_layer"></div>
+
+        <div class="popup_background" id="popup_background" style="top: 540px;">
+            <div class="popup"id="profile_popup"></div>
+        </div>
     </div>
 
     <!--————————————————————————————————————————————————————————-->
     <!--———————————————————[ RIGHT-ELEMENTS ]———————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <div class="right_bottom" style="display: block;">
+    <div class="right_bottom" style="display: none;">
         <div class="side_button" id="next_page" onclick="";>
             <img class="icon" src="/media/icons/feather_icons/arrow-right.svg" style="scale: 0.44; transform-origin: top left; margin: 10px;">
             <div class="label_right">Next Page</div>
-            <div class="tag">BETA</div>
         </div>
         <div class="side_button" id="previous_page" onclick="";>
             <img class="icon" src="/media/icons/feather_icons/arrow-left.svg" style="scale: 0.44; transform-origin: top left; margin: 10px;">
             <div class="label_right">Previous Page</div>
-            <div class="tag">BETA</div>
         </div>
     </div>
+    <script>
+        if (window.location.href.includes('/profile/')) {
+            const right_bottom = document.querySelector('.right_bottom')
+            right_bottom.style.display = "block"
+        }
+    </script>
 
     <!--————————————————————————————————————————————————————————-->
     <!--——————————————————[ CENTER-ELEMENTS ]———————————————————-->
     <!--————————————————————————————————————————————————————————-->
-    <div class="center" id="center" style="display: block; left: 38.5%;">
-        <div class="center_video">
-            <iframe class="center_video_yt" width="800" height="450" style="border-radius: 25px;" src="" title="OpenProfile 5 Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div> 
-            
-       
+    <div class="center" id="center" style="left: 38.4%;">
 
-    <div style="top: 1491px; height: 25px; position: relative; display: block; font-size: 0px; opacity: 0;" tabindex="-1"> </div>
+    <!--————————————————————————————————————————————————————————-->
+    <!--——————————————————[ BOTTOM-ELEMENTS ]———————————————————-->
+    <!--————————————————————————————————————————————————————————-->
+    <div class="bottom_1" style="display: block; z-index: 9999;">
+        <a href="/privacy" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 20px; margin-top: 12px; left: 0px; position: fixed;">Privacy Policy</p></a>
+        <a href="/terms" id="local_domain_text"><p class="info" style="font-size: 1.2em; margin-left: 180px; margin-top: 12px; left: 0px; position: fixed;">Terms of Service</p></a>
+        <p class="info" style="font-size: 1.2em; margin-right: 20px; margin-top: 12px; right: 0px; position: fixed;">© OpenProfile 2024, All Rights Reserved</p>
+        <div class="social_buttons" style="bottom: 8px; left: 50%; transform: translateX(-50%)scale(1.6); display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px; transition: 0s; z-index: 9999;">
+            <a class="loader_social_button" id="youtube_button" href="https://www.youtube.com/@openprofile" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/youtube.png" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">YouTube</div>
+            </a>
+            <a class="loader_social_button" id="x_button" href="https://x.com/openprofileapp" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/x_twitter.svg" style="width: 16px; margin: 5px;">
+                <div class="label_bottom">X (Twitter)</div>
+            </a>
+            <a class="loader_social_button" id="facebook_button" href="https://www.facebook.com/openprofileapp/" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/facebook.png" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">Facebook</div>
+            </a>
+            <a class="loader_social_button" id="instagram_button" href="https://instagram.com/openprofileapp" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/instagram.svg" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">Instagram</div>
+            </a>
+            <a class="loader_social_button" id="discord_button" href="https://www.discord.com/invite/w6aV9gkz8g" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/discord.svg" style="width: 18px; margin: 4px; margin-top: 6px;">
+                <div class="label_bottom">Discord</div>
+            </a>
+            <a class="loader_social_button" id="github_button" href="https://www.github.com/openprofileapp/" target="_blank">
+                <img class="icon" src="/media/icons/media_icons/github.svg" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">GitHub</div>
+            </a>
+            <a class="loader_social_button" id="email_button" href="mailto:support@openprofile.app" target="_blank">
+                <img class="icon" src="/media/icons/mail.svg" style="width: 18px; margin: 4px;">
+                <div class="label_bottom">Support</div>
+            </a>
+        </div>
+    </div>
 
     <!--————————————————————————————————————————————————————————-->
     <!--—————————————————[ DEVELOPER-ELEMENTS ]—————————————————-->
     <!--————————————————————————————————————————————————————————-->
     <script src="/scripts/switch_page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="/scripts/save_load.js"></script> <!-- Needs to be very last to save and load properly -->
+    <script src="/scripts/save_profile_server.js"></script> <!-- Needs to be very last to save and load properly -->
     <script src="/scripts/id_generator.js"></script>
-    <script src="/scripts/universe_manager.js"></script>
-    <script src="/scripts/profile_manager.js"></script> <!-- Needs to be very last to save and load properly -->
-    <script src="/scripts/load_profile.js"></script> <!-- Needs to be very last to load properly -->
-    <script src="/scripts/discord/assistant/events/view_character.js"></script>
-    <script src="/scripts/translate.js"></script>
-
-
-<!--<button style="z-index: 500; position: absolute; top: 0; left: 0;" id="discord">Send Message to Discord</button>
-<script>
-    const discordButton = document.getElementById('discord');
-
-    discordButton.addEventListener('click', () => {
-        // Send a POST request to your server to trigger sending the message to Discord
-        fetch('/send-message-to-discord', {
-            method: 'POST',
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.message);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    });
-</script>-->
-
-<!--<script>
-    // Create a WebSocket connection to the server
-const socket = new WebSocket('ws://localhost:3000');
-
-// Listen for WebSocket messages
-socket.addEventListener('message', (event) => {
-    const newText = event.data;
-    
-    // Update the page_author_0 textbox with the received text
-    document.getElementById('page_author_0').value = newText;
-});
-
-
-<li id="theme_option" style="opacity: 0.35;">🎨 Change Scheme ></li>
-        <div id="themeSubMenu" class="menu" style="scale: 100%;">
-            <script src="/scripts/menus/theme_menu.js"></script>
-            <ul>
-            <li id="release" style="opacity: 0.35;">🔴 Release</li>
-            <li id="beta" style="opacity: 0.35;">🔵 Beta</li>
-            <li id="preview" style="opacity: 0.35;">🟣 Preview</li>
-            <li>
-                <label for="fileInput" id="labelCustomStyles" style="opacity: 0.35;">⚪ Import Custom</label>
-                <input type="file" id="customStyleInput" name="fileInput" style="display: none;">
-            </li>
-            </ul>
-            <script src="/scripts/theme_changer.js"></script>
-        </div>-->
-
-</script>
-
-    <div class="history_popup">
-        <!-- History content will be added here -->
-    </div>
-
-
-
-    <script>
-        // Check if the user is already logged in
-const loggedInUser = localStorage.getItem('loggedInUser') || sessionStorage.getItem('loggedInUser');
-
-// Reference to the logout button
-const logoutButton = document.getElementById('logoutButton');
-
-if (loggedInUser) {
-    // User is logged in
-    // Show the logout button
-    logoutButton.style.display = 'block';
-
-    // Add a click event listener to the logout button
-    logoutButton.addEventListener('click', () => {
-        // Clear the stored user data (log out the user)
-        localStorage.removeItem('loggedInUser');
-        sessionStorage.removeItem('loggedInUser');
-        const styleSheetLink = document.getElementById('styleSheet');
-        styleSheetLink.href = 'desktop_styles.css';
-
-        // Redirect the user to the login page
-        window.location.href = 'login.html';
-    });
-} else {
-    // User is not logged in
-    // Hide the logout button
-    logoutButton.style.display = 'none';
-    const styleSheetLink = document.getElementById('styleSheet');
-    styleSheetLink.href = 'mobile_styles.css';
-}
-
-    </script>
+    <script src="/scripts/view_profile.js"></script>
+    <script src="/scripts/delete_profile_server.js"></script>
+    <script src="/scripts/verify_profile.js"></script>
+    <script src="/scripts/promote_profile.js"></script>
+    <script src="/scripts/restore_profile_server.js"></script>
+    <script src="/scripts/visiblity_profile_server.js"></script>
+    <script src="/scripts/create_profile.js"></script>    
+    <script src="/scripts/edit_profile.js"></script>    
+    <script src="/scripts/quick_share.js"></script>
+    <script src="/scripts/load_profile.js"></script>
+    <script src="/scripts/account/session_load.js"></script>
+    <script src="/scripts/local_domain_text.js"></script>
+    <script src="/scripts/unique_id.js"></script>
+    <script src="/scripts/auto_saver.js"></script>
+    <script src="/scripts/view_counter.js"></script>
 </body>
 </html>
-
-  <!--————————————————————————————————————————————————————————-->
-  <!--——————————————————[ BOTTOM-ELEMENTS ]———————————————————-->
-  <!--————————————————————————————————————————————————————————-->
-  <!--<div class="bottom">
-    <div style="text-align: right; font-size: 12px; transform: translateX(-16px) translateY(2px);">
-        <a id="version_placeholder" style="color: #ffffff;" href="https://www.example.com/OP5-Preview"></a>
-    </div>
-  </div>

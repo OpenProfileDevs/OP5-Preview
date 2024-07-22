@@ -7,10 +7,10 @@ window.addEventListener('load', function () {
     var baseTag = document.querySelector("base");
     //baseTag.href = currentDomain;
 
-    handleUserJoinHome();
+    document.body.style.zoom = "80%";
     load_local_scheme()
     //updateElementsByTimeOfYear();
-    translateSpecificElements(selectedLanguage); // Use config language later
+    //translateSpecificElements(selectedLanguage); // Use config language later
     //showTextPopup()
     showBanner0()
 });
