@@ -173,6 +173,7 @@ async function saveProfile(owner, owner2, urlProfile) {
             if (toggle_left_menu.classList.contains('side_button_active')) {
                 closeInputPopup();
                 if (typeof fetchAuthorsAndRender === 'function') {
+                    window.location.reload();
                     fetchAuthorsAndRender();
                 } else {
                     console.warn('fetchAuthorsAndRender function is not defined.');
