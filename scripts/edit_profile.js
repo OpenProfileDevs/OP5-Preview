@@ -168,6 +168,7 @@ async function saveProfile(owner, owner2, urlProfile) {
 
         if (response.ok) {
             console.log('Profile saved successfully.');
+            window.location.reload();
             const toggle_left_menu = document.querySelector('#toggle_left_menu');
             if (toggle_left_menu.classList.contains('side_button_active')) {
                 closeInputPopup();
