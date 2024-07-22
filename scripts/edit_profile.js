@@ -145,7 +145,7 @@ async function saveProfile(owner, owner2, urlProfile) {
 
         const jsonData = {
             profile_version: profile_version_number,
-            id: urlProfile,
+            id: `${urlProfile}`,
             owner: owner,
             owner2: owner2,
             visibility: "private",
