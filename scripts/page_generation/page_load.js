@@ -280,7 +280,35 @@ fetch(fileListEndpoint)
                                         <img src="/media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
                                         <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
                                     </div>`;
-                                    break;            
+                                    break;
+                                case 6:
+                                    slotDiv.innerHTML = `<!--————————————————————————————————————————————————————————-->
+                                    <!--———————————————————[ ${id} ]———————————————————-->
+                                    <!--————————————————————————————————————————————————————————-->
+                                        <div class="label_tab" id="${id}_label_tab">${label}
+                                            <div class="status_box" id="${id}_status" style="display: none;">STATUS_TEXT
+                                                <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px; font-family: NotoSans-Regular;">STATUS_TEXT_ALT</div>
+                                            </div>
+                                        </div>
+                                        <div><textarea type="text" id="${id}" style="width: 1080px; height: 214px" autocomplete="off" autocorrect="off" placeholder="${placeholder}"></textarea></div>
+                                        <div class="help_box" id="${id}_help_box" style="width: calc(1080px + 8px); top: 217px">${help}</div>
+                                        <div class="input_dot" id="${id}_input_dot" style="display: none;">
+                                            <img src="/media/icons/feather_icons/check.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                                            <div class="label_bottom" style="scale: 1.7; top: -30px;">Verified</div>
+                                        </div>
+                                        <div class="input_dot" id="${id}_input_dot" style="display: none;">
+                                            <img src="/media/icons/feather_icons/database.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                                            <div class="label_bottom" style="scale: 1.7; top: -30px; left: -14px;">Generated</div>
+                                        </div>
+                                        <div class="input_dot" id="${id}_input_dot" style="display: none; top: 54px;">
+                                            <img src="/media/icons/feather_icons/lock.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                                            <div class="label_bottom" style="scale: 1.7; top: 42px; left: -6px;">Locked</div>
+                                        </div>
+                                        <div class="input_dot" id="${id}_input_dot" style="display: none; top: 54px;">
+                                            <img src="/media/icons/feather_icons/calendar.svg" style="height: 20px; transform-origin: top left; margin: 4px;">
+                                            <div class="label_bottom" style="scale: 1.7; top: 42px; left: -10px;">History</div>
+                                        </div>`;
+                                    break;
                                 }
 
                 // Append slot div to row div

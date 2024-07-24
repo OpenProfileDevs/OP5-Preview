@@ -975,43 +975,6 @@ textarea {
   z-index: 10;
 }
 
-.image_input {
-  position: absolute;
-  top: 10px;
-  background-color: #160202;
-  border-radius: 12px;
-  width: 568;
-  cursor: pointer; 
-  overflow: hidden;
-  transition: 0.1s opacity;
-  z-index: 30;
-}
-
-.image_input_2 {
-  position: absolute;
-  top: 12px;
-  background-color: #160202;
-  border-radius: 12px;
-  cursor: pointer; 
-  overflow: hidden;
-  transition: 0.1s scale;
-  z-index: 30;
-}
-
-.image_input:hover{
-  background-color: #394057;
-  border-radius: 0px 5px 0px 5px;
-}
-
-.image_input_2:hover{
-  scale: 1.05;
-}
-
-#brand_icon_container:hover{
-  scale: 1.05;
-  border-radius: 2.5;
-}
-
 @keyframes scrollText {
   0% {
     transform: translateX(100%);
