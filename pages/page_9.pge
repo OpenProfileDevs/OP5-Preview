@@ -128,7 +128,7 @@
     "slot1": {
       "type": 0,
       "id": "",
-      "label": "s",
+      "label": "",
       "placeholder": "",
       "help": ""
     },
@@ -142,7 +142,7 @@
     "slot3": {
       "type": 0,
       "id": "",
-      "label": "s",
+      "label": "",
       "placeholder": "",
       "help": ""
     }
@@ -174,7 +174,7 @@
     "slot1": {
       "type": 0,
       "id": "",
-      "label": "s",
+      "label": "",
       "placeholder": "",
       "help": ""
     },
@@ -197,7 +197,7 @@
     "slot1": {
       "type": 0,
       "id": "",
-      "label": "s",
+      "label": "",
       "placeholder": "",
       "help": ""
     },
@@ -335,14 +335,14 @@
     "slot1": {
       "type": 0,
       "id": "",
-      "label": "s",
+      "label": "",
       "placeholder": "",
       "help": ""
     },
     "slot2": {
       "type": 0,
       "id": "",
-      "label": "s",
+      "label": "",
       "placeholder": "",
       "help": ""
     },
