@@ -2,7 +2,7 @@
     "brand_tag": "PREVIEW",
     "page_indicator": "Physical Information",
     "page_indicator_tag": "PREVIEW",
-    "page_number": 3,
+    "page_number": 30,
     
     "page_author": "",
     "page_author_tag": "PREVIEW",
@@ -38,14 +38,14 @@
         "id": "body_type",
         "label": "Body Type",
         "placeholder": "What is the oc's body type?",
-        "help": "What is the character's body type?\n\n<u>Endomorph</u>\nEndomorph are the most common body types and tend to have larger bone structures and a higher percentage of body fat.\n\n<u>Mesomorph</u>\nMesomorph body type are naturally muscular and has an average sized bone structure.\n\n<u>Ectomorph</u>\nEctomorph has a light body build, slightly muscular development, and little body fat."
+        "help": "What is the character's body type?<br><br><u>Endomorph</u><br>Endomorph are the most common body types and tend to have larger bone structures and a higher percentage of body fat.<br><br><u>Mesomorph</u><br>Mesomorph body type are naturally muscular and has an average sized bone structure.<br><br><u>Ectomorph</u><br>Ectomorph has a light body build, slightly muscular development, and little body fat."
       },
       "slot2": {
         "type": 1,
         "id": "body_mass",
         "label": "Body Mass",
         "placeholder": "What is the oc's body mass?",
-        "help": "What is the oc's body mass? Body mass index (BMI) is calculated based on the character's weight and height. To calculate BMI, convert their height to square inches then divide their weight in pounds by that. Multiply the outcome by 703 and the result is the character's BMI. A BMI of 18.5 to 24.9 is considered healthy while anything above 25.0 is considered overweight and passed 30.0 can lead to heath complications."
+        "help": "What is the oc's body mass? Body mass index (BMI) is calculated based on the character's weight and height. To calculate BMI, multiply their weight in pounds by 703. Save this result then convert their height to square inches then divide it by that saved result. The final outcome is the character's BMI. A BMI of 18.5 to 24.9 is considered healthy while anything above 25.0 is considered overweight and passed 30.0 can lead to heath complications."
       },
       "slot3": {
         "type": 1,
@@ -107,7 +107,7 @@
         "id": "physical_appearance",
         "label": "Physical Appearance",
         "placeholder": "What does the oc's physical appearance look like?",
-        "help": "What does the character's physical appearance look like without including any sort of non-permanent wearables? Do they have skin, fur, scales, or something else? What does their face sculpture looks like? Include their hair, eyes, nose, ears, mouth, teeth, tongue, etc. if necessary. What about their body structure? Are they thin, average, muscular, or overweight? Does the character have any additional features such as horns, wings, spikes, tails, etc.? What about prominent marks like scars, tattoos, piercings, birth marks, irritations etc.? If the character has ever been in an injury, do they have prosthetics? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed. \n\n Now for internal appearance, this is only necessary if your character goes trought some medical procedures or if you character is a machine with certain capabilities. If so, what does their blood look like? What about their main tissues, organs, and bones? Are they thick or thin? Do they have any prominent marks like scarring or maybe an irritation? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed."
+        "help": "What does the character's physical appearance look like without including any sort of non-permanent wearables? Do they have skin, fur, scales, or something else? What does their face sculpture looks like? Include their hair, eyes, nose, ears, mouth, teeth, tongue, etc. if necessary. What about their body structure? Are they thin, average, muscular, or overweight? Does the character have any additional features such as horns, wings, spikes, tails, etc.? What about prominent marks like scars, tattoos, piercings, birth marks, irritations etc.? If the character has ever been in an injury, do they have prosthetics? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed. <br><br> Now for internal appearance, this is only necessary if your character goes trought some medical procedures or if you character is a machine with certain capabilities. If so, what does their blood look like? What about their main tissues, organs, and bones? Are they thick or thin? Do they have any prominent marks like scarring or maybe an irritation? Try to be the most descriptive possible and remember to include any color or patterns and material, size and weight, and other additional information that gives more on their physical features when needed."
       },
       "slot2": {
         "type": 0,

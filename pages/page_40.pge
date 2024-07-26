@@ -2,7 +2,7 @@
     "brand_tag": "PREVIEW",
     "page_indicator": "Supernatural Information",
     "page_indicator_tag": "PREVIEW",
-    "page_number": 4,
+    "page_number": 40,
     
     "page_author": "",
     "page_author_tag": "PREVIEW",
@@ -22,7 +22,7 @@
         "id": "super_ability_status",
         "label": "Ability Status",
         "placeholder": "What is the oc's ability status?",
-        "help": "What is the character's ability status?\n\n<u>Active</u>\nThe ability is active and can be used at any given time so long the circumstances are met.\n\n<u>Deactivated</u>\nThe ability has been deactivated and can no longer be used.\n\n<u>Damaged</u>\nThe ability, it's source, and/or the character has been damaged and while the ability is still usable, it struggles and doesn't always function properly.\n\n<u>Sleeping</u>\nThe ability is activated but in hibernation and not currently usable."
+        "help": "What is the character's ability status?<br><br><u>Active</u><br>The ability is active and can be used at any given time so long the circumstances are met.<br><br><u>Deactivated</u><br>The ability has been deactivated and can no longer be used.<br><br><u>Damaged</u><br>The ability, it's source, and/or the character has been damaged and while the ability is still usable, it struggles and doesn't always function properly.<br><br><u>Sleeping</u><br>The ability is activated but in hibernation and not currently usable."
       },
       "slot3": {
         "type": 1,
@@ -45,14 +45,14 @@
         "id": "super_ability_faction",
         "label": "Ability Faction",
         "placeholder": "What is the oc's ability faction?",
-        "help": "What is the character's ability faction?\n\n<u>Light</u>\nThe ability is considered of positive energy and is typically used by heroes with good intentions.\n\n<u>Half</u>\nThe ability is considered of both positive and negative energies and is typically used by either heroes or villains regardless of intentions.\n\n<u>Dark</u>\nThe ability is considered of negative energy and is typically used by villains with evil intentions. Dark abilities are typically stronger in nature than light abilities especially in defense.\n\n<u>Unknown</u>\nThe ability is unknown and could be from either energy sides or be very unstable."
+        "help": "What is the character's ability faction?<br><br><u>Light</u><br>The ability is considered of positive energy and is typically used by heroes with good intentions.<br><br><u>Half</u><br>The ability is considered of both positive and negative energies and is typically used by either heroes or villains regardless of intentions.<br><br><u>Dark</u><br>The ability is considered of negative energy and is typically used by villains with evil intentions. Dark abilities are typically stronger in nature than light abilities especially in defense.<br><br><u>Unknown</u><br>The ability is unknown and could be from either energy sides or be very unstable."
       },
       "slot3": {
         "type": 1,
         "id": "super_ability_class",
         "label": "Ability Class",
         "placeholder": "What is the oc's ability class?",
-        "help": "What is the character's ability class?\n\n<u>Air</u>\nThe ability is assiociated with the air element.\n\n<u>Earth</u>\nThe ability is assiociated with the earth element.\n\n<u>Fire</u>\nThe ability is assiociated with the fire element.\n\n<u>Water</u>\nThe ability is assiociated with the water element.\n\n<u>Darkness</u>\nThe ability is assiociated with the darkness element.\n\n<u>Electricity</u>\nThe ability is assiociated with the electricity element.\n\n<u>Energy</u>\nThe ability is assiociated with the energy element.\n\n<u>Ice</u>\nThe ability is assiociated with the ice element.\n\n<u>Light</u>\nThe ability is assiociated with the light element.\n\n<u>Weather</u>\nThe ability is assiociated with the weather element.\n\n<u>Other</u>\nThe ability is assiociated with no elements."
+        "help": "What is the character's ability class?<br><br><u>Air</u><br>The ability is assiociated with the air element.<br><br><u>Earth</u><br>The ability is assiociated with the earth element.<br><br><u>Fire</u><br>The ability is assiociated with the fire element.<br><br><u>Water</u><br>The ability is assiociated with the water element.<br><br><u>Darkness</u><br>The ability is assiociated with the darkness element.<br><br><u>Electricity</u><br>The ability is assiociated with the electricity element.<br><br><u>Energy</u><br>The ability is assiociated with the energy element.<br><br><u>Ice</u><br>The ability is assiociated with the ice element.<br><br><u>Light</u><br>The ability is assiociated with the light element.<br><br><u>Weather</u><br>The ability is assiociated with the weather element.<br><br><u>Other</u><br>The ability is assiociated with no elements."
       }
     },
     "row3": {

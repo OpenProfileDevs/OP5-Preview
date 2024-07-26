@@ -2,7 +2,7 @@
   "brand_tag": "PREVIEW",
   "page_indicator": "Beliefs Information",
   "page_indicator_tag": "PREVIEW",
-  "page_number": 9,
+  "page_number": 90,
   
   "page_author": "",
   "page_author_tag": "PREVIEW",
@@ -360,7 +360,7 @@
       "id": "beliefs_otherworldly ",
       "label": "Otherworldly Beliefs",
       "placeholder": "What are the oc's otherworldly beliefs?",
-      "help": "What are the character's otherworldly beliefs? Do they believe in mythical creatures such as dragons, fairies, unicorns, or griffins? Do they believe in folklore creatures such as vampires, werewolfs, or even zombies? What about extraterrestrial beings beyond their known worlds? What are the character's personal thoughts towards their otherworldly beliefs? Do they like their otherworldly beliefs or would they rather change them? Does their otherworldly beliefs affect their life in any certain way? Are they comfortable sharing their otherworldly beliefs with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      "help": "What are the character's otherworldly beliefs? Do they believe in mythical creatures such as dragons, fairies, unicorns, or griffins? Do they believe in folklore creatures such as vampires, werewolfs, zombies, or other supernatural beings? What about extraterrestrial beings beyond their known worlds? What are the character's personal thoughts towards their otherworldly beliefs? Do they like their otherworldly beliefs or would they rather change them? Does their otherworldly beliefs affect their life in any certain way? Are they comfortable sharing their otherworldly beliefs with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
     },
     "slot2": {
       "type": 0,

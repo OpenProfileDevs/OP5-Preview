@@ -1,7 +1,7 @@
 const fileListEndpoint = '/fileList';
 const element = document.getElementById('your_element_id');
 var current_page = -1;
-var current_z = 99;
+var current_z = 499;
 var field_z = 9998;
 
 // Fetch the file list and folder path
@@ -30,7 +30,7 @@ fetch(fileListEndpoint)
         current_page++;
         current_z--;
         const p_number = data.page_number 
-        const current_index = (99 - p_number);
+        const current_index = (499 - p_number);
 
         // Original code for creating a page
     page_loader.innerHTML += `<div class="page" id="page_${p_number}" style="z-index: ${current_index}; top: 0px;">

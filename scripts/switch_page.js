@@ -1,24 +1,9 @@
 const nextPage = document.getElementById('next_page');
 const previousPage = document.getElementById('previous_page');
-let currentPosition = 1;
+let currentPosition = 10;
 let animationId; // Store the animation frame ID
 
-// Add event listener for scroll
-//window.addEventListener('scroll', () => {
-//  const topSection = document.querySelector('.top');
-//  const topSectionHeight = topSection.offsetHeight - 10;
-//  const scrollPosition = window.scrollY;
-
-  // Check if the user has scrolled past the top section
-//  if (scrollPosition > topSectionHeight) {
-//    // Change the color of the top section
-//    topSection.style.backgroundColor = '#170202';
-//  } else {
-//    // Reset the color if the user scrolls back up
-//    topSection.style.backgroundColor = '';
-//  }
-//});
-
+// Function to scroll to the top smoothly
 function scrollToTop() {
   const currentY = window.scrollY;
   const easeIn = t => t * t;
@@ -29,6 +14,7 @@ function scrollToTop() {
   }
 }
 
+// Cancel animation frame on mouse wheel
 window.addEventListener('wheel', () => {
   if (animationId) {
     cancelAnimationFrame(animationId);
@@ -36,34 +22,57 @@ window.addEventListener('wheel', () => {
   }
 });
 
-// You can add other scroll-related events here, like touch events or keyboard events
-
+// Switch to a specific page
 function switchToPage(pageId, target) {
+  console.log(pageId);
   const pageElement = document.getElementById(`page_${pageId}`);
   if (pageElement) {
     const currentPage = document.getElementById(`page_${currentPosition}`);
+    
     setTimeout(() => {
       scrollToTop(); // Smoothly scroll to the top
     }, 300);
+    
     if (target === "next") {
-    currentPage.style.animation = "page_slide_out 0.4s linear";
-    currentPage.style.left = "-140vw";
-    } else {
-    pageElement.style.animation = "page_slide_in 0.4s linear";
-    pageElement.style.left = "0vw";
+      currentPage.style.animation = "page_slide_out 0.4s linear";
+      currentPage.style.left = "-140vw";
+    } else if (target === "previous") {
+      pageElement.style.animation = "page_slide_in 0.4s linear";
+      pageElement.style.left = "0vw";
     }
-    currentPosition = pageId;
+
+    currentPosition = pageId; // Update the current position
+  } else {
+    console.log(`Page ${pageId} does not exist.`);
   }
 }
 
+// Find the next available page ID within the range, excluding hidden pages
+function findAvailablePage(startPageId, maxSearchRange, direction) {
+  for (let i = 0; i <= maxSearchRange; i++) {
+    const pageId = direction === 'forward' ? startPageId + i : startPageId - i;
+    const pageElement = document.getElementById(`page_${pageId}`);
+    if (pageElement && pageElement.style.display !== 'none') {
+      return pageId;
+    }
+  }
+  return null; // No available page found within the range
+}
+
+// Event listener for next page button
 nextPage.addEventListener('click', () => {
   const nextPageId = currentPosition + 1;
-  switchToPage(nextPageId, "next");
+  const availablePageId = findAvailablePage(nextPageId, 10, 'forward');
+  if (availablePageId !== null) {
+    switchToPage(availablePageId, "next");
+  }
 });
 
+// Event listener for previous page button
 previousPage.addEventListener('click', () => {
   const previousPageId = currentPosition - 1;
-  if (previousPageId >= 0) {
-    switchToPage(previousPageId, "previous");
+  const availablePageId = findAvailablePage(previousPageId, 10, 'backward');
+  if (availablePageId !== null) {
+    switchToPage(availablePageId, "previous");
   }
 });

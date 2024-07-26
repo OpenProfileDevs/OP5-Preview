@@ -8,6 +8,7 @@
     <link rel="icon" href="media/icons/openprofile_logo.svg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+    <script src="/socket.io/socket.io.js"></script>
 
     <!--————————————————————————————————————————————————————————-->
     <!--—————————————————————[ META-TAGS ]——————————————————————-->
@@ -414,5 +415,24 @@
     <script src="/scripts/download_profile_server.js"></script>
     <script src="/scripts/upload_profile_server.js"></script>
     <script src="/scripts/account/session_load.js"></script>
+    <script>
+        // Initialize the socket.io client
+        const socket = io();
+    
+        // Listen for shutdown alert from the server
+        socket.on('server-shutdown', (data) => {
+            alert('Server is shutting down, your work as been saved. Further editing will not save. This is likely an update restart that should take less than 10 minutes.');
+            console(data.message);
+        });
+    
+        // Log connection and disconnection events
+        socket.on('connect', () => {
+          console.log('Connected to server');
+        });
+    
+        socket.on('disconnect', () => {
+          console.log('Disconnected from server');
+        });
+      </script>
 </body>
 </html>

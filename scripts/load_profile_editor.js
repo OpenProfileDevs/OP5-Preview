@@ -56,28 +56,43 @@ setTimeout(async function() {
         // Log the fetched profile data
         console.log('Fetched Profile Data:', profile);
 
-        // Update HTML elements with data from profile
+        // Update HTML elements with data from userData
         for (const key in profile) {
             if (Object.hasOwnProperty.call(profile, key)) {
                 const value = profile[key];
                 const element = document.getElementById(key);
                 if (element) {
-                    if (element.tagName.toLowerCase() === 'textarea') {
-                        // Convert \n to new lines for textarea
-                        const formattedValue = value.replace(/\\n/g, '\n');
-                        element.value = formattedValue;
-                    } else {
-                        // Replace <br> with newline characters for form input fields
-                        const formattedValue = value.replace(/<br>/g, '\n');
-                        element.value = formattedValue;
+                    if (typeof value === 'string') {
+                        if (element.tagName.toLowerCase() === 'textarea') {
+                            // Convert \n to new lines for textarea
+                            const formattedValue = value.replace(/\\n/g, '\n');
+                            element.value = formattedValue;
+                        } else {
+                            // Replace <br> with newline characters for form input fields
+                            const formattedValue = value.replace(/<br>/g, '\n');
+                            element.value = formattedValue;
 
-                        // Replace newline characters with <br> for other elements
-                        const displayValue = value.replace(/\n/g, '<br>');
-                        element.innerHTML = displayValue;
+                            // Replace newline characters with <br> for other elements
+                            const displayValue = value.replace(/\n/g, '<br>');
+                            element.innerHTML = displayValue;
+                        }
+                    } else {
+                        element.value = value;
                     }
                 }
             }
         }
+
+        const pages = ['page_41', 'page_42', 'page_43', 'page_44'];
+
+        pages.forEach(page => {
+            const element = document.getElementById(page);
+            console.log(`Checking element with ID: ${page}`);
+            if (element && !profile[page]) {
+                console.log(`Hiding element with ID: ${page}`);
+                element.style.display = 'none';
+            }
+        });
 
         // Update brand banner images
         const brand_banners = document.querySelectorAll('.brand_icon_selected_image');
