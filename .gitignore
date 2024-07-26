@@ -412,6 +412,7 @@ nopassword.txt
 .env
 discord_activity.ts
 views.txt
+server.zip
 
 # Custom Folders
 users/
