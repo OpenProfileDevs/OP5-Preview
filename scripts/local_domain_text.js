@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const domain = window.location.origin; // Get the current domain (e.g., https://preview.openprofile.app)
+    const domain = window.location.origin; // Get the current domain (e.g., https://openprofile.app)
     
     // Select all anchor tags with class 'top_button'
     const links = document.querySelectorAll('#local_domain_text');

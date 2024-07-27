@@ -127,44 +127,25 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function sortAuthors(authors) {
-    // Separate promoted and non-promoted profiles
-    const promotedAuthors = authors.filter(author => author.promoted);
-    const nonPromotedAuthors = authors.filter(author => !author.promoted);
+    // Separate authors into priority and non-priority groups
+    const priorityAuthors = authors.filter(author => author.promoted || author.moderator || author.verified);
+    const nonPriorityAuthors = authors.filter(author => !(author.promoted || author.moderator || author.verified));
 
-    // Randomly select 2 promoted profiles
-    const selectedPromotedAuthors = getRandomItems(promotedAuthors, 2);
-
-    // Mark these selected profiles for inclusion and adjust remaining promoted profiles
-    const remainingPromotedAuthors = promotedAuthors
-        .filter(author => !selectedPromotedAuthors.includes(author))
-        .map(author => ({ ...author, promoted: false }));
-
-    // Combine selected promoted profiles and remaining promoted profiles
-    const allPromoted = [...selectedPromotedAuthors, ...remainingPromotedAuthors];
-
-    // Sort the combined promoted and non-promoted profiles
-    const sortedAuthors = [...allPromoted, ...nonPromotedAuthors].sort((a, b) => {
-        // Sort by promoted status
-        if (a.promoted && !b.promoted) {
-            return -1;
-        } else if (!a.promoted && b.promoted) {
-            return 1;
-        }
-
-        // Within promoted or non-promoted, sort by verified status
-        if (a.promoted === b.promoted) {
-            if (a.verified && !b.verified) {
-                return -1;
-            } else if (!a.verified && b.verified) {
-                return 1;
-            }
-        }
-
-        // Sort by join date in descending order
+    // Sort priority authors by join date in descending order
+    const sortedPriorityAuthors = priorityAuthors.sort((a, b) => {
+        // Within the priority group, sort by join date
         return b.joinDateTime - a.joinDateTime;
     });
 
-    // Return the sorted array
+    // Sort non-priority authors by join date in descending order
+    const sortedNonPriorityAuthors = nonPriorityAuthors.sort((a, b) => {
+        // Within the non-priority group, sort by join date
+        return b.joinDateTime - a.joinDateTime;
+    });
+
+    // Combine sorted priority and non-priority authors
+    const sortedAuthors = [...sortedPriorityAuthors, ...sortedNonPriorityAuthors];
+
     return sortedAuthors;
 }
 

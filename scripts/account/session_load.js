@@ -78,7 +78,7 @@ function checkLoggedIn() {
                                 }
                                 
                                 // Update UI with author's profile picture
-                                const iconAccount = document.getElementById('icon_account');
+                                const iconAccount = document.getElementById('icon_account_logged');
                                 iconAccount.src = newpfp; // Assuming pfp is the profile picture URL
                                 iconAccount.style.borderRadius = "1000px";
                                 iconAccount.style.maxWidth = '100%';

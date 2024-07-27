@@ -182,18 +182,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // This displays the custom scheme import option.
-        scheme_manager_html += `
-            <div class="triangle" style=" top: 20px; right: 24px;"></div>
-            <div class="schemes_backdrop" style="background-color: #111111; z-index: 0; display: none;">
-                <label for="import_custom_scheme" class="scheme_button" title="Import Scheme" style="background-color: #222222"
-                    <input type="file" id="import_custom_scheme" accept=".sch" style="display: none;">
-                    <img id="import_custom_scheme" src="media/icons/feather_icons/upload.svg" style="transform: scale(0.30); transform-origin: top left; margin: 10px;">
-                </label>
-                <img src="media/icons/feather_icons/plus.svg" style="transform: scale(0.50); transform-origin: top left; margin: 10px;">
-                <div class="scheme_text" id="import_custom_scheme_text">Add Scheme</div>
-                <div class="tag" style="scale: 1.4; top: 110px; transform: translateX(14px);">PREVIEW</div>
-            </div>
-        `;
+        //scheme_manager_html += `
+        //    <div class="triangle" style=" top: 20px; right: 24px;"></div>
+        //    <div class="schemes_backdrop" style="background-color: #111111; z-index: 0; display: none;">
+        //        <label for="import_custom_scheme" class="scheme_button" title="Import Scheme" style="background-color: #222222"
+        //            <input type="file" id="import_custom_scheme" accept=".sch" style="display: none;">
+        //            <img id="import_custom_scheme" src="media/icons/feather_icons/upload.svg" style="transform: scale(0.30); transform-origin: top left; margin: 10px;">
+        //        </label>
+        //        <img src="media/icons/feather_icons/plus.svg" style="transform: scale(0.50); transform-origin: top left; margin: 10px;">
+        //        <div class="scheme_text" id="import_custom_scheme_text">Add Scheme</div>
+        //        <div class="tag" style="scale: 1.4; top: 110px; transform: translateX(14px);">PREVIEW</div>
+        //    </div>
+        //`;
         schemes_manager.innerHTML += scheme_manager_html;
 
         //————————————————————————————————————————————————————————//
@@ -571,9 +571,11 @@ function scheme_apply(scheme_id, scheme_icon, scheme_text, scheme_accent, scheme
     });
 
     // Sets the scheme of the pop-up elements.
-    triangle.forEach((triangle) => {
-        triangle.style.borderTop = `100px solid ${scheme_accent}`;
-    });
+    if (triangle) {
+        triangle.forEach((triangle) => {
+            triangle.style.borderTop = `100px solid ${scheme_accent}`;
+        });
+    }
 
     label_tab.forEach((label_tab) => {
         label_tab.style.color = scheme_text;
