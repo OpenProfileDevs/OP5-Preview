@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             } else {
                 authorDiv.style.backgroundImage = `url('${customImageUrl}')`;
             }
-            authorDiv.style.backgroundImage = `url('${author.pfp}')`;
             authorDiv.onclick = function() {
                 //window.location.href = `${window.location.origin}/profile/${author.url}`;
             };
