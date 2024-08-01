@@ -106,12 +106,20 @@ saveButtonServer.addEventListener('click', async function () {
         groups.forEach((group) => {
             const group_id = group.id.replace('_group', '');
             const input_text = document.getElementById(group_id);
-
+        
             if (input_text) {
                 let input_content = input_text.value.replace(/\n/g, "\\n");
+        
+                // Check if the group_id starts with "page_author_" and if the input is blank
+                if (group_id.startsWith('page_author_') && !input_content) {
+                    input_content = `@${owner2}`;
+                    input_text.value = `@${owner2}`;
+                }
+        
                 jsonData[group_id] = input_content; // Save input content
             }
         });
+        
 
         // Save profile data
         const saveResponse = await fetch('/save-profile', {

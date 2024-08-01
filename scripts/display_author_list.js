@@ -131,15 +131,18 @@ function sortAuthors(authors) {
     const priorityAuthors = authors.filter(author => author.promoted || author.moderator || author.verified);
     const nonPriorityAuthors = authors.filter(author => !(author.promoted || author.moderator || author.verified));
 
-    // Sort priority authors by join date in descending order
+    // Sort priority authors by criteria: promoted first, then moderator/verified, then join date
     const sortedPriorityAuthors = priorityAuthors.sort((a, b) => {
-        // Within the priority group, sort by join date
+        // First criterion: promoted status
+        if (a.promoted && !b.promoted) return -1;
+        if (!a.promoted && b.promoted) return 1;
+
+        // Second criterion: join date
         return b.joinDateTime - a.joinDateTime;
     });
 
     // Sort non-priority authors by join date in descending order
     const sortedNonPriorityAuthors = nonPriorityAuthors.sort((a, b) => {
-        // Within the non-priority group, sort by join date
         return b.joinDateTime - a.joinDateTime;
     });
 

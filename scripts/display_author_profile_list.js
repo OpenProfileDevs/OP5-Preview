@@ -43,9 +43,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         sortedAuthors.forEach(author => {
             const joinDate = new Date(`${author.updatedDate} ${author.updatedTime}`);
             const fullVisualDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
             const authorDiv = document.createElement('div');
+            const customImageUrl = '/media/images/openprofile/openprofile_logo_512_jpeg.jpeg';
+            const authorPfpUrl = author.pfp;
+
             authorDiv.classList.add('profile-card');
+            if (authorPfpUrl.startsWith('https')) {
+                authorDiv.style.backgroundImage = `url('${authorPfpUrl}')`;
+            } else {
+                authorDiv.style.backgroundImage = `url('${customImageUrl}')`;
+            }
             authorDiv.style.backgroundImage = `url('${author.pfp}')`;
             authorDiv.onclick = function() {
                 //window.location.href = `${window.location.origin}/profile/${author.url}`;

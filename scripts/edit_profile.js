@@ -112,7 +112,10 @@ function switchToEditPopup(owner, owner2, urlProfile) {
 
 async function saveProfile(owner, owner2, urlProfile) {
     const displayName = document.getElementById("character_display_name").value;
-    const pfpurl = document.getElementById('character_pfp').value || 'https://openprofile.app/media/images/openprofile/openprofile_logo_512_jpeg.jpeg';
+    let pfpurl = document.getElementById('character_pfp').value;
+    if (!pfpurl || !pfpurl.startsWith('https')) {
+        pfpurl = 'https://openprofile.app/media/images/openprofile/openprofile_logo_512_jpeg.jpeg';
+    }
     const copyrightStatus = document.getElementById("character_license").value;
     const brand_banner = document.getElementById("brand_banner").value;
 

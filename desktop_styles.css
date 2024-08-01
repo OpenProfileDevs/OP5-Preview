@@ -2525,6 +2525,9 @@ textarea::-webkit-scrollbar-track {
   margin-top: 10px;
   transform: translate(0px, 10px);
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile-card .badges {
