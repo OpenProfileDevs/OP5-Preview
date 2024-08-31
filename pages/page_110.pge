@@ -57,11 +57,11 @@
   },
   "row3": {
     "slot1": {
-      "type": 0,
-      "id": "",
-      "label": "",
-      "placeholder": "",
-      "help": ""
+      "type": 4,
+      "id": "conflict_resolution",
+      "label": "Conflict Resolution",
+      "placeholder": "How does the oc resolve conflicts?",
+      "help": "How does the character resolve and handle conflicts? Do they quickly try to get a grip of the situation, make it worst, or just runaway from it? If they manage to get control of it, how do they resolve it in a way that makes the majority of people agreeable? If they intentionally make it worst, in what manner do they do that? If they runaway, what do they typically do immediately after? Do certain conflicts have different reactions or do they react that way in most or all situations? What are the character's personal thoughts towards their conflict resolution skills? Do they like their conflict resolution skills or would they rather improve on them? Does their conflict resolution skills affect their life in any certain way? Are they comfortable sharing their conflict resolution skills with others or would they rather keep them in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
     },
     "slot2": {
       "type": 0,
