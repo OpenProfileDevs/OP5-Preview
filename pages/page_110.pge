@@ -2,7 +2,7 @@
   "brand_tag": "PREVIEW",
   "page_indicator": "Interactions Information",
   "page_indicator_tag": "PREVIEW",
-  "page_number": 100,
+  "page_number": 110,
   
   "page_author": "",
   "page_author_tag": "PREVIEW",
@@ -58,10 +58,10 @@
   "row3": {
     "slot1": {
       "type": 4,
-      "id": "common_behaviors",
-      "label": "Common Behaviors",
-      "placeholder": "What are some of the oc's common behaviors?",
-      "help": "What are some of the character's common behaviors? Do they have any frequent postures or gestures? What about motor or vocal tics and other involuntary movements? Do they have any frequent speech patterns or facial expressions? What are the character's personal thoughts towards their behaviors? Do they like their behaviors or would they rather improve on them? Does their behaviors affect their life in any certain way? Are they comfortable sharing certain behaviors with others or would they rather keep them in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      "id": "conflict_resolution",
+      "label": "Conflict Resolution",
+      "placeholder": "How does the oc resolve conflicts?",
+      "help": "How does the character resolve and handle conflicts? Do they quickly try to get a grip of the situation, make it worst, or just runaway from it? If they manage to get control of it, how do they resolve it in a way that makes the majority of people agreeable? If they intentionally make it worst, in what manner do they do that? If they runaway, what do they typically do immediately after? Do certain conflicts have different reactions or do they react that way in most or all situations? What are the character's personal thoughts towards their conflict resolution skills? Do they like their conflict resolution skills or would they rather improve on them? Does their conflict resolution skills affect their life in any certain way? Are they comfortable sharing their conflict resolution skills with others or would they rather keep them in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
     },
     "slot2": {
       "type": 0,
@@ -150,10 +150,10 @@
   "row7": {
     "slot1": {
       "type": 4,
-      "id": "persistent_decisions",
-      "label": "Decisions Persistency",
-      "placeholder": "What is the oc's decisions persistency?",
-      "help": "What is the character's decisions persistency? How frequently do they change decisions, if at all? Can their decisions be easily altered through manipulation or influence? Do certain decisions have stronger persistency than others? What are the character's personal thoughts towards their decisions persistency? Do they like their decisions persistency or would they rather improve on them? Does their decisions persistency affect their life in any certain way? Are they comfortable sharing certain decisions persistency with others or would they rather keep them in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      "id": "mindset",
+      "label": "Mindset",
+      "placeholder": "What is the oc's mindset?",
+      "help": "What is the character's mindset? How do they view themselves and what status do they aim to uphold? How does their mindset affects their personality? What are the character's personal thoughts towards their mindset? Do they like their mindset or would they rather change it? Does their mindset affect their life in any certain way? Are they comfortable sharing their mindset with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
     },
     "slot2": {
       "type": 0,
@@ -242,11 +242,10 @@
   "row11": {
     "slot1": {
       "type": 4,
-      "id": "attention_span",
-      "label": "Attention Span",
-      "placeholder": "What is the oc's attention span?",
-      "help": "What is the character's attention span? How well can they stay focused on a specific conversation or topic? Do certain topics contribute towards a greater attention span than others? What do they usually do when their attention isn't on the current conversation or topic? What are the character's personal thoughts towards their attention span? Do they like their attention span or would they rather improve on it? Does their attention span affect their life in any certain way? Are they comfortable sharing certain attention spans with others or would they rather keep them in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
-    },
+      "id": "punctuality",
+      "label": "Punctuality",
+      "placeholder": "What is the oc's punctuality?",
+      "help": "What is the character's punctuality? How well do they manage time and keep their scheduled deadlines? Are there any specific reasons for them to break their deadlines and schedules? What are the character's personal thoughts towards their punctuality? Do they like their punctuality or would they rather improve on it? Does their punctuality affect their life in any certain way? Are they comfortable sharing their punctuality with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."    },
     "slot2": {
       "type": 0,
       "id": "",
@@ -334,10 +333,10 @@
   "row15": {
     "slot1": {
       "type": 4,
-      "id": "etiquette",
-      "label": "Etiquette",
-      "placeholder": "What is the oc's etiquette?",
-      "help": "What is the character's etiquette? Are they mannerful during conversations and respect others opinions? Do they usually swear or use vulguar speech? Do they acknowledge people's surroundings and show consideration for others? Do certain topics contribute towards a greater etiquette than others? What are the character's personal thoughts towards their etiquette? Do they like their etiquette or would they rather improve on it? Does their etiquette affect their life in any certain way? Are they comfortable sharing their etiquette with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      "id": "physical_contact",
+      "label": "Physical Contact",
+      "placeholder": "Does the oc enjoy physical contact?",
+      "help": "Does the character enjoy physical contact? Under what conditions do they authorize physical contact? Are they more comfortable with physical contact from certain types of people? Are there certain parts of their body where they are more comfortable with physical contact? What are the character's personal thoughts towards their physical contact comfortability? Do they like their physical contact comfortability or would they rather improve on it? Does their physical contact comfortability affect their life in any certain way? Are they comfortable sharing their physical contact comfortability with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
     },
     "slot2": {
       "type": 0,
