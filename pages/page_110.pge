@@ -11,57 +11,57 @@
   
   "row1": {
     "slot1": {
-      "type": 1,
-      "id": "social_preference",
-      "label": "Social Preference",
-      "placeholder": "What is the oc's social preference?",
-      "help": "What is the character's social preference?<br><br><u>Introvert</u><br>The character tends to prefer being alone in private spaces or with a small group of closer friends and enjoys deep conversations.<br><br><u>Ambivert</u><br>The character is the bridge between introverts and extroverts, enjoying both small talks and meaningful conversations with any size group.<br><br><u>Extrovert</u><br>The character tends to prefer being socially active with a larger group of friends and enjoys small talks."
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
     },
     "slot2": {
-      "type": 1,
-      "id": "social_view",
-      "label": "Social View",
-      "placeholder": "What is the oc's social view?",
-      "help": "What is the character's social view?<br><br><u>Conservative</u><br>The character embraces traditional values and is cautious of change as it may alter these traditional values.<br><br><u>Moderate</u><br>The character supports change but also wishes to preserve traditional values at the same time.<br><br><u>Progressive</u><br>The character embraces change as it may lead to a better way of life."
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
     },
     "slot3": {
-      "type": 1,
-      "id": "social_role",
-      "label": "Social Role",
-      "placeholder": "What is the oc's social role?",
-      "help": "What is the character's social role?<br><br><u>Talker</u><br>The character tends to talk a lot but not listen much to others and often interrupts the conversation to share something.<br><br><u>Engaged</u><br>The character tends to be engaging in conversations, giving everyone a chance to be heard.<br><br><u>Listener</u><br>The character tends to be rather silent and listens to everything said in the conversation in fine detail."
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
     }
   },
   "row2": {
     "slot1": {
-      "type": 1,
-      "id": "voice_sound",
-      "label": "Voice Spectrum ",
-      "placeholder": "What is the oc's voice spectrum?",
-      "help": "Example: 65 dB (180 Hz)<br><br><u>Volume</u><br>What is the character's normal voice volume in decibels (dB)? A human during a typical conversation have a voice loudness of about 60-70 dB. However, if your character has a softer (50-59 dB) or harder (71-80 dB) voice, these values could vary pretty quickly in different situations. If your character is a unique creature type, you may need to research what would be a balanced vocal loudness for this species then proceed to decide for this character based on their species and personality.<br><br><u>Pitch</u><br>What is the character's normal voice pitch in hertz (Hz)? Common human male voice pitch generally ranges from 85 Hz to 180 Hz and human female voice pitch being from 165 Hz to 255 Hz. Human children, regardless of gender, generally ranges from 250 Hz to 300 Hz. If your character is a unique creature type, you may need to research what would be a balanced pitch for this species then proceed to decide for this character based on their species, gender, and age."
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
     },
     "slot2": {
-      "type": 1,
-      "id": "voice_speed",
-      "label": "Speech Rate",
-      "placeholder": "What is the oc's speech rate?",
-      "help": "What is the character's normal speech rate in words per minute (WPM)? Someone with a lower speech rate may vary around 110-130 WPM while someone with a higher speech rate may vary around 160-200+ WPM. Average humans have a conversational speech rate of around 120-150 WPM. If your character is a unique creature type, you may need to research what would be a balanced speech rate for this species then proceed to decide for this character based on their species and thought process."
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
     },
     "slot3": {
-      "type": 1,
-      "id": "voice_accent",
-      "label": "Accent",
-      "placeholder": "What is the oc's accent?",
-      "help": "What is the character's accent? Accents are typically based of certain regions of the world of where the character has lived a large amount of their life and likely adopted the way of communication and saying things since they were a child."
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
     }
   },
   "row3": {
     "slot1": {
-      "type": 4,
-      "id": "conflict_resolution",
-      "label": "Conflict Resolution",
-      "placeholder": "How does the oc resolve conflicts?",
-      "help": "How does the character resolve and handle conflicts? Do they quickly try to get a grip of the situation, make it worst, or just runaway from it? If they manage to get control of it, how do they resolve it in a way that makes the majority of people agreeable? If they intentionally make it worst, in what manner do they do that? If they runaway, what do they typically do immediately after? Do certain conflicts have different reactions or do they react that way in most or all situations? What are the character's personal thoughts towards their conflict resolution skills? Do they like their conflict resolution skills or would they rather improve on them? Does their conflict resolution skills affect their life in any certain way? Are they comfortable sharing their conflict resolution skills with others or would they rather keep them in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
     },
     "slot2": {
       "type": 0,
@@ -245,7 +245,8 @@
       "id": "punctuality",
       "label": "Punctuality",
       "placeholder": "What is the oc's punctuality?",
-      "help": "What is the character's punctuality? How well do they manage time and keep their scheduled deadlines? Are there any specific reasons for them to break their deadlines and schedules? What are the character's personal thoughts towards their punctuality? Do they like their punctuality or would they rather improve on it? Does their punctuality affect their life in any certain way? Are they comfortable sharing their punctuality with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."    },
+      "help": "What is the character's punctuality? How well do they manage time and keep their scheduled deadlines? Are there any specific reasons for them to break their deadlines and schedules? What are the character's personal thoughts towards their punctuality? Do they like their punctuality or would they rather improve on it? Does their punctuality affect their life in any certain way? Are they comfortable sharing their punctuality with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+      },
     "slot2": {
       "type": 0,
       "id": "",
