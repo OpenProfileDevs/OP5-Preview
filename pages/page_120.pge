@@ -1,0 +1,449 @@
+{
+  "brand_tag": "PREVIEW",
+  "page_indicator": "Interactions Information",
+  "page_indicator_tag": "PREVIEW",
+  "page_number": 120,
+  
+  "page_author": "",
+  "page_author_tag": "PREVIEW",
+  "written_date": "",
+  "written_date_tag": "PREVIEW",
+  
+  "row1": {
+    "slot1": {
+      "type": 4,
+      "id": "dressing_style",
+      "label": "Dressing Style",
+      "placeholder": "How does the oc typically dress?",
+      "help": "How does the character typically dress? Do they have a specific style or era preference? Do they enjoy wearing certain types of clothing more often than others? What are the character's personal thoughts towards their dressing style? Do they like their dressing style or would they rather change it? Does their dressing style affect their life in any certain way? Are they comfortable sharing their dressing style with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row2": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row3": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row4": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row5": {
+    "slot1": {
+      "type": 4,
+      "id": "accessories",
+      "label": "Accessories",
+      "placeholder": "Does the oc wear accessories?",
+      "help": "Does the character wear accessories? If so, what kind of accessories (jewelry, devices, weapons, etc.) do they wear? Is there any specific purpose behind why they wear them? Do they have a specific style or era preference towards their accessories? Do they enjoy wearing certain types of accessories more often than others? What are the character's personal thoughts towards their accessories? Do they like their accessories or would they rather change it? Does their accessories affect their life in any certain way? Are they comfortable sharing their accessories with others or would they rather keep them in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row6": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row7": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row8": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row9": {
+    "slot1": {
+      "type": 5,
+      "id": "daily_routine",
+      "label": "Daily Routine",
+      "placeholder": "What does the oc typically do during a daily routine?",
+      "help": "What does the character typically do during a daily routine? What is their schedule like? What do they do at specific time frames? Is their routine consistent or change a bit everyday? How long have they had this routine going for? What are the character's personal thoughts towards their daily routine? Do they like their daily routine or would they rather improve on it? Does their daily routine affect their life in any certain way? Are they comfortable sharing their daily routine with others or would they rather keep it in secrecy? Try to be the most descriptive possible and remember the usage of the five Ws (who, what, when, where, and why) when needed."
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row10": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row11": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row12": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row13": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row14": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row15": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row16": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row17": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row18": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  },
+  "row19": {
+    "slot1": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot2": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    },
+    "slot3": {
+      "type": 0,
+      "id": "",
+      "label": "",
+      "placeholder": "",
+      "help": ""
+    }
+  }
+}
